@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.3 — Fail-Open e os Padrões de Segurança | Engenharia com Claude Code</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .bg-amber-600 { background-color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500:hover { background-color: #78350f; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    pre { overflow-x: auto; }
+    code { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: 0.85rem; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🏗️</span>
+            <span class="font-bold text-lg hidden sm:inline">Engenharia Claude Code</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Construindo</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">O Método</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Avançado</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <nav class="flex items-center space-x-2 text-sm text-neutral-500">
+      <a href="../../index.html" class="hover:text-amber-400 transition-colors">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400 transition-colors">Trilha 3</a>
+      <span>/</span>
+      <span class="text-amber-400 font-medium">Módulo 3.3</span>
+    </nav>
+  </div>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-10 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-4">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/20 text-amber-400 border border-amber-500/30">MÓDULO 3.3</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4 leading-tight">
+        🛡️ Fail-Open e os <span class="text-amber-400">Padrões de Segurança</span>
+      </h1>
+      <p class="text-lg text-neutral-400 max-w-3xl mb-6">As seis primitivas de segurança que todo plugin precisa — e como verificar se o seu projeto as implementa corretamente.</p>
+      <div class="flex flex-wrap gap-4">
+        <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
+          <span class="text-amber-400 text-lg">📚</span>
+          <div><p class="text-xs text-neutral-500 uppercase tracking-wide">Tópicos</p><p class="text-sm font-bold text-neutral-100">6</p></div>
+        </div>
+        <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
+          <span class="text-amber-400 text-lg">⏱️</span>
+          <div><p class="text-xs text-neutral-500 uppercase tracking-wide">Minutos</p><p class="text-sm font-bold text-neutral-100">45</p></div>
+        </div>
+        <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
+          <span class="text-amber-400 text-lg">🛡️</span>
+          <div><p class="text-xs text-neutral-500 uppercase tracking-wide">Tipo</p><p class="text-sm font-bold text-neutral-100">Primitivas</p></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🛡️ Fail-open</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Fail-open</strong> é a propriedade mais importante de qualquer hook ou plugin. Significa: quando o plugin falha por qualquer razão — exceção não tratada, timeout, arquivo ausente, dependência quebrada — o sistema host continua operando normalmente. O plugin não bloqueia, não trava, não interrompe o trabalho.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Como implementar fail-open</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4 mb-4">
+          <pre><code class="text-green-400"># Shell: wrap completo em try/catch equivalente
+main() {
+  # lógica do plugin aqui
+  :
+}
+
+main "$@" || true  # fail-open: erros não propagam</code></pre>
+        </div>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Exit code 0 em qualquer caminho de falha</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Log de erro para diagnóstico sem bloquear</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Verificar fail-open como primeiro teste após cada prompt</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">⚛️ Escrita atômica</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Escrita atômica</strong> via write-then-rename garante que o arquivo de estado nunca existe em estado parcial. Escreva em arquivo temporário, depois renomeie. O rename no POSIX é atômico — nunca resulta em arquivo corrompido.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Write direto vs. Write-then-rename</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-red-900/20 rounded-lg p-4 border border-red-500/30">
+            <p class="text-red-400 font-semibold mb-2 text-sm">✗ Perigoso</p>
+            <pre><code class="text-neutral-300 text-xs">echo "$state" > state.json
+# Se interrompido aqui:
+# state.json está corrompido</code></pre>
+          </div>
+          <div class="bg-emerald-900/20 rounded-lg p-4 border border-emerald-500/30">
+            <p class="text-emerald-400 font-semibold mb-2 text-sm">✓ Seguro</p>
+            <pre><code class="text-neutral-300 text-xs">echo "$state" > state.json.tmp
+mv state.json.tmp state.json
+# Rename é atômico no POSIX</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A janela de corrupção</h3>
+        <p class="text-neutral-300">Claude Code pode ser interrompido com Ctrl+C, timeout, ou kill a qualquer momento. A janela entre iniciar a escrita e completá-la é suficiente para corromper o arquivo. Estado corrompido frequentemente é irrecuperável — sem estado, a sessão está perdida.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🔒 Compare-and-swap (CAS)</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Compare-and-swap</strong> garante que uma transição de estado só é aplicada se o estado atual ainda é o esperado. Leia, verifique, escreva. Se entre a leitura e a escrita o estado mudou, rejeite a operação.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Implementação de CAS em JSON</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4">
+          <pre><code class="text-neutral-300 text-sm"># Ler estado atual com versão
+current=$(cat state.json)
+current_version=$(echo "$current" | jq -r '.version')
+expected_version=3
+
+# Verificar versão antes de modificar
+if [ "$current_version" != "$expected_version" ]; then
+  echo "CAS failed: state changed" >&2
+  exit 0  # fail-open
+fi
+
+# Aplicar transição com versão incrementada
+new_state=$(echo "$current" | jq '.phase = "running" | .version += 1')
+echo "$new_state" > state.json.tmp
+mv state.json.tmp state.json</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🔐 Lockfiles</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Lockfiles</strong> garantem execução exclusiva em seções críticas. A criação de um diretório com <code class="text-amber-400 bg-dark-700 px-1 rounded">mkdir</code> é atômica no POSIX — apenas um processo consegue criar o diretório com sucesso. O restante falha e sabe que outro processo está executando.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Lockfile com cleanup garantido</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4">
+          <pre><code class="text-neutral-300 text-sm">LOCK_DIR="/tmp/plugin.lock"
+
+# Cleanup garantido ao sair
+cleanup() { rmdir "$LOCK_DIR" 2>/dev/null || true; }
+trap cleanup EXIT
+
+# Tentar adquirir lock
+if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+  echo "Already running, skipping" >&2
+  exit 0  # fail-open: outro processo está executando
+fi
+
+# Seção crítica aqui
+# Lock é liberado pelo trap EXIT</code></pre>
+        </div>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">Stale locks: o problema mais comum</h3>
+        <p class="text-neutral-300">Se o processo morreu sem limpar o lock, o lockfile persiste indefinidamente. A solução é verificar se o PID registrado no lock ainda está ativo. Se não, o lock é stale e pode ser removido.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🚨 ERR trap</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Bash por padrão ignora erros e continua executando. <strong class="text-amber-400">set -euo pipefail</strong> e <strong class="text-amber-400">trap ... ERR</strong> mudam isso — qualquer comando que falha dispara o trap, permitindo cleanup antes de sair.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">O boilerplate completo</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4">
+          <pre><code class="text-neutral-300 text-sm">#!/usr/bin/env bash
+set -euo pipefail
+
+# Handler de erro
+on_error() {
+  local exit_code=$?
+  local line=$1
+  echo "Error on line $line (exit: $exit_code)" >&2
+  cleanup
+}
+
+cleanup() {
+  rmdir "$LOCK_DIR" 2>/dev/null || true
+}
+
+trap 'on_error $LINENO' ERR
+trap cleanup EXIT
+
+# Resto do script aqui</code></pre>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">set -euo pipefail: o que cada flag faz</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>-e:</strong> sai imediatamente se qualquer comando retorna exit code não-zero</li>
+          <li><strong>-u:</strong> trata variáveis não definidas como erro (não expande para string vazia)</li>
+          <li><strong>-o pipefail:</strong> pipeline retorna exit code do último comando que falhou</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">📋 O checklist de segurança</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As seis primitivas formam um checklist que pode ser aplicado mecanicamente a qualquer plugin. Verificar todas antes de considerar o safety pass completo.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Checklist de primitivas de segurança</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3 p-3 bg-dark-700/50 rounded-lg">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <div>
+              <strong class="text-white">Fail-open:</strong>
+              <span class="text-neutral-300 text-sm ml-1">Matar o processo com SIGKILL não bloqueia o sistema host</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 p-3 bg-dark-700/50 rounded-lg">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <div>
+              <strong class="text-white">Escrita atômica:</strong>
+              <span class="text-neutral-300 text-sm ml-1">Nenhum write direto em arquivo de estado — sempre via tmp + rename</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 p-3 bg-dark-700/50 rounded-lg">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <div>
+              <strong class="text-white">CAS:</strong>
+              <span class="text-neutral-300 text-sm ml-1">Toda transição de estado verifica a versão antes de aplicar</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 p-3 bg-dark-700/50 rounded-lg">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <div>
+              <strong class="text-white">Lockfile:</strong>
+              <span class="text-neutral-300 text-sm ml-1">Seções críticas têm lock com cleanup garantido no EXIT trap</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 p-3 bg-dark-700/50 rounded-lg">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <div>
+              <strong class="text-white">ERR trap:</strong>
+              <span class="text-neutral-300 text-sm ml-1">set -euo pipefail e trap ERR em todo script shell</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3 p-3 bg-dark-700/50 rounded-lg">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <div>
+              <strong class="text-white">Idempotência:</strong>
+              <span class="text-neutral-300 text-sm ml-1">Re-executar o mesmo prompt duas vezes não causa efeitos duplicados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 3.3</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Fail-open é inegociável</strong><span class="text-neutral-400"> — plugin que bloqueia é pior que não existir</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Write-then-rename</strong><span class="text-neutral-400"> — atomicidade POSIX elimina corrupção de estado</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">CAS previne race conditions</strong><span class="text-neutral-400"> — versioning de estado para transições seguras</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Lockfile + cleanup</strong><span class="text-neutral-400"> — mutex sem dependência externa</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">6 primitivas como checklist</strong><span class="text-neutral-400"> — verificação mecânica do safety pass</span></div>
+          </div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.4 — Quebrar em Prompts Incrementais</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.2</a>
+          <a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Módulo 3.4 →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Engenharia Claude Code — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

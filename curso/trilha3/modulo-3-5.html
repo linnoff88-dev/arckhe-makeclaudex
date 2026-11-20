@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.5 — Testando Camada por Camada | Engenharia com Claude Code</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .bg-amber-600 { background-color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500:hover { background-color: #78350f; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    pre { overflow-x: auto; }
+    code { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: 0.85rem; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🏗️</span>
+            <span class="font-bold text-lg hidden sm:inline">Engenharia Claude Code</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Construindo</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">O Método</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Avançado</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <nav class="flex items-center space-x-2 text-sm text-neutral-500">
+      <a href="../../index.html" class="hover:text-amber-400 transition-colors">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400 transition-colors">Trilha 3</a>
+      <span>/</span>
+      <span class="text-amber-400 font-medium">Módulo 3.5</span>
+    </nav>
+  </div>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-10 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-4">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/20 text-amber-400 border border-amber-500/30">MÓDULO 3.5</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4 leading-tight">
+        🧪 Testando <span class="text-amber-400">Camada por Camada</span>
+      </h1>
+      <p class="text-lg text-neutral-400 max-w-3xl mb-6">Por que testar primitivos isolados antes de compor — e como estruturar platform tests, smoke tests e E2E sintético.</p>
+      <div class="flex flex-wrap gap-4">
+        <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
+          <span class="text-amber-400 text-lg">📚</span>
+          <div><p class="text-xs text-neutral-500 uppercase tracking-wide">Tópicos</p><p class="text-sm font-bold text-neutral-100">6</p></div>
+        </div>
+        <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
+          <span class="text-amber-400 text-lg">⏱️</span>
+          <div><p class="text-xs text-neutral-500 uppercase tracking-wide">Minutos</p><p class="text-sm font-bold text-neutral-100">40</p></div>
+        </div>
+        <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
+          <span class="text-amber-400 text-lg">🧪</span>
+          <div><p class="text-xs text-neutral-500 uppercase tracking-wide">Tipo</p><p class="text-sm font-bold text-neutral-100">Testes</p></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🧪 Por que testar cada primitivo isolado</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando primitivos são compostos sem teste individual, bugs em componentes específicos ficam ocultos pelo comportamento emergente da composição. Testar cada primitivo em isolamento significa: se algo falha, você sabe exatamente o que falhou.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-amber-500/30 p-5">
+          <h4 class="font-bold text-amber-400 mb-3 text-sm">Primitivo 1: Escrita atômica</h4>
+          <p class="text-neutral-300 text-sm">Teste: escrever estado, matar processo no meio, confirmar que arquivo não está corrompido</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-amber-500/30 p-5">
+          <h4 class="font-bold text-amber-400 mb-3 text-sm">Primitivo 2: Lockfile</h4>
+          <p class="text-neutral-300 text-sm">Teste: iniciar duas instâncias simultâneas, confirmar que apenas uma executa</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-amber-500/30 p-5">
+          <h4 class="font-bold text-amber-400 mb-3 text-sm">Primitivo 3: Fail-open</h4>
+          <p class="text-neutral-300 text-sm">Teste: forçar erro no plugin, confirmar que Claude Code continua operando normalmente</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🔬 Platform tests</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Platform tests</strong> verificam as capacidades do ambiente de execução antes de qualquer build. São executados uma vez, antes do primeiro prompt, para confirmar que o ambiente suporta o que o plugin vai fazer.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Checklist de platform tests</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4">
+          <pre><code class="text-neutral-300 text-sm">#!/usr/bin/env bash
+# platform_test.sh
+
+echo "=== Platform Tests ==="
+
+# Versão do bash
+bash_version=$(bash --version | head -1)
+echo "Bash: $bash_version"
+
+# jq disponível (para JSON)
+jq --version > /dev/null 2>&1 && echo "jq: OK" || echo "jq: MISSING"
+
+# mkdir atômica (lockfile)
+mkdir /tmp/test_atomic_lock 2>/dev/null && \
+  rmdir /tmp/test_atomic_lock && \
+  echo "Atomic mkdir: OK"
+
+# mv atômico (write-then-rename)
+echo "test" > /tmp/test_atomic.tmp && \
+  mv /tmp/test_atomic.tmp /tmp/test_atomic && \
+  rm /tmp/test_atomic && \
+  echo "Atomic mv: OK"
+
+echo "=== Done ==="</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">💨 Smoke tests</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Smoke tests</strong> são o mínimo necessário para confirmar que uma camada não está obviamente quebrada. Rápidos, diretos, cobrindo apenas o happy path — não edge cases. São o gate mínimo entre prompts.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Smoke test por camada</h3>
+        <div class="space-y-3">
+          <div class="bg-dark-700/50 rounded-lg p-3">
+            <p class="text-amber-400 font-semibold text-sm mb-1">Scaffold</p>
+            <p class="text-neutral-300 text-sm">Todos os arquivos esperados existem. O hook pode ser invocado sem erro.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-3">
+            <p class="text-amber-400 font-semibold text-sm mb-1">Estado</p>
+            <p class="text-neutral-300 text-sm">Inicializar estado, ler estado, fazer transição — sem erros.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-3">
+            <p class="text-amber-400 font-semibold text-sm mb-1">Lógica</p>
+            <p class="text-neutral-300 text-sm">Executar o fluxo principal de ponta a ponta com input mínimo.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-3">
+            <p class="text-amber-400 font-semibold text-sm mb-1">Segurança</p>
+            <p class="text-neutral-300 text-sm">Forçar falha em cada caminho de erro e confirmar fail-open.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🎭 E2E sintético</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">E2E sintético</strong> simula o fluxo real do sistema com dependências substituídas por stubs controlados. Cobertura de fluxo completo, velocidade de teste unitário, sem dependência de serviços externos.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Estrutura de E2E sintético</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4">
+          <pre><code class="text-neutral-300 text-sm"># e2e_synthetic.sh
+# Simula uma sessão completa sem Claude Code real
+
+# Setup: estado inicial
+echo '{"phase":"idle","version":1}' > /tmp/test_state.json
+
+# Simula trigger do hook PreToolUse
+./hooks/pre_tool_use.sh '{"tool":"Write"}' && echo "PreToolUse: OK"
+
+# Simula Stop Hook fase 1 (planning)
+./hooks/stop.sh '{"session_id":"test"}' && echo "Stop phase 1: OK"
+
+# Simula Stop Hook fase 2 (running)
+./hooks/stop.sh '{"session_id":"test"}' && echo "Stop phase 2: OK"
+
+# Verificar estado final
+phase=$(jq -r '.phase' /tmp/test_state.json)
+[ "$phase" = "done" ] && echo "E2E: PASS" || echo "E2E: FAIL"
+
+# Cleanup
+rm /tmp/test_state.json</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">📊 O que fazer quando um teste falha no meio da sequência</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um teste que falha no prompt N não significa necessariamente que o prompt N está errado. O protocolo de diagnóstico identifica a camada real da falha antes de qualquer ação.
+      </p>
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Replicar em isolamento</h4>
+            <p class="text-neutral-300 text-sm">Isolar o comportamento que falhou. Remover todas as dependências externas e testar o componente específico de forma independente.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Bisect por camada</h4>
+            <p class="text-neutral-300 text-sm">Testar as camadas anteriores individualmente. Se o smoke test da camada N-1 falha, o problema está nela — não no prompt atual.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Regredir apenas a camada com falha</h4>
+            <p class="text-neutral-300 text-sm">Identificada a camada, regredir apenas ela. Preservar tudo que foi verificado. Re-executar o prompt com diagnóstico explícito no contexto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🔄 Regressão</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Regressão</strong> é re-executar os testes de todas as camadas anteriores após cada novo prompt. Garante que a nova camada não quebrou comportamentos já verificados — um risco real quando o modelo resolve a tarefa de uma forma que invalida suposições anteriores.
+      </p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Suite de regressão mínima</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4">
+          <pre><code class="text-neutral-300 text-sm">#!/usr/bin/env bash
+# regression.sh — executar após cada prompt
+
+echo "=== Regression Suite ==="
+
+# Camada 1: Scaffold
+[ -f "hooks/pre_tool_use.sh" ] && echo "Scaffold: OK" || echo "Scaffold: FAIL"
+[ -f "hooks/stop.sh" ] && echo "Stop hook: OK" || echo "Stop hook: FAIL"
+
+# Camada 2: Estado
+./test/state_init_test.sh && echo "State init: OK" || echo "State init: FAIL"
+./test/state_transition_test.sh && echo "State transition: OK" || echo "State: FAIL"
+
+# Camada 3: Primitivas de segurança
+./test/fail_open_test.sh && echo "Fail-open: OK" || echo "Fail-open: FAIL"
+./test/atomic_write_test.sh && echo "Atomic write: OK" || echo "Atomic write: FAIL"
+
+echo "=== Done ==="</code></pre>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regressão como hábito</h3>
+        <p class="text-neutral-300">A suite de regressão deve ser executável em menos de 2 minutos para se tornar hábito. Se levar mais, ela será pulada sob pressão. Mantenha os testes rápidos — cobertura de intenção, não cobertura de linha.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 3.5</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Primitivos isolados primeiro</strong><span class="text-neutral-400"> — testar componentes antes de compor</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Platform tests antecipam incompatibilidades</strong><span class="text-neutral-400"> — antes do primeiro prompt</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Smoke test por camada</strong><span class="text-neutral-400"> — gate mínimo entre prompts</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">E2E sintético</strong><span class="text-neutral-400"> — fluxo completo sem dependências externas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Regressão após cada prompt</strong><span class="text-neutral-400"> — detectar quebras retroativas imediatamente</span></div>
+          </div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.6 — Do Zero ao SPEC: Seu Próximo Projeto</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.4</a>
+          <a href="modulo-3-6.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Módulo 3.6 →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Engenharia Claude Code — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

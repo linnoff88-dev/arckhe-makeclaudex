@@ -139,12 +139,12 @@
         <h2 class="text-2xl font-bold">🧪 Por que testar cada primitivo isolado</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Quando primitivos são compostos sem teste individual, bugs em componentes específicos ficam ocultos pelo comportamento emergente da composição. Testar cada primitivo em isolamento significa: se algo falha, você sabe exatamente o que falhou.
+        Quando primitivos sêo compostos sem teste individual, bugs em componentes específicos ficam ocultos pelo comportamento emergente da composiçêo. Testar cada primitivo em isolamento significa: se algo falha, você sabe exatamente o que falhou.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <div class="bg-dark-800 rounded-xl border border-amber-500/30 p-5">
           <h4 class="font-bold text-amber-400 mb-3 text-sm">Primitivo 1: Escrita atômica</h4>
-          <p class="text-neutral-300 text-sm">Teste: escrever estado, matar processo no meio, confirmar que arquivo não está corrompido</p>
+          <p class="text-neutral-300 text-sm">Teste: escrever estado, matar processo no meio, confirmar que arquivo nêo está corrompido</p>
         </div>
         <div class="bg-dark-800 rounded-xl border border-amber-500/30 p-5">
           <h4 class="font-bold text-amber-400 mb-3 text-sm">Primitivo 2: Lockfile</h4>
@@ -164,7 +164,7 @@
         <h2 class="text-2xl font-bold">🔬 Platform tests</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Platform tests</strong> verificam as capacidades do ambiente de execução antes de qualquer build. São executados uma vez, antes do primeiro prompt, para confirmar que o ambiente suporta o que o plugin vai fazer.
+        <strong class="text-amber-400">Platform tests</strong> verificam as capacidades do ambiente de execuçêo antes de qualquer build. Sêo executados uma vez, antes do primeiro prompt, para confirmar que o ambiente suporta o que o plugin vai fazer.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">Checklist de platform tests</h3>
@@ -174,7 +174,7 @@
 
 echo "=== Platform Tests ==="
 
-# Versão do bash
+# Versêo do bash
 bash_version=$(bash --version | head -1)
 echo "Bash: $bash_version"
 
@@ -204,7 +204,7 @@ echo "=== Done ==="</code></pre>
         <h2 class="text-2xl font-bold">💨 Smoke tests</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Smoke tests</strong> são o mínimo necessário para confirmar que uma camada não está obviamente quebrada. Rápidos, diretos, cobrindo apenas o happy path — não edge cases. São o gate mínimo entre prompts.
+        <strong class="text-amber-400">Smoke tests</strong> sêo o mínimo necessário para confirmar que uma camada nêo está obviamente quebrada. Rápidos, diretos, cobrindo apenas o happy path — nêo edge cases. Sêo o gate mínimo entre prompts.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">Smoke test por camada</h3>
@@ -215,7 +215,7 @@ echo "=== Done ==="</code></pre>
           </div>
           <div class="bg-dark-700/50 rounded-lg p-3">
             <p class="text-amber-400 font-semibold text-sm mb-1">Estado</p>
-            <p class="text-neutral-300 text-sm">Inicializar estado, ler estado, fazer transição — sem erros.</p>
+            <p class="text-neutral-300 text-sm">Inicializar estado, ler estado, fazer transiçêo — sem erros.</p>
           </div>
           <div class="bg-dark-700/50 rounded-lg p-3">
             <p class="text-amber-400 font-semibold text-sm mb-1">Lógica</p>
@@ -242,7 +242,7 @@ echo "=== Done ==="</code></pre>
         <h3 class="text-lg font-semibold text-amber-400 mb-4">Estrutura de E2E sintético</h3>
         <div class="bg-dark-700/50 rounded-lg p-4">
           <pre><code class="text-neutral-300 text-sm"># e2e_synthetic.sh
-# Simula uma sessão completa sem Claude Code real
+# Simula uma sessêo completa sem Claude Code real
 
 # Setup: estado inicial
 echo '{"phase":"idle","version":1}' > /tmp/test_state.json
@@ -273,7 +273,7 @@ rm /tmp/test_state.json</code></pre>
         <h2 class="text-2xl font-bold">📊 O que fazer quando um teste falha no meio da sequência</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um teste que falha no prompt N não significa necessariamente que o prompt N está errado. O protocolo de diagnóstico identifica a camada real da falha antes de qualquer ação.
+        Um teste que falha no prompt N nêo significa necessariamente que o prompt N está errado. O protocolo de diagnóstico identifica a camada real da falha antes de qualquer açêo.
       </p>
       <div class="space-y-4 mb-6">
         <div class="flex items-start space-x-4">
@@ -291,7 +291,7 @@ rm /tmp/test_state.json</code></pre>
           </div>
           <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
             <h4 class="font-semibold text-white mb-1">Bisect por camada</h4>
-            <p class="text-neutral-300 text-sm">Testar as camadas anteriores individualmente. Se o smoke test da camada N-1 falha, o problema está nela — não no prompt atual.</p>
+            <p class="text-neutral-300 text-sm">Testar as camadas anteriores individualmente. Se o smoke test da camada N-1 falha, o problema está nela — nêo no prompt atual.</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
@@ -310,13 +310,13 @@ rm /tmp/test_state.json</code></pre>
     <section id="topico-6" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
-        <h2 class="text-2xl font-bold">🔄 Regressão</h2>
+        <h2 class="text-2xl font-bold">🔄 Regressêo</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Regressão</strong> é re-executar os testes de todas as camadas anteriores após cada novo prompt. Garante que a nova camada não quebrou comportamentos já verificados — um risco real quando o modelo resolve a tarefa de uma forma que invalida suposições anteriores.
+        <strong class="text-amber-400">Regressêo</strong> é re-executar os testes de todas as camadas anteriores após cada novo prompt. Garante que a nova camada nêo quebrou comportamentos já verificados — um risco real quando o modelo resolve a tarefa de uma forma que invalida suposições anteriores.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-amber-400 mb-4">Suite de regressão mínima</h3>
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Suite de regressêo mínima</h3>
         <div class="bg-dark-700/50 rounded-lg p-4">
           <pre><code class="text-neutral-300 text-sm">#!/usr/bin/env bash
 # regression.sh — executar após cada prompt
@@ -339,8 +339,8 @@ echo "=== Done ==="</code></pre>
         </div>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regressão como hábito</h3>
-        <p class="text-neutral-300">A suite de regressão deve ser executável em menos de 2 minutos para se tornar hábito. Se levar mais, ela será pulada sob pressão. Mantenha os testes rápidos — cobertura de intenção, não cobertura de linha.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regressêo como hábito</h3>
+        <p class="text-neutral-300">A suite de regressêo deve ser executável em menos de 2 minutos para se tornar hábito. Se levar mais, ela será pulada sob pressêo. Mantenha os testes rápidos — cobertura de intençêo, nêo cobertura de linha.</p>
       </div>
     </section>
 
@@ -367,7 +367,7 @@ echo "=== Done ==="</code></pre>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">Regressão após cada prompt</strong><span class="text-neutral-400"> — detectar quebras retroativas imediatamente</span></div>
+            <div><strong class="text-white">Regressêo após cada prompt</strong><span class="text-neutral-400"> — detectar quebras retroativas imediatamente</span></div>
           </div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">

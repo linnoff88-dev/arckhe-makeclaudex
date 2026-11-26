@@ -1,6 +1,6 @@
 ---
 name: Curso Build Claudex — Plano do Projeto
-description: Plano completo do curso "Engenharia com Claude Code — Do Prompt ao Plugin de Produção", status e próximos passos
+description: Plano completo do curso "Engenharia com Claude Code — Do Prompt ao Plugin de Produçêo", status e próximos passos
 type: project
 ---
 
@@ -8,7 +8,7 @@ Curso em 3 trilhas sobre como o Claudex foi construído, usando os build_prompts
 
 **Why:** Complementa o curso-claudex.html (que ensina a *usar* o Claudex) — este ensina a *construir* sistemas desse nível. Os dois se reforçam mutuamente com CTA cruzado.
 
-**How to apply:** Ao retomar este projeto, ler o plano completo em `../doc/PLANO_CURSO_BUILD.md` (relativo a makeclaudex) antes de qualquer coisa. Fontes estão em `build_prompts/`.
+**How to apply:** Ao retomar este projeto, ler o plano completo em `../doc/PLANO_CURSO_BUILD.md` (relativo a makeclaudex) antes de qualquer coisa. Fontes estêo em `build_prompts/`.
 
 ## Estado em 2026-04-29
 
@@ -21,7 +21,7 @@ Todas as trilhas concluídas. Curso completo com 21 arquivos HTML.
 ## Decisões tomadas
 
 - Cor: **Purple T3** (diferencia do Teal do curso-claudex.html)
-- Prompts: incluídos em PT-BR com bloco de código + explicação
+- Prompts: incluídos em PT-BR com bloco de código + explicaçêo
 - M6: hook de linting como projeto guiado
 - Formato: multi-página obrigatório (trilha/index.html + modulo-X-X.html separados)
 
@@ -55,4 +55,4 @@ Git: `github.com/inematds/makeclaudex` — commit `7e67f85`
 
 - Fazer commit e push de todos os arquivos novos
 - Remover `docs/como-construimos-o-claudex.html` (single-page obsoleto)
-- Testar navegação entre as 3 trilhas no browser
+- Testar navegaçêo entre as 3 trilhas no browser

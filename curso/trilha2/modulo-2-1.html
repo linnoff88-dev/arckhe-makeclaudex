@@ -178,7 +178,7 @@
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        A abordagem mais comum para construir sistemas complexos com Claude é despejar uma especificação enorme em um único prompt e torcer para que tudo funcione. O Claudex foi construído de forma radicalmente diferente: sete prompts incrementais, cada um verificado antes do próximo. Essa não é uma escolha de estilo — é uma exigência das garantias de sistema que o Claudex precisa oferecer.
+        A abordagem mais comum para construir sistemas complexos com Claude é despejar uma especificaçêo enorme em um único prompt e torcer para que tudo funcione. O Claudex foi construído de forma radicalmente diferente: sete prompts incrementais, cada um verificado antes do próximo. Essa nêo é uma escolha de estilo — é uma exigência das garantias de sistema que o Claudex precisa oferecer.
       </p>
 
       <!-- Conceito Principal -->
@@ -187,9 +187,9 @@
           <span class="text-purple-400 text-lg">💡</span>
           <span class="text-purple-400 font-semibold text-sm uppercase tracking-wide">Conceito Principal</span>
         </div>
-        <p class="text-neutral-200 font-semibold mb-2">Cada layer não verificada é onde um bug se esconde</p>
+        <p class="text-neutral-200 font-semibold mb-2">Cada layer nêo verificada é onde um bug se esconde</p>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          Quando você empilha código não testado sobre código não testado, a falha final pode ter origem em qualquer camada. Builds incrementais criam "fronteiras de verificação" — você só avança quando a camada atual está funcionando. No Claudex: os state files precisam funcionar antes de você ligar o hook neles. O hook precisa falhar aberto antes de escrever mensagens de BLOCK para o usuário.
+          Quando você empilha código nêo testado sobre código nêo testado, a falha final pode ter origem em qualquer camada. Builds incrementais criam "fronteiras de verificaçêo" — você só avança quando a camada atual está funcionando. No Claudex: os state files precisam funcionar antes de você ligar o hook neles. O hook precisa falhar aberto antes de escrever mensagens de BLOCK para o usuário.
         </p>
       </div>
 
@@ -203,10 +203,10 @@
           <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">01</span><span>Esqueleto do plugin + slash commands + hook fail-open</span></div>
           <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">02</span><span>Máquina de estados — state files atômicos, CAS, helpers</span></div>
           <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">03</span><span>Stop hook lifecycle real — BLOCK/APPROVE por fase</span></div>
-          <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">04</span><span>Extração de findings + rotação de personas por rodada</span></div>
-          <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">05</span><span>Fase de sumarização — o loop não termina em silêncio</span></div>
+          <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">04</span><span>Extraçêo de findings + rotaçêo de personas por rodada</span></div>
+          <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">05</span><span>Fase de sumarizaçêo — o loop nêo termina em silêncio</span></div>
           <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">06</span><span>Comandos utilitários: status, doctor, cancel, rollback</span></div>
-          <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">07</span><span>Safety pass — ERR trap, lockfile, sweeper, validação de cwd</span></div>
+          <div class="flex gap-3"><span class="text-purple-400 font-mono font-bold">07</span><span>Safety pass — ERR trap, lockfile, sweeper, validaçêo de cwd</span></div>
         </div>
       </div>
 
@@ -246,7 +246,7 @@
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Antes de um único arquivo de código ser escrito, o Claudex tinha um <code class="bg-dark-700 px-1.5 py-0.5 rounded text-purple-400">SPEC.md</code> completo. Não um documento de requisitos corporativo — um blueprint técnico de página única que Claude pode consultar a qualquer momento durante o build. É a diferença entre construir com um mapa e construir com esperança.
+        Antes de um único arquivo de código ser escrito, o Claudex tinha um <code class="bg-dark-700 px-1.5 py-0.5 rounded text-purple-400">SPEC.md</code> completo. Nêo um documento de requisitos corporativo — um blueprint técnico de página única que Claude pode consultar a qualquer momento durante o build. É a diferença entre construir com um mapa e construir com esperança.
       </p>
 
       <!-- Conceito Principal -->
@@ -255,9 +255,9 @@
           <span class="text-purple-400 text-lg">💡</span>
           <span class="text-purple-400 font-semibold text-sm uppercase tracking-wide">Conceito Principal</span>
         </div>
-        <p class="text-neutral-200 font-semibold mb-2">O SPEC.md é a fonte de verdade, não o código</p>
+        <p class="text-neutral-200 font-semibold mb-2">O SPEC.md é a fonte de verdade, nêo o código</p>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          O SPEC define: o que o sistema faz, as garantias hard que nunca podem ser violadas, os ciclos de vida completos de cada modo, a estrutura dos state files com cada campo e tipo, os canais de comunicação entre componentes, as primitivas de segurança e as variáveis de ambiente configuráveis. Tudo em uma página que cabe na janela de contexto.
+          O SPEC define: o que o sistema faz, as garantias hard que nunca podem ser violadas, os ciclos de vida completos de cada modo, a estrutura dos state files com cada campo e tipo, os canais de comunicaçêo entre componentes, as primitivas de segurança e as variáveis de ambiente configuráveis. Tudo em uma página que cabe na janela de contexto.
         </p>
       </div>
 
@@ -269,7 +269,7 @@
         </div>
         <div class="bg-dark-700 border border-dark-600 rounded-xl p-4">
           <p class="text-purple-400 font-semibold text-sm mb-2">State File</p>
-          <p class="text-neutral-400 text-xs leading-relaxed">Cada campo definido: tipo, notas, valores possíveis. review_id com regex. review_id como padrão YYYYMMDD-HHMMSS-xxxxxx</p>
+          <p class="text-neutral-400 text-xs leading-relaxed">Cada campo definido: tipo, notas, valores possíveis. review_id com regex. review_id como padrêo YYYYMMDD-HHMMSS-xxxxxx</p>
         </div>
         <div class="bg-dark-700 border border-dark-600 rounded-xl p-4">
           <p class="text-purple-400 font-semibold text-sm mb-2">File Tree</p>
@@ -284,7 +284,7 @@
           <span class="text-primary font-semibold text-sm uppercase tracking-wide">Dica Prática</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          Mantenha o SPEC.md aberto em outra aba enquanto faz o build. Cada prompt de construção começa com "Read SPEC.md if it's in this folder; that's the source of truth." Isso ancora Claude no blueprint mesmo quando o contexto da conversa cresce.
+          Mantenha o SPEC.md aberto em outra aba enquanto faz o build. Cada prompt de construçêo começa com "Read SPEC.md if it's in this folder; that's the source of truth." Isso ancora Claude no blueprint mesmo quando o contexto da conversa cresce.
         </p>
       </div>
     </section>
@@ -302,7 +302,7 @@
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O SPEC.md define seis primitivas de segurança que precisam ser verdadeiras em todo momento do ciclo de vida do Claudex. Elas não são features — são restrições do design. Violá-las significa que o sistema pode travar o usuário, corromper estado ou criar loops infinitos silenciosos.
+        O SPEC.md define seis primitivas de segurança que precisam ser verdadeiras em todo momento do ciclo de vida do Claudex. Elas nêo sêo features — sêo restrições do design. Violá-las significa que o sistema pode travar o usuário, corromper estado ou criar loops infinitos silenciosos.
       </p>
 
       <!-- As 6 primitivas -->
@@ -311,14 +311,14 @@
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-sm">1</div>
           <div>
             <p class="text-neutral-200 font-semibold text-sm">ERR Trap Fail-Open</p>
-            <p class="text-neutral-400 text-xs mt-1">A primeira linha ativa do hook instala <code class="bg-dark-600 px-1 py-0.5 rounded">trap '... approve; exit 0' ERR</code>. Qualquer erro não tratado retorna approve. O usuário NUNCA fica preso.</p>
+            <p class="text-neutral-400 text-xs mt-1">A primeira linha ativa do hook instala <code class="bg-dark-600 px-1 py-0.5 rounded">trap '... approve; exit 0' ERR</code>. Qualquer erro nêo tratado retorna approve. O usuário NUNCA fica preso.</p>
           </div>
         </div>
         <div class="flex gap-4 bg-dark-700 border border-dark-600 rounded-xl p-4">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-sm">2</div>
           <div>
             <p class="text-neutral-200 font-semibold text-sm">Escritas Atômicas de Estado</p>
-            <p class="text-neutral-400 text-xs mt-1">Toda mutação vai via <code class="bg-dark-600 px-1 py-0.5 rounded">tmp + rename</code>. Arquivos nunca ficam parcialmente escritos. Um crash no meio de uma escrita não corrompe o estado.</p>
+            <p class="text-neutral-400 text-xs mt-1">Toda mutaçêo vai via <code class="bg-dark-600 px-1 py-0.5 rounded">tmp + rename</code>. Arquivos nunca ficam parcialmente escritos. Um crash no meio de uma escrita nêo corrompe o estado.</p>
           </div>
         </div>
         <div class="flex gap-4 bg-dark-700 border border-dark-600 rounded-xl p-4">
@@ -339,13 +339,13 @@
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-sm">5</div>
           <div>
             <p class="text-neutral-200 font-semibold text-sm">Sweeper de Loops Stale</p>
-            <p class="text-neutral-400 text-xs mt-1"><code class="bg-dark-600 px-1 py-0.5 rounded">find -mmin +15</code> remove loops abandonados em cada invocação de <code class="bg-dark-600 px-1 py-0.5 rounded">start-loop.sh</code>. Configurável via <code class="bg-dark-600 px-1 py-0.5 rounded">CLAUDEX_STALE_MINUTES</code>.</p>
+            <p class="text-neutral-400 text-xs mt-1"><code class="bg-dark-600 px-1 py-0.5 rounded">find -mmin +15</code> remove loops abandonados em cada invocaçêo de <code class="bg-dark-600 px-1 py-0.5 rounded">start-loop.sh</code>. Configurável via <code class="bg-dark-600 px-1 py-0.5 rounded">CLAUDEX_STALE_MINUTES</code>.</p>
           </div>
         </div>
         <div class="flex gap-4 bg-dark-700 border border-dark-600 rounded-xl p-4">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-sm">6</div>
           <div>
-            <p class="text-neutral-200 font-semibold text-sm">Validação de cwd</p>
+            <p class="text-neutral-200 font-semibold text-sm">Validaçêo de cwd</p>
             <p class="text-neutral-400 text-xs mt-1">O estado armazena <code class="bg-dark-600 px-1 py-0.5 rounded">repo_root</code>. O hook falha aberto se <code class="bg-dark-600 px-1 py-0.5 rounded">pwd != repo_root</code>. O hook pode ter sido disparado em um projeto diferente do onde o loop começou.</p>
           </div>
         </div>
@@ -355,10 +355,10 @@
       <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
         <div class="flex items-center gap-2 mb-2">
           <span class="text-red-400 text-lg">⚠️</span>
-          <span class="text-red-400 font-semibold text-sm uppercase tracking-wide">Atenção</span>
+          <span class="text-red-400 font-semibold text-sm uppercase tracking-wide">Atençêo</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          Essas seis garantias foram identificadas no SPEC antes do primeiro prompt ser escrito. Não foram descobertas durante o desenvolvimento. Sistemas de segurança precisam ser planejados como restrições, não adicionados como features posteriores.
+          Essas seis garantias foram identificadas no SPEC antes do primeiro prompt ser escrito. Nêo foram descobertas durante o desenvolvimento. Sistemas de segurança precisam ser planejados como restrições, nêo adicionados como features posteriores.
         </p>
       </div>
     </section>
@@ -376,7 +376,7 @@
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O primeiro prompt não constrói lógica real. Ele constrói o esqueleto: os manifestos, os comandos placeholder e, mais importante, um hook que falha aberto por padrão. A meta é verificar que o plugin carrega no Claude Code antes de adicionar qualquer lógica substantiva.
+        O primeiro prompt nêo constrói lógica real. Ele constrói o esqueleto: os manifestos, os comandos placeholder e, mais importante, um hook que falha aberto por padrêo. A meta é verificar que o plugin carrega no Claude Code antes de adicionar qualquer lógica substantiva.
       </p>
 
       <!-- Conceito Principal -->
@@ -455,7 +455,7 @@ and tell me what it says.</code></pre>
           <span class="text-primary font-semibold text-sm uppercase tracking-wide">Dica Prática</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          O teste de plataforma no final não é opcional. Antes de avançar para o Prompt 02, você precisa ver todas as assertions passando. "Parece certo" não é uma fronteira de verificação válida.
+          O teste de plataforma no final nêo é opcional. Antes de avançar para o Prompt 02, você precisa ver todas as assertions passando. "Parece certo" nêo é uma fronteira de verificaçêo válida.
         </p>
       </div>
     </section>
@@ -473,7 +473,7 @@ and tell me what it says.</code></pre>
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Um Stop hook que retorna BLOCK diz ao Claude Code: "não deixe o usuário encerrar este turno ainda". Se esse hook crashar silenciosamente, sem retornar nada, o Claude Code pode ficar esperando indefinidamente. A filosofia fail-open significa: em caso de dúvida, deixar passar. Um loop que termina cedo demais é ruim. Um usuário preso em um loop que nunca termina é inaceitável.
+        Um Stop hook que retorna BLOCK diz ao Claude Code: "nêo deixe o usuário encerrar este turno ainda". Se esse hook crashar silenciosamente, sem retornar nada, o Claude Code pode ficar esperando indefinidamente. A filosofia fail-open significa: em caso de dúvida, deixar passar. Um loop que termina cedo demais é ruim. Um usuário preso em um loop que nunca termina é inaceitável.
       </p>
 
       <!-- Conceito Principal -->
@@ -484,7 +484,7 @@ and tell me what it says.</code></pre>
         </div>
         <p class="text-neutral-200 font-semibold mb-2">O ERR trap como primeira linha ativa</p>
         <p class="text-neutral-300 text-sm leading-relaxed mb-3">
-          A primeira coisa que o <code class="bg-dark-700 px-1.5 py-0.5 rounded text-purple-400">stop-hook.sh</code> faz é instalar um trap global de erro. Não na segunda linha. Não depois das importações. A primeira linha.
+          A primeira coisa que o <code class="bg-dark-700 px-1.5 py-0.5 rounded text-purple-400">stop-hook.sh</code> faz é instalar um trap global de erro. Nêo na segunda linha. Nêo depois das importações. A primeira linha.
         </p>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>trap 'echo "{\"decision\":\"approve\"}" ; exit 0' ERR</code></pre>
       </div>
@@ -496,9 +496,9 @@ and tell me what it says.</code></pre>
           <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">Por Que Isso Importa na Prática</span>
         </div>
         <ul class="space-y-2 text-sm text-neutral-300">
-          <li class="flex gap-2"><span class="text-blue-400 mt-0.5">•</span><span>O hook roda em cada fim de turno do Claude. Uma falha de script em qualquer sessão de trabalho normal travaria o usuário.</span></li>
+          <li class="flex gap-2"><span class="text-blue-400 mt-0.5">•</span><span>O hook roda em cada fim de turno do Claude. Uma falha de script em qualquer sessêo de trabalho normal travaria o usuário.</span></li>
           <li class="flex gap-2"><span class="text-blue-400 mt-0.5">•</span><span>Dependências externas podem estar ausentes (<code class="bg-dark-700 px-1 py-0.5 rounded">python3</code>, um arquivo de estado corrompido). O fail-open absorve esses casos.</span></li>
-          <li class="flex gap-2"><span class="text-blue-400 mt-0.5">•</span><span>Durante o desenvolvimento, bugs no hook são inevitáveis. Sem fail-open, cada bug bloquearia a sessão do desenvolvedor.</span></li>
+          <li class="flex gap-2"><span class="text-blue-400 mt-0.5">•</span><span>Durante o desenvolvimento, bugs no hook sêo inevitáveis. Sem fail-open, cada bug bloquearia a sessêo do desenvolvedor.</span></li>
         </ul>
       </div>
 
@@ -539,7 +539,7 @@ and tell me what it says.</code></pre>
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O segundo prompt introduz o coração do Claudex: a máquina de estados. Cada loop de planejamento é rastreado em um arquivo <code class="bg-dark-700 px-1.5 py-0.5 rounded text-purple-400">.state</code> YAML-ish isolado. O prompt constrói os helpers de baixo nível que todo o resto do sistema usa — e os testa em isolamento completo antes de qualquer hook lifecycle ser escrito.
+        O segundo prompt introduz o coraçêo do Claudex: a máquina de estados. Cada loop de planejamento é rastreado em um arquivo <code class="bg-dark-700 px-1.5 py-0.5 rounded text-purple-400">.state</code> YAML-ish isolado. O prompt constrói os helpers de baixo nível que todo o resto do sistema usa — e os testa em isolamento completo antes de qualquer hook lifecycle ser escrito.
       </p>
 
       <!-- O que o Prompt 02 constrói -->
@@ -633,7 +633,7 @@ what passes.</code></pre>
           <span class="text-primary font-semibold text-sm uppercase tracking-wide">Dica Prática</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          Note que o Prompt 02 explicitamente diz "Hook lifecycle stays a fail-open stub for now". A máquina de estados é testada completamente em isolamento. Isso é intencional: você não pode testar corretamente o lifecycle do hook se os helpers que ele usa ainda não foram verificados.
+          Note que o Prompt 02 explicitamente diz "Hook lifecycle stays a fail-open stub for now". A máquina de estados é testada completamente em isolamento. Isso é intencional: você nêo pode testar corretamente o lifecycle do hook se os helpers que ele usa ainda nêo foram verificados.
         </p>
       </div>
     </section>
@@ -646,12 +646,12 @@ what passes.</code></pre>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100">Escrita Atômica e CAS: Estado que Nunca Corrompe</h2>
-          <p class="text-neutral-400 text-sm mt-1">Os dois padrões que tornam o estado confiável em qualquer condição</p>
+          <p class="text-neutral-400 text-sm mt-1">Os dois padrões que tornam o estado confiável em qualquer condiçêo</p>
         </div>
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Dois padrões de engenharia clássicos aparecem repetidamente no Claudex: escrita atômica via <code class="bg-dark-700 px-1.5 py-0.5 rounded text-purple-400">tmp + rename</code> e transições de fase via Compare-And-Swap. Juntos, eles garantem que o estado nunca fica em um estado intermediário inconsistente, mesmo que o processo seja interrompido no meio de uma operação.
+        Dois padrões de engenharia clássicos aparecem repetidamente no Claudex: escrita atômica via <code class="bg-dark-700 px-1.5 py-0.5 rounded text-purple-400">tmp + rename</code> e transições de fase via Compare-And-Swap. Juntos, eles garantem que o estado nunca fica em um estado intermediário inconsistente, mesmo que o processo seja interrompido no meio de uma operaçêo.
       </p>
 
       <!-- Dois conceitos lado a lado -->
@@ -665,7 +665,7 @@ echo "$content" > "$state_file"
 tmp="${state_file}.tmp.$$"
 echo "$content" > "$tmp"
 mv -f "$tmp" "$state_file"</code></pre>
-          <p class="text-neutral-400 text-xs">O <code>mv</code> no mesmo filesystem é uma operação atômica do kernel. Ou o arquivo antigo existe, ou o novo existe. Nunca um arquivo vazio ou parcialmente escrito.</p>
+          <p class="text-neutral-400 text-xs">O <code>mv</code> no mesmo filesystem é uma operaçêo atômica do kernel. Ou o arquivo antigo existe, ou o novo existe. Nunca um arquivo vazio ou parcialmente escrito.</p>
         </div>
         <div class="bg-gradient-to-b from-purple-900/20 to-dark-700 border border-purple-500/30 rounded-xl p-5">
           <p class="text-purple-400 font-semibold mb-3">CAS — Compare-And-Swap</p>
@@ -681,14 +681,14 @@ claudex_state_set_field "$f" phase "$to_phase"</code></pre>
         </div>
       </div>
 
-      <!-- Por que isso não é óbvio -->
+      <!-- Por que isso nêo é óbvio -->
       <div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
           <span class="text-blue-400 text-lg">🔍</span>
-          <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">Por Que Isso Não é Óbvio</span>
+          <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">Por Que Isso Nêo é Óbvio</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          Claude Code pode disparar o Stop hook múltiplas vezes em rápida sucessão se o usuário encerrar o turno enquanto o hook ainda está processando. Sem CAS, dois disparos simultâneos do hook poderiam ambos ler <code class="bg-dark-700 px-1 py-0.5 rounded">phase=drafting</code>, ambos escrever a transição para <code class="bg-dark-700 px-1 py-0.5 rounded">reviewing</code>, e criar dois runners para a mesma rodada. Com CAS, o segundo disparo encontra <code class="bg-dark-700 px-1 py-0.5 rounded">phase=reviewing</code> e retorna 1 sem escrever.
+          Claude Code pode disparar o Stop hook múltiplas vezes em rápida sucessêo se o usuário encerrar o turno enquanto o hook ainda está processando. Sem CAS, dois disparos simultâneos do hook poderiam ambos ler <code class="bg-dark-700 px-1 py-0.5 rounded">phase=drafting</code>, ambos escrever a transiçêo para <code class="bg-dark-700 px-1 py-0.5 rounded">reviewing</code>, e criar dois runners para a mesma rodada. Com CAS, o segundo disparo encontra <code class="bg-dark-700 px-1 py-0.5 rounded">phase=reviewing</code> e retorna 1 sem escrever.
         </p>
       </div>
 
@@ -699,7 +699,7 @@ claudex_state_set_field "$f" phase "$to_phase"</code></pre>
           <span class="text-primary font-semibold text-sm uppercase tracking-wide">Dica Prática</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          Esses dois padrões — tmp+rename e CAS — aparecem em sistemas de banco de dados, sistemas operacionais e sistemas distribuídos há décadas. Aplicá-los em shell script não é over-engineering: é reconhecer que o Claudex é um sistema concorrente com estado compartilhado que precisa das mesmas garantias.
+          Esses dois padrões — tmp+rename e CAS — aparecem em sistemas de banco de dados, sistemas operacionais e sistemas distribuídos há décadas. Aplicá-los em shell script nêo é over-engineering: é reconhecer que o Claudex é um sistema concorrente com estado compartilhado que precisa das mesmas garantias.
         </p>
       </div>
     </section>
@@ -714,7 +714,7 @@ claudex_state_set_field "$f" phase "$to_phase"</code></pre>
           <ul class="space-y-2">
             <li class="flex gap-2 text-sm text-neutral-300">
               <span class="text-purple-400 mt-0.5">✓</span>
-              <span>Por que builds incrementais com fronteiras de verificação produzem sistemas mais confiáveis</span>
+              <span>Por que builds incrementais com fronteiras de verificaçêo produzem sistemas mais confiáveis</span>
             </li>
             <li class="flex gap-2 text-sm text-neutral-300">
               <span class="text-purple-400 mt-0.5">✓</span>
@@ -748,12 +748,12 @@ claudex_state_set_field "$f" phase "$to_phase"</code></pre>
             No Módulo 2.2, você vai ver o Prompt 03 — onde o hook recebe seu lifecycle real, aprendendo a orquestrar as transições de fase, gerar runner scripts para o Codex e fazer o loop se tornar verdadeiramente autônomo.
           </p>
           <p class="text-neutral-400 text-xs">
-            Também verá o Prompt 04 (extração de findings para economia de tokens) e o Prompt 05 (fase de sumarização para que o loop não termine em silêncio).
+            Também verá o Prompt 04 (extraçêo de findings para economia de tokens) e o Prompt 05 (fase de sumarizaçêo para que o loop nêo termine em silêncio).
           </p>
         </div>
       </div>
 
-      <!-- Botões de navegação -->
+      <!-- Botões de navegaçêo -->
       <div class="flex flex-wrap gap-3 justify-start">
         <a href="index.html" class="flex items-center gap-2 px-5 py-2.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-xl text-sm font-semibold text-neutral-300 transition-colors">
           <span>←</span>

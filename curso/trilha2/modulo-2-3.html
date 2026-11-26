@@ -157,7 +157,7 @@
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100 mb-2">Prompt 06 — Os quatro comandos utilitários</h2>
-          <p class="text-neutral-400">O sexto prompt marca a transição do plugin funcional para o plugin usável. O loop já funciona de ponta a ponta — agora é hora de adicionar os quatro comandos que qualquer pessoa vai chamar no terminal real: <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:status</code>, <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:doctor</code>, <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:cancel</code> e <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:rollback</code>.</p>
+          <p class="text-neutral-400">O sexto prompt marca a transiçêo do plugin funcional para o plugin usável. O loop já funciona de ponta a ponta — agora é hora de adicionar os quatro comandos que qualquer pessoa vai chamar no terminal real: <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:status</code>, <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:doctor</code>, <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:cancel</code> e <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:rollback</code>.</p>
         </div>
       </div>
 
@@ -264,7 +264,7 @@ interview_used, --skip-interview, --interviewed flags,
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100 mb-2">O /claudex:doctor — diagnóstico completo do plugin</h2>
-          <p class="text-neutral-400">Todo sistema de produção precisa de um comando de diagnóstico. O <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:doctor</code> não é uma novidade — é uma prática estabelecida (pense em <em>rails doctor</em>, <em>brew doctor</em>). Mas a forma como ele é construído aqui revela muito sobre a filosofia do projeto.</p>
+          <p class="text-neutral-400">Todo sistema de produçêo precisa de um comando de diagnóstico. O <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:doctor</code> nêo é uma novidade — é uma prática estabelecida (pense em <em>rails doctor</em>, <em>brew doctor</em>). Mas a forma como ele é construído aqui revela muito sobre a filosofia do projeto.</p>
         </div>
       </div>
 
@@ -278,7 +278,7 @@ interview_used, --skip-interview, --interviewed flags,
           <div class="space-y-3">
             <div class="flex items-start gap-3">
               <span class="text-blue-400 font-bold mt-0.5">01</span>
-              <div><strong class="text-neutral-100">Shell check</strong> — bash presente, versão 4+. Warn em 3.x (macOS default).</div>
+              <div><strong class="text-neutral-100">Shell check</strong> — bash presente, versêo 4+. Warn em 3.x (macOS default).</div>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-blue-400 font-bold mt-0.5">02</span>
@@ -286,11 +286,11 @@ interview_used, --skip-interview, --interviewed flags,
             </div>
             <div class="flex items-start gap-3">
               <span class="text-blue-400 font-bold mt-0.5">03</span>
-              <div><strong class="text-neutral-100">Dependências opcionais</strong> — python3 é warn-only, não falha.</div>
+              <div><strong class="text-neutral-100">Dependências opcionais</strong> — python3 é warn-only, nêo falha.</div>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-blue-400 font-bold mt-0.5">04</span>
-              <div><strong class="text-neutral-100">State dir</strong> — <code class="text-blue-300 bg-dark-700 px-1 rounded">.claude/claudex</code> existe e tem permissão de escrita.</div>
+              <div><strong class="text-neutral-100">State dir</strong> — <code class="text-blue-300 bg-dark-700 px-1 rounded">.claude/claudex</code> existe e tem permissêo de escrita.</div>
             </div>
           </div>
           <div class="space-y-3">
@@ -304,7 +304,7 @@ interview_used, --skip-interview, --interviewed flags,
             </div>
             <div class="flex items-start gap-3">
               <span class="text-blue-400 font-bold mt-0.5">07</span>
-              <div><strong class="text-neutral-100">Helpers smoke</strong> — state-helpers e personas carregam limpos; personas são distintas.</div>
+              <div><strong class="text-neutral-100">Helpers smoke</strong> — state-helpers e personas carregam limpos; personas sêo distintas.</div>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-blue-400 font-bold mt-0.5">08</span>
@@ -320,16 +320,16 @@ interview_used, --skip-interview, --interviewed flags,
           <span class="text-primary text-lg">💡</span>
           <span class="text-primary font-semibold text-sm uppercase tracking-wider">Dica Prática</span>
         </div>
-        <p class="text-sm text-neutral-300">Rode <code class="text-primary bg-dark-700 px-1 rounded">bash plugins/claudex/scripts/doctor.sh</code> dentro de um repositório vazio antes de qualquer deploy. Se o doctor sai 0, o plugin não depende de estado residual da máquina de desenvolvimento — ele é genuinamente portável.</p>
+        <p class="text-sm text-neutral-300">Rode <code class="text-primary bg-dark-700 px-1 rounded">bash plugins/claudex/scripts/doctor.sh</code> dentro de um repositório vazio antes de qualquer deploy. Se o doctor sai 0, o plugin nêo depende de estado residual da máquina de desenvolvimento — ele é genuinamente portável.</p>
       </div>
 
       <!-- Box: Alerta (red) -->
       <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
         <div class="flex items-center gap-2 mb-2">
           <span class="text-red-400 text-lg">⚠️</span>
-          <span class="text-red-400 font-semibold text-sm uppercase tracking-wider">Atenção</span>
+          <span class="text-red-400 font-semibold text-sm uppercase tracking-wider">Atençêo</span>
         </div>
-        <p class="text-sm text-neutral-300">Assim como o status.sh, o doctor.sh não instala ERR trap. A função <code class="text-red-300 bg-dark-700 px-1 rounded">claudex_find_active_loop</code> retorna não-zero legitimamente quando não há loops — e um ERR trap transformaria isso num erro assustador na tela do usuário.</p>
+        <p class="text-sm text-neutral-300">Assim como o status.sh, o doctor.sh nêo instala ERR trap. A funçêo <code class="text-red-300 bg-dark-700 px-1 rounded">claudex_find_active_loop</code> retorna nêo-zero legitimamente quando nêo há loops — e um ERR trap transformaria isso num erro assustador na tela do usuário.</p>
       </div>
     </section>
 
@@ -341,7 +341,7 @@ interview_used, --skip-interview, --interviewed flags,
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100 mb-2">A entrevista de planejamento antes do loop</h2>
-          <p class="text-neutral-400">Uma das adições mais sutis do Prompt 06 é a entrevista interativa no <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:plan</code>. Em vez de aceitar um tópico cru e disparar o loop imediatamente, o Claude pode primeiro fazer três perguntas estruturadas para enriquecer o contexto de revisão.</p>
+          <p class="text-neutral-400">Uma das adições mais sutis do Prompt 06 é a entrevista interativa no <code class="text-purple-400 bg-purple-500/10 px-1 rounded">/claudex:plan</code>. Em vez de aceitar um tópico cru e disparar o loop imediatamente, o Claude pode primeiro fazer três perguntas estruturadas para enriquecer o contexto de revisêo.</p>
         </div>
       </div>
 
@@ -354,7 +354,7 @@ interview_used, --skip-interview, --interviewed flags,
         <div class="space-y-4 text-sm text-neutral-300">
           <div class="flex items-start gap-3">
             <span class="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-xs flex-shrink-0">1</span>
-            <div>Se <code class="text-purple-300 bg-dark-700 px-1 rounded">$ARGUMENTS</code> está vazio, o Claude pede o tópico. Ainda não inicia o loop.</div>
+            <div>Se <code class="text-purple-300 bg-dark-700 px-1 rounded">$ARGUMENTS</code> está vazio, o Claude pede o tópico. Ainda nêo inicia o loop.</div>
           </div>
           <div class="flex items-start gap-3">
             <span class="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-xs flex-shrink-0">2</span>
@@ -366,7 +366,7 @@ interview_used, --skip-interview, --interviewed flags,
           </div>
           <div class="flex items-start gap-3">
             <span class="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-xs flex-shrink-0">4</span>
-            <div>As respostas são compostas em um único tópico enriquecido com separadores <code class="text-purple-300 bg-dark-700 px-1 rounded">; </code> (tópicos multi-linha quebram o YAML do state file). O start-loop recebe a flag <code class="text-purple-300 bg-dark-700 px-1 rounded">--interviewed</code> e registra <code class="text-purple-300 bg-dark-700 px-1 rounded">interview_used: true</code>.</div>
+            <div>As respostas sêo compostas em um único tópico enriquecido com separadores <code class="text-purple-300 bg-dark-700 px-1 rounded">; </code> (tópicos multi-linha quebram o YAML do state file). O start-loop recebe a flag <code class="text-purple-300 bg-dark-700 px-1 rounded">--interviewed</code> e registra <code class="text-purple-300 bg-dark-700 px-1 rounded">interview_used: true</code>.</div>
           </div>
         </div>
       </div>
@@ -377,7 +377,7 @@ interview_used, --skip-interview, --interviewed flags,
           <span class="text-primary text-lg">🎯</span>
           <span class="text-primary font-semibold text-sm uppercase tracking-wider">Por que isso importa</span>
         </div>
-        <p class="text-sm text-neutral-300">A entrevista resolve um problema real: quando você diz <em>"revise meu auth module"</em>, o Claude não sabe se você quer focar em performance, segurança ou legibilidade. Três perguntas estruturadas antes do loop produzem resultados muito mais úteis — e o campo <code class="text-primary bg-dark-700 px-1 rounded">interview_used: true</code> no estado permite auditar depois se a entrevista foi feita.</p>
+        <p class="text-sm text-neutral-300">A entrevista resolve um problema real: quando você diz <em>"revise meu auth module"</em>, o Claude nêo sabe se você quer focar em performance, segurança ou legibilidade. Três perguntas estruturadas antes do loop produzem resultados muito mais úteis — e o campo <code class="text-primary bg-dark-700 px-1 rounded">interview_used: true</code> no estado permite auditar depois se a entrevista foi feita.</p>
       </div>
     </section>
 
@@ -389,7 +389,7 @@ interview_used, --skip-interview, --interviewed flags,
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100 mb-2">Prompt 07 — O safety pass: auditando cada caminho de erro</h2>
-          <p class="text-neutral-400">O sétimo e último prompt não adiciona novas features. Ele stess-testa cada caminho de erro e garante que o usuário nunca vai ficar preso. Este é o safety pass — a auditoria sistemática das seis primitivas de segurança definidas no SPEC.</p>
+          <p class="text-neutral-400">O sétimo e último prompt nêo adiciona novas features. Ele stess-testa cada caminho de erro e garante que o usuário nunca vai ficar preso. Este é o safety pass — a auditoria sistemática das seis primitivas de segurança definidas no SPEC.</p>
         </div>
       </div>
 
@@ -471,11 +471,11 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
           </div>
           <div class="bg-dark-700 rounded-lg p-4 border border-purple-500/20">
             <div class="text-purple-400 font-bold text-sm mb-1">2 — Atomic writes</div>
-            <p class="text-xs text-neutral-400">Toda mutação de estado usa tmp + rename. Zero redirects diretos <code class="text-purple-300">&gt;</code> em arquivos de estado.</p>
+            <p class="text-xs text-neutral-400">Toda mutaçêo de estado usa tmp + rename. Zero redirects diretos <code class="text-purple-300">&gt;</code> em arquivos de estado.</p>
           </div>
           <div class="bg-dark-700 rounded-lg p-4 border border-purple-500/20">
             <div class="text-purple-400 font-bold text-sm mb-1">3 — CAS phase transitions</div>
-            <p class="text-xs text-neutral-400">Compare-And-Swap em toda transição de fase. Exceção documentada: cancel-loop.sh força override deliberadamente.</p>
+            <p class="text-xs text-neutral-400">Compare-And-Swap em toda transiçêo de fase. Exceçêo documentada: cancel-loop.sh força override deliberadamente.</p>
           </div>
           <div class="bg-dark-700 rounded-lg p-4 border border-purple-500/20">
             <div class="text-purple-400 font-bold text-sm mb-1">4 — Lockfile + PID liveness</div>
@@ -487,7 +487,7 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
           </div>
           <div class="bg-dark-700 rounded-lg p-4 border border-purple-500/20">
             <div class="text-purple-400 font-bold text-sm mb-1">6 — cwd validation</div>
-            <p class="text-xs text-neutral-400">Hook lê repo_root do estado e falha aberto (approve) se o diretório atual não bater. Previne revisão do repositório errado.</p>
+            <p class="text-xs text-neutral-400">Hook lê repo_root do estado e falha aberto (approve) se o diretório atual nêo bater. Previne revisêo do repositório errado.</p>
           </div>
         </div>
       </div>
@@ -501,7 +501,7 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100 mb-2">Os três níveis de teste: platform, smoke e e2e sintético</h2>
-          <p class="text-neutral-400">O Claudex não tem testes de unidade clássicos — tem três scripts de shell que verificam o sistema em camadas crescentes de integração. Essa é uma escolha deliberada: cada camada pode ser executada independentemente, e a última (synthetic e2e) é opcional porque custa tokens reais.</p>
+          <p class="text-neutral-400">O Claudex nêo tem testes de unidade clássicos — tem três scripts de shell que verificam o sistema em camadas crescentes de integraçêo. Essa é uma escolha deliberada: cada camada pode ser executada independentemente, e a última (synthetic e2e) é opcional porque custa tokens reais.</p>
         </div>
       </div>
 
@@ -553,8 +553,8 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
         <ul class="space-y-2 text-sm text-neutral-300">
           <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>start-loop produz output e cria um review_id válido</li>
           <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>O hook BLOQUEIA com instruções run-runner quando PLAN.md está presente</li>
-          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>O runner script tem o heredoc PROMPTEOF com aspas (previne expansão shell)</li>
-          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>O runner sai 0, produz output não-vazio, não bate em erros de terminal ou auth</li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>O runner script tem o heredoc PROMPTEOF com aspas (previne expansêo shell)</li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>O runner sai 0, produz output nêo-vazio, nêo bate em erros de terminal ou auth</li>
           <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>mark-done.sh + hook final produzem approve e limpam o lockfile</li>
           <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>Um segundo start-loop aceita novo loop (back-to-back funciona)</li>
         </ul>
@@ -569,7 +569,7 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100 mb-2">Como shipar o plugin e o que vem na v2</h2>
-          <p class="text-neutral-400">Com platform + smoke passando, o plugin é shippable. O synthetic e2e confirma integração com o Codex real — mas não é pré-requisito para o sign-off de nível de unidade. E já há um design documentado para a v2.</p>
+          <p class="text-neutral-400">Com platform + smoke passando, o plugin é shippable. O synthetic e2e confirma integraçêo com o Codex real — mas nêo é pré-requisito para o sign-off de nível de unidade. E já há um design documentado para a v2.</p>
         </div>
       </div>
 
@@ -577,7 +577,7 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
       <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-4">
         <div class="flex items-center gap-2 mb-3">
           <span class="text-purple-400 text-lg">🚀</span>
-          <span class="text-purple-400 font-semibold text-sm uppercase tracking-wider">Documentação gerada no Prompt 07</span>
+          <span class="text-purple-400 font-semibold text-sm uppercase tracking-wider">Documentaçêo gerada no Prompt 07</span>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
           <div class="bg-dark-700 rounded-lg p-4">
@@ -586,7 +586,7 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
           </div>
           <div class="bg-dark-700 rounded-lg p-4">
             <div class="text-purple-400 font-semibold mb-1">SAFETY.md</div>
-            <p class="text-neutral-400">O que o Claudex faz e NÃO faz, arquivos que toca, expectativa de custo (~25-30k tokens/round, ~75-90k para 3 rounds padrão).</p>
+            <p class="text-neutral-400">O que o Claudex faz e NêO faz, arquivos que toca, expectativa de custo (~25-30k tokens/round, ~75-90k para 3 rounds padrêo).</p>
           </div>
           <div class="bg-dark-700 rounded-lg p-4">
             <div class="text-purple-400 font-semibold mb-1">ARCHITECTURE.md</div>
@@ -594,7 +594,7 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
           </div>
           <div class="bg-dark-700 rounded-lg p-4">
             <div class="text-purple-400 font-semibold mb-1">V2_DESIGN.md</div>
-            <p class="text-neutral-400">Auto-apply com branch isolation — o design que foi deliberadamente adiado para a v2. Documentado, não implementado.</p>
+            <p class="text-neutral-400">Auto-apply com branch isolation — o design que foi deliberadamente adiado para a v2. Documentado, nêo implementado.</p>
           </div>
         </div>
       </div>
@@ -605,7 +605,7 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
           <span class="text-primary text-lg">🎯</span>
           <span class="text-primary font-semibold text-sm uppercase tracking-wider">O critério de shippable</span>
         </div>
-        <p class="text-sm text-neutral-300">O SPEC define "shippable" como: platform-validation passa <strong class="text-neutral-100">E</strong> smoke-test passa. O synthetic e2e confirma integração real com o Codex (e custa tokens), mas não é required para o sign-off. Isso é uma decisão de produto — separa o "funciona tecnicamente" do "funciona no mundo real".</p>
+        <p class="text-sm text-neutral-300">O SPEC define "shippable" como: platform-validation passa <strong class="text-neutral-100">E</strong> smoke-test passa. O synthetic e2e confirma integraçêo real com o Codex (e custa tokens), mas nêo é required para o sign-off. Isso é uma decisêo de produto — separa o "funciona tecnicamente" do "funciona no mundo real".</p>
       </div>
 
       <!-- Box: V2 -->
@@ -617,9 +617,9 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
         <p class="text-sm text-neutral-400 mb-3">A v1 é read-only por design — o Claudex revisa e sugere, mas nunca aplica automaticamente. A v2 documenta o design de auto-apply com branch isolation:</p>
         <ul class="space-y-2 text-sm text-neutral-300">
           <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>Cada round cria uma branch isolada automaticamente</li>
-          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>O Codex aplica as sugestões de alta severidade sem intervenção manual</li>
-          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>A branch é aberta como PR para revisão humana — o plugin nunca merge sozinho</li>
-          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>Rollback automático se qualquer teste falhar após aplicação</li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>O Codex aplica as sugestões de alta severidade sem intervençêo manual</li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>A branch é aberta como PR para revisêo humana — o plugin nunca merge sozinho</li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span>Rollback automático se qualquer teste falhar após aplicaçêo</li>
         </ul>
       </div>
     </section>
@@ -638,7 +638,7 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
         </li>
         <li class="flex items-start gap-3">
           <span class="w-5 h-5 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
-          <span class="text-sm text-neutral-300">A regra de ouro: status e doctor nunca instalam ERR trap — <code class="text-purple-400">claudex_find_active_loop</code> retorna não-zero legitimamente</span>
+          <span class="text-sm text-neutral-300">A regra de ouro: status e doctor nunca instalam ERR trap — <code class="text-purple-400">claudex_find_active_loop</code> retorna nêo-zero legitimamente</span>
         </li>
         <li class="flex items-start gap-3">
           <span class="w-5 h-5 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
@@ -650,11 +650,11 @@ If platform + smoke pass, the plugin is shippable.</code></pre>
         </li>
         <li class="flex items-start gap-3">
           <span class="w-5 h-5 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
-          <span class="text-sm text-neutral-300">Critério de shippable: platform + smoke passando. V2 design documentado em V2_DESIGN.md mas não implementado</span>
+          <span class="text-sm text-neutral-300">Critério de shippable: platform + smoke passando. V2 design documentado em V2_DESIGN.md mas nêo implementado</span>
         </li>
       </ul>
 
-      <!-- Botões de navegação -->
+      <!-- Botões de navegaçêo -->
       <div class="flex flex-col sm:flex-row gap-3 justify-start">
         <a href="modulo-2-2.html" class="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-dark-700 hover:bg-dark-600 border border-dark-600 text-neutral-300 hover:text-neutral-100 transition-colors text-sm font-medium">
           <span>←</span>

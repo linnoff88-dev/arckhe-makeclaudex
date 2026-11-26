@@ -121,7 +121,7 @@
       <h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4 leading-tight">
         📋 A Lógica do <span class="text-amber-400">SPEC Primeiro</span>
       </h1>
-      <p class="text-lg text-neutral-400 max-w-3xl mb-6">Por que o documento de especificação precede qualquer linha de código — e como escrever um SPEC que realmente guia o build.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl mb-6">Por que o documento de especificaçêo precede qualquer linha de código — e como escrever um SPEC que realmente guia o build.</p>
       <div class="flex flex-wrap gap-4">
         <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
           <span class="text-amber-400 text-lg">📚</span>
@@ -152,7 +152,7 @@
         <h2 class="text-2xl font-bold">📋 O que é um SPEC e por que ele vem antes do código</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um <strong class="text-amber-400">SPEC</strong> é um documento que define o sistema em texto antes de qualquer implementação. Não é um plano vago — é um contrato escrito que especifica componentes, responsabilidades, invariantes e o critério de sucesso. Sem SPEC, cada prompt reinventa a arquitetura. Com SPEC, cada prompt navega por um mapa já definido.
+        Um <strong class="text-amber-400">SPEC</strong> é um documento que define o sistema em texto antes de qualquer implementaçêo. Nêo é um plano vago — é um contrato escrito que especifica componentes, responsabilidades, invariantes e o critério de sucesso. Sem SPEC, cada prompt reinventa a arquitetura. Com SPEC, cada prompt navega por um mapa já definido.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📋</span> O que um SPEC contém</h3>
@@ -161,12 +161,12 @@
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Componentes:</strong> as partes do sistema e suas responsabilidades únicas</span></li>
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Invariantes:</strong> propriedades que nunca podem ser violadas</span></li>
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Interface pública:</strong> como o sistema é invocado e o que retorna</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Critérios de aceitação:</strong> como verificar que está correto</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Critérios de aceitaçêo:</strong> como verificar que está correto</span></li>
         </ul>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que antes do código?</h3>
-        <p class="text-neutral-300">Bugs arquiteturais descobertos no SPEC custam 30 minutos de reflexão. Os mesmos bugs descobertos no prompt 5 custam horas de reescrita. O SPEC não é burocracia — é o investimento que mais economiza tempo em LLM coding.</p>
+        <p class="text-neutral-300">Bugs arquiteturais descobertos no SPEC custam 30 minutos de reflexêo. Os mesmos bugs descobertos no prompt 5 custam horas de reescrita. O SPEC nêo é burocracia — é o investimento que mais economiza tempo em LLM coding.</p>
       </div>
     </section>
 
@@ -177,7 +177,7 @@
         <h2 class="text-2xl font-bold">🎯 As 3 perguntas que todo SPEC deve responder</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um SPEC incompleto é perigoso — dá falsa sensação de clareza enquanto deixa lacunas que prompts subsequentes vão preencher com suposições. Três perguntas, quando respondidas completamente, garantem que o SPEC é suficiente para guiar o build.
+        Um SPEC incompleto é perigoso — dá falsa sensaçêo de clareza enquanto deixa lacunas que prompts subsequentes vêo preencher com suposições. Três perguntas, quando respondidas completamente, garantem que o SPEC é suficiente para guiar o build.
       </p>
       <div class="space-y-4 mb-6">
         <div class="flex items-start space-x-4">
@@ -187,7 +187,7 @@
           <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
             <h4 class="font-semibold text-white mb-2">O quê? — Comportamento esperado</h4>
             <p class="text-sm text-neutral-400 mb-2">O que o sistema faz em termos de entradas e saídas observáveis</p>
-            <p class="text-neutral-300 text-sm">Descreve o comportamento do sistema sem mencionar implementação. "Dado X, o sistema produz Y dentro de Z milissegundos." Esta pergunta define o contrato externo.</p>
+            <p class="text-neutral-300 text-sm">Descreve o comportamento do sistema sem mencionar implementaçêo. "Dado X, o sistema produz Y dentro de Z milissegundos." Esta pergunta define o contrato externo.</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
@@ -196,8 +196,8 @@
           </div>
           <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
             <h4 class="font-semibold text-white mb-2">Por quê? — Justificativa de design</h4>
-            <p class="text-sm text-neutral-400 mb-2">Por que cada decisão arquitetural existe</p>
-            <p class="text-neutral-300 text-sm">Documenta a razão por trás de cada escolha. "Usamos escrita atômica porque Claude Code pode ser interrompido a qualquer momento." Sem o porquê, futuros prompts podem inadvertidamente remover uma proteção crítica.</p>
+            <p class="text-sm text-neutral-400 mb-2">Por que cada decisêo arquitetural existe</p>
+            <p class="text-neutral-300 text-sm">Documenta a razêo por trás de cada escolha. "Usamos escrita atômica porque Claude Code pode ser interrompido a qualquer momento." Sem o porquê, futuros prompts podem inadvertidamente remover uma proteçêo crítica.</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
@@ -205,9 +205,9 @@
             <span class="text-amber-400 font-bold">3</span>
           </div>
           <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Como verificar? — Critério de aceitação</h4>
+            <h4 class="font-semibold text-white mb-2">Como verificar? — Critério de aceitaçêo</h4>
             <p class="text-sm text-neutral-400 mb-2">Como confirmar que o sistema está correto</p>
-            <p class="text-neutral-300 text-sm">Define os testes que provam que o sistema satisfaz o contrato. "Executar X deve produzir Y. Interromper durante Z deve deixar o sistema em estado recuperável." Sem critérios concretos, não há forma objetiva de aceitar uma entrega.</p>
+            <p class="text-neutral-300 text-sm">Define os testes que provam que o sistema satisfaz o contrato. "Executar X deve produzir Y. Interromper durante Z deve deixar o sistema em estado recuperável." Sem critérios concretos, nêo há forma objetiva de aceitar uma entrega.</p>
           </div>
         </div>
       </div>
@@ -220,22 +220,22 @@
         <h2 class="text-2xl font-bold">🔒 As garantias de segurança</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Invariantes de segurança</strong> são propriedades que o sistema nunca pode violar — independente do estado, carga ou falha. Declará-las no SPEC antes de qualquer código garante que cada prompt as respeita por design, não por acidente.
+        <strong class="text-amber-400">Invariantes de segurança</strong> sêo propriedades que o sistema nunca pode violar — independente do estado, carga ou falha. Declará-las no SPEC antes de qualquer código garante que cada prompt as respeita por design, nêo por acidente.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🔒</span> As 6 primitivas invariantes</h3>
         <ul class="space-y-3 text-neutral-300">
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Fail-open:</strong> falha do plugin não bloqueia o sistema host</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Fail-open:</strong> falha do plugin nêo bloqueia o sistema host</span></li>
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Escrita atômica:</strong> estado nunca fica parcialmente escrito</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>CAS:</strong> transições de estado são verificadas antes de aplicadas</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Lockfile:</strong> seções críticas têm execução exclusiva</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>ERR trap:</strong> falhas silenciosas são capturadas</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Idempotência:</strong> re-execução não causa efeitos duplicados</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>CAS:</strong> transições de estado sêo verificadas antes de aplicadas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Lockfile:</strong> seções críticas têm execuçêo exclusiva</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>ERR trap:</strong> falhas silenciosas sêo capturadas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Idempotência:</strong> re-execuçêo nêo causa efeitos duplicados</span></li>
         </ul>
       </div>
       <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O custo de invariantes implícitos</h3>
-        <p class="text-neutral-300">Quando invariantes não estão no SPEC, eles existem apenas na cabeça do desenvolvedor. O modelo não tem acesso a esse contexto implícito — e vai produzir código que viola as garantias não declaradas. O prompt 5 que remove a escrita atômica porque "parece desnecessária" é o exemplo clássico.</p>
+        <p class="text-neutral-300">Quando invariantes nêo estêo no SPEC, eles existem apenas na cabeça do desenvolvedor. O modelo nêo tem acesso a esse contexto implícito — e vai produzir código que viola as garantias nêo declaradas. O prompt 5 que remove a escrita atômica porque "parece desnecessária" é o exemplo clássico.</p>
       </div>
     </section>
 
@@ -246,7 +246,7 @@
         <h2 class="text-2xl font-bold">📐 SPEC vs. README vs. comentário</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Três tipos de documentação, três propósitos distintos. Confundir os três é um dos erros mais comuns — e resulta em invariantes em comentários (ignorados), comportamento esperado no README (desatualizado), e SPEC vazio (inútil).
+        Três tipos de documentaçêo, três propósitos distintos. Confundir os três é um dos erros mais comuns — e resulta em invariantes em comentários (ignorados), comportamento esperado no README (desatualizado), e SPEC vazio (inútil).
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <div class="bg-dark-800 rounded-xl border border-amber-500/30 p-6">
@@ -265,7 +265,7 @@
           <ul class="space-y-2 text-sm text-neutral-300">
             <li>• Explica como usar</li>
             <li>• Documenta a interface</li>
-            <li>• Guia instalação</li>
+            <li>• Guia instalaçêo</li>
             <li>• É um guia de usuário</li>
           </ul>
         </div>
@@ -276,7 +276,7 @@
             <li>• Explica como funciona</li>
             <li>• Contexto local</li>
             <li>• Decisões pontuais</li>
-            <li>• É uma nota de implementação</li>
+            <li>• É uma nota de implementaçêo</li>
           </ul>
         </div>
       </div>
@@ -289,7 +289,7 @@
         <h2 class="text-2xl font-bold">✍️ Como escrever um SPEC em 30 minutos</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um SPEC não precisa ser extenso para ser útil. Um template de seis seções, preenchido em 30 minutos, é suficiente para a maioria dos plugins de Claude Code. A chave é ser específico onde importa — invariantes e critérios de aceitação — e conciso no resto.
+        Um SPEC nêo precisa ser extenso para ser útil. Um template de seis seções, preenchido em 30 minutos, é suficiente para a maioria dos plugins de Claude Code. A chave é ser específico onde importa — invariantes e critérios de aceitaçêo — e conciso no resto.
       </p>
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">Template: 6 seções obrigatórias</h3>
@@ -316,13 +316,13 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
-            <div><strong class="text-white">Critérios de aceitação (5 min):</strong><span class="text-neutral-300"> Testes concretos que confirmam que o sistema está correto</span></div>
+            <div><strong class="text-white">Critérios de aceitaçêo (5 min):</strong><span class="text-neutral-300"> Testes concretos que confirmam que o sistema está correto</span></div>
           </div>
         </div>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Proporcionalidade</h3>
-        <p class="text-neutral-300">Um SPEC para um plugin de 5 prompts não precisa de mais de uma página. Um SPEC para um sistema de 20 prompts pode ter 3-5 páginas. A seção mais crítica — invariantes — deve ser a mais detalhada, independente do tamanho total.</p>
+        <p class="text-neutral-300">Um SPEC para um plugin de 5 prompts nêo precisa de mais de uma página. Um SPEC para um sistema de 20 prompts pode ter 3-5 páginas. A seçêo mais crítica — invariantes — deve ser a mais detalhada, independente do tamanho total.</p>
       </div>
     </section>
 
@@ -333,14 +333,14 @@
         <h2 class="text-2xl font-bold">🧪 Como usar o SPEC para verificar cada prompt</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um SPEC sem uso ativo é decorativo. Sua função real é ser o checklist de aceitação para cada entrega — transformando critérios abstratos em verificações concretas que confirmam que o trabalho está correto antes de avançar.
+        Um SPEC sem uso ativo é decorativo. Sua funçêo real é ser o checklist de aceitaçêo para cada entrega — transformando critérios abstratos em verificações concretas que confirmam que o trabalho está correto antes de avançar.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
           <h4 class="font-bold text-emerald-400 mb-4">✓ Usando o SPEC corretamente</h4>
           <ul class="space-y-3 text-neutral-300">
             <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Verificar invariantes após cada entrega</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Comparar comportamento com critérios de aceitação</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Comparar comportamento com critérios de aceitaçêo</span></li>
             <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Atualizar o SPEC quando requisitos mudam</span></li>
             <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Referenciar o SPEC em cada prompt</span></li>
           </ul>
@@ -356,12 +356,12 @@
         </div>
       </div>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6">
-        <h3 class="text-lg font-semibold text-amber-400 mb-3">O protocolo de verificação por prompt</h3>
+        <h3 class="text-lg font-semibold text-amber-400 mb-3">O protocolo de verificaçêo por prompt</h3>
         <ol class="space-y-2 text-neutral-300">
           <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">1.</span><span>Confirmar que os arquivos esperados foram criados</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">2.</span><span>Executar o critério de aceitação do SPEC para esta camada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">2.</span><span>Executar o critério de aceitaçêo do SPEC para esta camada</span></li>
           <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">3.</span><span>Verificar que nenhum invariante foi violado</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">4.</span><span>Só então marcar a camada como verificada e avançar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">4.</span><span>Só entêo marcar a camada como verificada e avançar</span></li>
         </ol>
       </div>
     </section>
@@ -375,7 +375,7 @@
         <div class="space-y-4 mb-8">
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">SPEC é contrato</strong><span class="text-neutral-400"> — não documentação, não README, não comentário</span></div>
+            <div><strong class="text-white">SPEC é contrato</strong><span class="text-neutral-400"> — nêo documentaçêo, nêo README, nêo comentário</span></div>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
@@ -383,7 +383,7 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">Invariantes primeiro</strong><span class="text-neutral-400"> — a seção mais crítica do SPEC</span></div>
+            <div><strong class="text-white">Invariantes primeiro</strong><span class="text-neutral-400"> — a seçêo mais crítica do SPEC</span></div>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
@@ -391,7 +391,7 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">SPEC ativo</strong><span class="text-neutral-400"> — verificar após cada prompt, não apenas escrever uma vez</span></div>
+            <div><strong class="text-white">SPEC ativo</strong><span class="text-neutral-400"> — verificar após cada prompt, nêo apenas escrever uma vez</span></div>
           </div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">

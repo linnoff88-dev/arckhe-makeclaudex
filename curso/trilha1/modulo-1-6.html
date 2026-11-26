@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 1.6 — Seu Primeiro Hook de Validação | Engenharia com Claude Code</title>
+  <title>Módulo 1.6 — Seu Primeiro Hook de Validaçêo | Engenharia com Claude Code</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -107,7 +107,7 @@
       </span>
     </div>
     <h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-6 leading-tight">
-      🎯 Seu Primeiro Hook de Validação: <span class="text-emerald-400">Do SPEC ao Código</span>
+      🎯 Seu Primeiro Hook de Validaçêo: <span class="text-emerald-400">Do SPEC ao Código</span>
     </h1>
     <div class="flex flex-wrap gap-4">
       <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
@@ -135,10 +135,10 @@
     <section id="topico-1" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
-        <h2 class="text-2xl font-bold">🎯 O projeto — hook de validação de commits</h2>
+        <h2 class="text-2xl font-bold">🎯 O projeto — hook de validaçêo de commits</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O projeto final da Trilha 1 é construir um <strong class="text-emerald-400">PreToolUse hook que intercepta git commits</strong> e bloqueia mensagens que não são descritivas. Este é o caso de uso mais comum de hook de validação e aplica todos os conceitos dos módulos anteriores.
+        O projeto final da Trilha 1 é construir um <strong class="text-emerald-400">PreToolUse hook que intercepta git commits</strong> e bloqueia mensagens que nêo sêo descritivas. Este é o caso de uso mais comum de hook de validaçêo e aplica todos os conceitos dos módulos anteriores.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📋</span> O que vamos construir</h3>
@@ -161,7 +161,7 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-emerald-400 font-bold">✓</span>
-            <span><strong>Logar</strong> cada execução em .claude/logs/validate-commit.log</span>
+            <span><strong>Logar</strong> cada execuçêo em .claude/logs/validate-commit.log</span>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-emerald-400 font-bold">✓</span>
@@ -171,7 +171,7 @@
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que este projeto</h3>
-        <p class="text-neutral-300">Mensagens de commit ruins são o problema de qualidade mais comum em projetos de engenharia — e são fáceis de automatizar. Este hook é imediatamente útil, simples o suficiente para ser o primeiro, e complexo o suficiente para cobrir todos os conceitos da trilha.</p>
+        <p class="text-neutral-300">Mensagens de commit ruins sêo o problema de qualidade mais comum em projetos de engenharia — e sêo fáceis de automatizar. Este hook é imediatamente útil, simples o suficiente para ser o primeiro, e complexo o suficiente para cobrir todos os conceitos da trilha.</p>
       </div>
     </section>
 
@@ -182,47 +182,47 @@
         <h2 class="text-2xl font-bold">📋 Escrevendo o SPEC antes do código</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Antes de uma linha de código, escrevemos o SPEC. Isso força decisões difíceis quando ainda são baratas: <strong class="text-emerald-400">o que é uma "mensagem ruim"? Como capturar a mensagem das diferentes flags do git commit?</strong>
+        Antes de uma linha de código, escrevemos o SPEC. Isso força decisões difíceis quando ainda sêo baratas: <strong class="text-emerald-400">o que é uma "mensagem ruim"? Como capturar a mensagem das diferentes flags do git commit?</strong>
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📋</span> SPEC.md completo</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm overflow-x-auto"><code class="text-neutral-300"># SPEC: validate-commit hook
 
 ## Objetivo
-Bloquear git commits do Claude Code com mensagens que não são
+Bloquear git commits do Claude Code com mensagens que nêo sêo
 descritivas — garantindo um histórico de git útil.
 
 ## Entrada
 - Evento: PreToolUse
 - Ferramenta: Bash
-- Condição: comando contém "git commit"
+- Condiçêo: comando contém "git commit"
 
 ## Critérios de BLOQUEIO
 1. Mensagem tem menos de 20 caracteres
 2. Mensagem é exatamente um dos termos genéricos:
    fix, update, changes, wip, temp, test, misc, stuff
 
-## Critérios de APROVAÇÃO (exceções)
-1. git commit --amend (re-commit não precisa re-validar)
+## Critérios de APROVAÇêO (exceções)
+1. git commit --amend (re-commit nêo precisa re-validar)
 2. git commit --no-edit (merge commit automático)
 3. Mensagem começa com "Merge " (merge commit)
 4. Mensagem começa com "Revert " (revert automático)
-5. Hook falha por qualquer razão (fail-open)
+5. Hook falha por qualquer razêo (fail-open)
 
-## Extração da mensagem
+## Extraçêo da mensagem
 - Flag -m "mensagem": extrair entre aspas após -m
 - Flag --message="mensagem": extrair valor após =
-- Sem -m: git commit abrirá editor — não interceptar
+- Sem -m: git commit abrirá editor — nêo interceptar
 
 ## Invariantes
-- Nunca bloqueia se jq não estiver disponível (fail-open)
-- Sempre logar a decisão (aprovar ou bloquear) com timestamp
+- Nunca bloqueia se jq nêo estiver disponível (fail-open)
+- Sempre logar a decisêo (aprovar ou bloquear) com timestamp
 - Mensagem de erro é acionável: diz o que está errado E como corrigir
 
 ## Decisões de design
-- Comprimento mínimo 20 chars: suficiente para uma descrição útil
-- Lista de termos genéricos pequena: falsos positivos são piores que falsos negativos
-- Não validar formato Conventional Commits: escopo desta versão é só comprimento</code></pre>
+- Comprimento mínimo 20 chars: suficiente para uma descriçêo útil
+- Lista de termos genéricos pequena: falsos positivos sêo piores que falsos negativos
+- Nêo validar formato Conventional Commits: escopo desta versêo é só comprimento</code></pre>
       </div>
     </section>
 
@@ -233,7 +233,7 @@ descritivas — garantindo um histórico de git útil.
         <h2 class="text-2xl font-bold">💻 Implementando o hook em shell</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Com o SPEC em mãos, a implementação é direta. Cada decisão do SPEC tem correspondência exata no código — isso é o que um bom SPEC produz.
+        Com o SPEC em mêos, a implementaçêo é direta. Cada decisêo do SPEC tem correspondência exata no código — isso é o que um bom SPEC produz.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💻</span> validate-commit.sh completo</h3>
@@ -242,7 +242,7 @@ descritivas — garantindo um histórico de git útil.
 # PreToolUse hook: valida mensagens de git commit
 # SPEC: .claude/SPEC.md
 
-set -uo pipefail  # Não usar set -e — queremos controlar erros
+set -uo pipefail  # Nêo usar set -e — queremos controlar erros
 
 LOG_FILE=".claude/logs/validate-commit.log"
 mkdir -p "$(dirname "$LOG_FILE")"
@@ -265,7 +265,7 @@ PAYLOAD=$(cat) || fail_open "Falha ao ler stdin"
 
 # Verifica se jq está disponível
 if ! command -v jq &>/dev/null; then
-  fail_open "jq não encontrado"
+  fail_open "jq nêo encontrado"
 fi
 
 # Extrai ferramenta e comando
@@ -275,16 +275,16 @@ COMMAND=$(echo "$PAYLOAD" | jq -r '.tool.input.command // empty' 2>/dev/null) ||
 log "Ferramenta: $TOOL_NAME"
 
 # Só processa chamadas ao Bash
-[ "$TOOL_NAME" = "Bash" ] || { log "Não é Bash — aprovando"; exit 0; }
+[ "$TOOL_NAME" = "Bash" ] || { log "Nêo é Bash — aprovando"; exit 0; }
 
 # Só processa git commit
-echo "$COMMAND" | grep -q 'git commit' || { log "Não é git commit — aprovando"; exit 0; }
+echo "$COMMAND" | grep -q 'git commit' || { log "Nêo é git commit — aprovando"; exit 0; }
 
 log "Analisando: $COMMAND"
 
 # Exceções: --amend, --no-edit
 if echo "$COMMAND" | grep -qE -- '--amend|--no-edit'; then
-  log "Exceção --amend/--no-edit — aprovando"
+  log "Exceçêo --amend/--no-edit — aprovando"
   exit 0
 fi
 
@@ -299,9 +299,9 @@ if echo "$COMMAND" | grep -qE -- '-m\s+|--message=|--message\s+'; then
   fi
 fi
 
-# Se não encontrou mensagem (ex: commit sem -m, abrirá editor)
+# Se nêo encontrou mensagem (ex: commit sem -m, abrirá editor)
 if [ -z "$MSG" ]; then
-  log "Mensagem não extraída — pode ser editor interativo — aprovando"
+  log "Mensagem nêo extraída — pode ser editor interativo — aprovando"
   exit 0
 fi
 
@@ -313,7 +313,7 @@ if echo "$MSG" | grep -qE '^(Merge |Revert )'; then
   exit 0
 fi
 
-# Validação 1: comprimento mínimo
+# Validaçêo 1: comprimento mínimo
 MSG_LEN=${#MSG}
 if [ "$MSG_LEN" -lt 20 ]; then
   log "BLOQUEADO: mensagem muito curta ($MSG_LEN chars)"
@@ -323,13 +323,13 @@ Mínimo: 20 caracteres
 Sua mensagem: '$MSG'
 
 Exemplos de mensagens boas:
-  'feat: adiciona autenticação por OAuth2'
+  'feat: adiciona autenticaçêo por OAuth2'
   'fix: corrige cálculo de desconto no checkout'
-  'refactor: extrai lógica de validação para módulo separado'" >&2
+  'refactor: extrai lógica de validaçêo para módulo separado'" >&2
   exit 1
 fi
 
-# Validação 2: termos genéricos
+# Validaçêo 2: termos genéricos
 GENERIC_TERMS="^(fix|update|changes|wip|temp|test|misc|stuff)$"
 MSG_LOWER=$(echo "$MSG" | tr '[:upper:]' '[:lower:]' | tr -d ' ')
 if echo "$MSG_LOWER" | grep -qiE "$GENERIC_TERMS"; then
@@ -338,12 +338,12 @@ if echo "$MSG_LOWER" | grep -qiE "$GENERIC_TERMS"; then
 
 Sua mensagem: '$MSG'
 
-Mensagens genéricas como 'fix', 'update', 'wip' não descrevem
+Mensagens genéricas como 'fix', 'update', 'wip' nêo descrevem
 o que foi alterado. Use uma mensagem específica.
 
 Exemplos:
   'fix: corrige NullPointerException no módulo de usuários'
-  'update: atualiza dependências para versão LTS'" >&2
+  'update: atualiza dependências para versêo LTS'" >&2
   exit 1
 fi
 
@@ -359,7 +359,7 @@ exit 0</code></pre>
         <h2 class="text-2xl font-bold">🧪 Testando o fail-open</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Antes de ativar o hook em produção, <strong class="text-emerald-400">teste deliberadamente os cenários de falha</strong>. Você precisa ter confiança de que o hook não vai travar o Claude Code quando algo der errado.
+        Antes de ativar o hook em produçêo, <strong class="text-emerald-400">teste deliberadamente os cenários de falha</strong>. Você precisa ter confiança de que o hook nêo vai travar o Claude Code quando algo der errado.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🧪</span> Suite de testes completa</h3>
@@ -388,12 +388,12 @@ t "mensagem genérica update" "${BASE}\"git commit -m 'update'\"}}" 1
 t "mensagem genérica wip" "${BASE}\"git commit -m 'wip'\"}}" 1
 
 echo "=== Aprovações esperadas ==="
-t "mensagem boa" "${BASE}\"git commit -m 'feat: adiciona autenticação OAuth2'\"}}" 0
+t "mensagem boa" "${BASE}\"git commit -m 'feat: adiciona autenticaçêo OAuth2'\"}}" 0
 t "amend" "${BASE}\"git commit --amend --no-edit\"}}" 0
 t "no-edit" "${BASE}\"git commit --no-edit\"}}" 0
 t "merge commit" "${BASE}\"git commit -m 'Merge branch main'\"}}" 0
-t "não é bash" '{"tool":{"name":"Read","input":{"file":"test"}}}' 0
-t "não é git commit" "${BASE}\"git status\"}}" 0
+t "nêo é bash" '{"tool":{"name":"Read","input":{"file":"test"}}}' 0
+t "nêo é git commit" "${BASE}\"git status\"}}" 0
 
 echo "=== Fail-open ==="
 t "payload vazio" '{}' 0
@@ -424,7 +424,7 @@ echo "Resultado: $PASS passou, $FAIL falhou"
             <span class="text-emerald-400 font-bold text-sm">1</span>
           </div>
           <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
-            <h4 class="font-semibold mb-3">Dar permissão de execução</h4>
+            <h4 class="font-semibold mb-3">Dar permissêo de execuçêo</h4>
             <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300">chmod +x .claude/hooks/validate-commit.sh
 # Verifica: ls -la .claude/hooks/validate-commit.sh
 # Deve mostrar: -rwxr-xr-x</code></pre>
@@ -465,7 +465,7 @@ claude
 # Teste de bloqueio — deve falhar com mensagem do hook:
 "Execute: git commit -m 'fix'"
 
-# Teste de aprovação — deve funcionar:
+# Teste de aprovaçêo — deve funcionar:
 "Execute: git commit -m 'test: verifica que hook está funcionando'"
 
 # Verifica o log:
@@ -479,14 +479,14 @@ claude
     <section id="topico-6" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
-        <h2 class="text-2xl font-bold">🔄 Iteração incremental — melhorando o hook</h2>
+        <h2 class="text-2xl font-bold">🔄 Iteraçêo incremental — melhorando o hook</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
         O hook está funcional. Agora iteramos — <strong class="text-emerald-400">cada melhoria é um commit separado</strong>, mantendo o histórico claro de por que cada feature foi adicionada.
       </p>
       <div class="space-y-4 mb-6">
         <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-emerald-400 mb-3">Iteração 1: Modo DRY_RUN</h4>
+          <h4 class="font-semibold text-emerald-400 mb-3">Iteraçêo 1: Modo DRY_RUN</h4>
           <p class="text-neutral-300 text-sm mb-3">Adiciona variável de ambiente para testar sem bloquear de verdade.</p>
           <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300"># Adicionar antes do exit 1 nos bloqueios:
 if [ "${VALIDATE_COMMIT_DRY_RUN:-}" = "1" ]; then
@@ -495,10 +495,10 @@ if [ "${VALIDATE_COMMIT_DRY_RUN:-}" = "1" ]; then
 fi
 
 # Uso: VALIDATE_COMMIT_DRY_RUN=1 claude</code></pre>
-          <p class="text-neutral-400 text-xs mt-2">Commit: <code>hook(validate-commit): adiciona modo DRY_RUN para testes não-destrutivos</code></p>
+          <p class="text-neutral-400 text-xs mt-2">Commit: <code>hook(validate-commit): adiciona modo DRY_RUN para testes nêo-destrutivos</code></p>
         </div>
         <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-emerald-400 mb-3">Iteração 2: Estatísticas de uso</h4>
+          <h4 class="font-semibold text-emerald-400 mb-3">Iteraçêo 2: Estatísticas de uso</h4>
           <p class="text-neutral-300 text-sm mb-3">Conta quantos commits foram bloqueados vs aprovados.</p>
           <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300">STATS_FILE=".claude/state/commit-stats.json"
 
@@ -516,7 +516,7 @@ update_stats "approved" && exit 0</code></pre>
           <p class="text-neutral-400 text-xs mt-2">Commit: <code>hook(validate-commit): adiciona estatísticas de bloqueios em JSON</code></p>
         </div>
         <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-emerald-400 mb-3">Iteração 3: Sugestão de mensagem melhorada</h4>
+          <h4 class="font-semibold text-emerald-400 mb-3">Iteraçêo 3: Sugestêo de mensagem melhorada</h4>
           <p class="text-neutral-300 text-sm mb-3">A mensagem de erro sugere o que o usuário deveria ter escrito.</p>
           <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300"># Na mensagem de bloqueio por comprimento, adicionar:
 echo "Sua mensagem foi: '$MSG'
@@ -534,7 +534,7 @@ Que tal tentar algo como:
       <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
         <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🏆</span> Parabéns! Você concluiu a Trilha 1</h2>
 
-        <p class="text-neutral-300 mb-6 leading-relaxed">Você agora tem um hook de validação funcional e todo o conhecimento da base para construir sistemas mais complexos. Estes são os fundamentos que tornam possível tudo que vem na Trilha 2.</p>
+        <p class="text-neutral-300 mb-6 leading-relaxed">Você agora tem um hook de validaçêo funcional e todo o conhecimento da base para construir sistemas mais complexos. Estes sêo os fundamentos que tornam possível tudo que vem na Trilha 2.</p>
 
         <div class="space-y-4 mb-8">
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Módulo 1.1:</strong><span class="text-neutral-400"> Claude Code como agente — Bash, Read, Edit, Write, settings.json, CLAUDE.md</span></div></div>
@@ -542,7 +542,7 @@ Que tal tentar algo como:
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Módulo 1.3:</strong><span class="text-neutral-400"> Slash commands e skills — escopo local/global, $args, regra dos 3 usos</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Módulo 1.4:</strong><span class="text-neutral-400"> Estado persistente — YAML/JSON, escrita atômica, CAS, lockfiles</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Módulo 1.5:</strong><span class="text-neutral-400"> Ambiente — estrutura de repo, testes isolados, logs, SPEC.md, jq/yq/shellcheck</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Módulo 1.6:</strong><span class="text-neutral-400"> Projeto prático — do SPEC ao código, testes de fail-open, iteração incremental</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Módulo 1.6:</strong><span class="text-neutral-400"> Projeto prático — do SPEC ao código, testes de fail-open, iteraçêo incremental</span></div></div>
         </div>
 
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">

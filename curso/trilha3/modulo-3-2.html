@@ -110,7 +110,7 @@
       <h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4 leading-tight">
         🏗️ A Sequência <span class="text-amber-400">Obrigatória</span>
       </h1>
-      <p class="text-lg text-neutral-400 max-w-3xl mb-6">A ordem correta de construção — esqueleto, estado, lógica, segurança — e o que acontece quando você pula etapas.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl mb-6">A ordem correta de construçêo — esqueleto, estado, lógica, segurança — e o que acontece quando você pula etapas.</p>
       <div class="flex flex-wrap gap-4">
         <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
           <span class="text-amber-400 text-lg">📚</span>
@@ -141,20 +141,20 @@
         <h2 class="text-2xl font-bold">🏗️ Esqueleto primeiro</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O <strong class="text-amber-400">scaffold</strong> é a estrutura vazia do sistema — arquivos criados, interfaces declaradas, pontos de integração estabelecidos, mas sem lógica real. É o primeiro prompt de qualquer build bem-feito. Define o contrato externo antes que qualquer comportamento seja implementado.
+        O <strong class="text-amber-400">scaffold</strong> é a estrutura vazia do sistema — arquivos criados, interfaces declaradas, pontos de integraçêo estabelecidos, mas sem lógica real. É o primeiro prompt de qualquer build bem-feito. Define o contrato externo antes que qualquer comportamento seja implementado.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🏗️</span> O que o scaffold entrega</h3>
         <ul class="space-y-2 text-neutral-300">
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Estrutura de diretórios e arquivos do plugin</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Hooks registrados com fail-open por padrão</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Interface de invocação definida (mas não implementada)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Configuração mínima para o sistema ser instalado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Hooks registrados com fail-open por padrêo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Interface de invocaçêo definida (mas nêo implementada)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Configuraçêo mínima para o sistema ser instalado</span></li>
         </ul>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que scaffold antes de lógica</h3>
-        <p class="text-neutral-300">Implementar lógica antes de ter estrutura é construir sobre areia. Quando a arquitetura se mostra inadequada no prompt 4, você reescreve tudo. Com scaffold verificado primeiro, prompts 2-8 são incrementos sobre uma fundação sólida.</p>
+        <p class="text-neutral-300">Implementar lógica antes de ter estrutura é construir sobre areia. Quando a arquitetura se mostra inadequada no prompt 4, você reescreve tudo. Com scaffold verificado primeiro, prompts 2-8 sêo incrementos sobre uma fundaçêo sólida.</p>
       </div>
     </section>
 
@@ -165,7 +165,7 @@
         <h2 class="text-2xl font-bold">⚙️ Estado antes do comportamento</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Depois do scaffold, a segunda camada é a <strong class="text-amber-400">máquina de estados</strong> — representação explícita de quais fases o sistema pode estar e quais transições são válidas. Nenhum comportamento real é implementado até que o estado esteja verificado.
+        Depois do scaffold, a segunda camada é a <strong class="text-amber-400">máquina de estados</strong> — representaçêo explícita de quais fases o sistema pode estar e quais transições sêo válidas. Nenhum comportamento real é implementado até que o estado esteja verificado.
       </p>
       <div class="space-y-4 mb-6">
         <div class="flex items-start space-x-4">
@@ -174,7 +174,7 @@
           </div>
           <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
             <h4 class="font-semibold text-white mb-1">Estado inicial</h4>
-            <p class="text-neutral-300 text-sm">Plugin instalado, sem sessão ativa. Aguardando primeiro trigger.</p>
+            <p class="text-neutral-300 text-sm">Plugin instalado, sem sessêo ativa. Aguardando primeiro trigger.</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
@@ -182,8 +182,8 @@
             <span class="text-amber-400 font-bold text-sm">run</span>
           </div>
           <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
-            <h4 class="font-semibold text-white mb-1">Execução ativa</h4>
-            <p class="text-neutral-300 text-sm">Sessão em andamento. Transições são controladas pelo hook de ciclo de vida.</p>
+            <h4 class="font-semibold text-white mb-1">Execuçêo ativa</h4>
+            <p class="text-neutral-300 text-sm">Sessêo em andamento. Transições sêo controladas pelo hook de ciclo de vida.</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
@@ -191,14 +191,14 @@
             <span class="text-amber-400 font-bold text-sm">done</span>
           </div>
           <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
-            <h4 class="font-semibold text-white mb-1">Sessão encerrada</h4>
+            <h4 class="font-semibold text-white mb-1">Sessêo encerrada</h4>
             <p class="text-neutral-300 text-sm">Ciclo completo. Sistema retorna para idle após cleanup.</p>
           </div>
         </div>
       </div>
       <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
         <h3 class="text-lg font-semibold text-red-400 mb-3">Estado implícito: o bug mais difícil de debugar</h3>
-        <p class="text-neutral-300">Sem máquina de estados explícita, o sistema acumula estado implícito — variáveis globais, flags booleanas, condições aninhadas. Cada um funciona em isolamento, mas a combinação cria comportamentos impossíveis de prever sem executar o código.</p>
+        <p class="text-neutral-300">Sem máquina de estados explícita, o sistema acumula estado implícito — variáveis globais, flags booleanas, condições aninhadas. Cada um funciona em isolamento, mas a combinaçêo cria comportamentos impossíveis de prever sem executar o código.</p>
       </div>
     </section>
 
@@ -209,15 +209,15 @@
         <h2 class="text-2xl font-bold">🧠 Lógica sobre estado</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        A terceira camada implementa o <strong class="text-amber-400">comportamento real</strong> — a lógica de negócio que faz o sistema útil. Esta camada só é construída depois que scaffold e estado estão verificados, porque a lógica depende de ambos para funcionar corretamente.
+        A terceira camada implementa o <strong class="text-amber-400">comportamento real</strong> — a lógica de negócio que faz o sistema útil. Esta camada só é construída depois que scaffold e estado estêo verificados, porque a lógica depende de ambos para funcionar corretamente.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">O que a camada de lógica implementa</h3>
         <ul class="space-y-2 text-neutral-300">
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Leitura do estado atual para tomar decisões</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Execução das ações específicas de cada fase</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Execuçêo das ações específicas de cada fase</span></li>
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Transições de estado baseadas em resultados</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Integração com serviços externos (APIs, modelos)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Integraçêo com serviços externos (APIs, modelos)</span></li>
         </ul>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
@@ -233,7 +233,7 @@
         <h2 class="text-2xl font-bold">🛡️ Segurança por último</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O <strong class="text-amber-400">safety pass</strong> é a quarta e última camada — hardening do sistema com todas as primitivas de segurança. É aplicado sobre um sistema funcionalmente correto, não sobre um sistema em construção.
+        O <strong class="text-amber-400">safety pass</strong> é a quarta e última camada — hardening do sistema com todas as primitivas de segurança. É aplicado sobre um sistema funcionalmente correto, nêo sobre um sistema em construçêo.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
@@ -251,7 +251,7 @@
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Aplicado enquanto lógica ainda tem bugs</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Mascara bugs com tratamento de erro genérico</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Segurança que protege comportamento incorreto</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Bugs de lógica visíveis apenas em produção</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Bugs de lógica visíveis apenas em produçêo</span></li>
           </ul>
         </div>
       </div>
@@ -264,18 +264,18 @@
         <h2 class="text-2xl font-bold">⚠️ O que acontece quando você pula etapas</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Cada padrão de bug em LLM coding tem um diagnóstico. A maioria não vem de código ruim — vem de sequência incorreta. Reconhecer o padrão permite diagnóstico rápido e regressão cirúrgica.
+        Cada padrêo de bug em LLM coding tem um diagnóstico. A maioria nêo vem de código ruim — vem de sequência incorreta. Reconhecer o padrêo permite diagnóstico rápido e regressêo cirúrgica.
       </p>
       <div class="space-y-4 mb-6">
         <div class="bg-dark-800 rounded-xl border border-red-500/30 p-6">
           <h4 class="font-semibold text-red-400 mb-2">Bug de sequência #1: Lógica sem scaffold</h4>
           <p class="text-neutral-300 text-sm mb-2"><strong>Sintoma:</strong> Sistema funciona em testes mas falha ao instalar em outro ambiente</p>
-          <p class="text-neutral-300 text-sm"><strong>Causa:</strong> Estrutura de arquivos e pontos de integração foram assumidos, não especificados</p>
+          <p class="text-neutral-300 text-sm"><strong>Causa:</strong> Estrutura de arquivos e pontos de integraçêo foram assumidos, nêo especificados</p>
         </div>
         <div class="bg-dark-800 rounded-xl border border-red-500/30 p-6">
           <h4 class="font-semibold text-red-400 mb-2">Bug de sequência #2: Lógica sem estado explícito</h4>
-          <p class="text-neutral-300 text-sm mb-2"><strong>Sintoma:</strong> Comportamento correto na primeira execução, incorreto nas seguintes</p>
-          <p class="text-neutral-300 text-sm"><strong>Causa:</strong> Estado implícito acumulado entre execuções sem representação formal</p>
+          <p class="text-neutral-300 text-sm mb-2"><strong>Sintoma:</strong> Comportamento correto na primeira execuçêo, incorreto nas seguintes</p>
+          <p class="text-neutral-300 text-sm"><strong>Causa:</strong> Estado implícito acumulado entre execuções sem representaçêo formal</p>
         </div>
         <div class="bg-dark-800 rounded-xl border border-red-500/30 p-6">
           <h4 class="font-semibold text-red-400 mb-2">Bug de sequência #3: Segurança antes da lógica</h4>
@@ -292,7 +292,7 @@
         <h2 class="text-2xl font-bold">🔄 Sequenciando seu próprio projeto</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Mapear qualquer projeto nas quatro camadas e dividi-las em prompts atômicos é um processo mecânico. A dificuldade está em determinar a granularidade correta — cada prompt deve ser verificável em minutos, não horas.
+        Mapear qualquer projeto nas quatro camadas e dividi-las em prompts atômicos é um processo mecânico. A dificuldade está em determinar a granularidade correta — cada prompt deve ser verificável em minutos, nêo horas.
       </p>
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">O processo de sequenciamento</h3>
@@ -307,17 +307,17 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
-            <span class="text-neutral-300">Divida camadas grandes em prompts menores se a verificação levar mais de 5 minutos</span>
+            <span class="text-neutral-300">Divida camadas grandes em prompts menores se a verificaçêo levar mais de 5 minutos</span>
           </div>
           <div class="flex items-start space-x-3">
             <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
-            <span class="text-neutral-300">Defina o critério de aceitação para cada prompt antes de executar</span>
+            <span class="text-neutral-300">Defina o critério de aceitaçêo para cada prompt antes de executar</span>
           </div>
         </div>
       </div>
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
         <h3 class="text-lg font-semibold text-blue-400 mb-3">Regra de ouro da granularidade</h3>
-        <p class="text-neutral-300">Um projeto típico de plugin Claude Code tem 4-8 prompts. Abaixo de 4, cada prompt está fazendo demais. Acima de 8, a overhead de verificação começa a superar o benefício. Para projetos mais complexos, agrupe por subsistema — não exceda 8 prompts por subsistema.</p>
+        <p class="text-neutral-300">Um projeto típico de plugin Claude Code tem 4-8 prompts. Abaixo de 4, cada prompt está fazendo demais. Acima de 8, a overhead de verificaçêo começa a superar o benefício. Para projetos mais complexos, agrupe por subsistema — nêo exceda 8 prompts por subsistema.</p>
       </div>
     </section>
 
@@ -336,7 +336,7 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">Lógica terceiro</strong><span class="text-neutral-400"> — comportamento real sobre fundação verificada</span></div>
+            <div><strong class="text-white">Lógica terceiro</strong><span class="text-neutral-400"> — comportamento real sobre fundaçêo verificada</span></div>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>

@@ -162,7 +162,7 @@
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A diferença entre prompt e skill</h3>
-        <p class="text-neutral-300">Um prompt você digita toda vez, diferente a cada sessão. Uma skill é <strong class="text-primary">codificada, versionada e consistente</strong> — mesmas instruções toda vez. Use skills para processos que precisam ser repetíveis e auditáveis.</p>
+        <p class="text-neutral-300">Um prompt você digita toda vez, diferente a cada sessêo. Uma skill é <strong class="text-primary">codificada, versionada e consistente</strong> — mesmas instruções toda vez. Use skills para processos que precisam ser repetíveis e auditáveis.</p>
       </div>
     </section>
 
@@ -173,7 +173,7 @@
         <h2 class="text-2xl font-bold">📍 Comandos locais vs globais</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O escopo de um slash command determina onde ele está disponível. <strong class="text-emerald-400">Comandos locais</strong> vivem no repo e são para aquele projeto. <strong class="text-emerald-400">Comandos globais</strong> ficam na home e estão disponíveis em qualquer sessão Claude Code.
+        O escopo de um slash command determina onde ele está disponível. <strong class="text-emerald-400">Comandos locais</strong> vivem no repo e sêo para aquele projeto. <strong class="text-emerald-400">Comandos globais</strong> ficam na home e estêo disponíveis em qualquer sessêo Claude Code.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-dark-800 rounded-xl border border-emerald-500/30 p-6">
@@ -198,7 +198,7 @@
         </div>
       </div>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
-        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📊</span> Exemplo de configuração de ambos</h3>
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📊</span> Exemplo de configuraçêo de ambos</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm overflow-x-auto"><code class="text-neutral-300">// .claude/settings.json (local - para o projeto)
 {
   "commands": {
@@ -232,7 +232,7 @@
         <h2 class="text-2xl font-bold">📜 O que é uma skill</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Uma skill é um <strong class="text-emerald-400">arquivo Markdown com instruções detalhadas</strong> sobre como executar uma tarefa específica. É o "manual de execução" que o Claude recebe quando você aciona um slash command — pode ter contexto, exemplos, regras, checklists e referências.
+        Uma skill é um <strong class="text-emerald-400">arquivo Markdown com instruções detalhadas</strong> sobre como executar uma tarefa específica. É o "manual de execuçêo" que o Claude recebe quando você aciona um slash command — pode ter contexto, exemplos, regras, checklists e referências.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📝</span> Exemplo de skill completa</h3>
@@ -247,14 +247,14 @@ Revisar o PR atual seguindo os padrões de qualidade do projeto.
 2. Para cada arquivo modificado:
    - Verifique nomenclatura (camelCase para funções, PascalCase para classes)
    - Verifique que funções públicas têm testes correspondentes
-   - Verifique que não há `console.log` ou `debugger` residuais
+   - Verifique que nêo há `console.log` ou `debugger` residuais
 3. Verifique cobertura de testes: `npm run test:coverage`
 4. Liste os problemas encontrados por prioridade: CRÍTICO, MAIOR, MENOR
 
 ## Formato do relatório
 
 ```
-## Revisão do PR
+## Revisêo do PR
 
 ### Problemas Críticos (bloqueiam merge)
 - [ ] ...
@@ -270,7 +270,7 @@ Revisar o PR atual seguindo os padrões de qualidade do projeto.
 - Leia `docs/CONTRIBUTING.md` para padrões detalhados</code></pre>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Skills são código, não texto</h3>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Skills sêo código, nêo texto</h3>
         <p class="text-neutral-300">Trate skills como você trata código: <strong class="text-primary">versione no git, escreva mensagens de commit descritivas, revise antes de commitar</strong>. Uma skill mal escrita é como um bug — produz resultados inconsistentes sem avisar.</p>
       </div>
     </section>
@@ -377,7 +377,7 @@ Siga os padrões em `src/components/Button/` como referência.</code></pre>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Validar argumentos na skill</h3>
-        <p class="text-neutral-300">Inclua instrução de validação na skill: <em>"Se $args estiver vazio, pergunte ao usuário qual nome usar antes de prosseguir"</em>. O Claude Code não valida argumentos — é responsabilidade da skill lidar com input ausente ou inválido.</p>
+        <p class="text-neutral-300">Inclua instruçêo de validaçêo na skill: <em>"Se $args estiver vazio, pergunte ao usuário qual nome usar antes de prosseguir"</em>. O Claude Code nêo valida argumentos — é responsabilidade da skill lidar com input ausente ou inválido.</p>
       </div>
     </section>
 
@@ -385,10 +385,10 @@ Siga os padrões em `src/components/Button/` como referência.</code></pre>
     <section id="topico-6" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
-        <h2 class="text-2xl font-bold">✅ Boas práticas — quando criar vs quando não criar</h2>
+        <h2 class="text-2xl font-bold">✅ Boas práticas — quando criar vs quando nêo criar</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Criar um slash command tem custo: você precisa escrever a skill, mantê-la atualizada e garantir que ela funciona em diferentes contextos. <strong class="text-emerald-400">Nem tudo precisa ser um comando</strong> — saber quando não criar é tão importante quanto saber como criar.
+        Criar um slash command tem custo: você precisa escrever a skill, mantê-la atualizada e garantir que ela funciona em diferentes contextos. <strong class="text-emerald-400">Nem tudo precisa ser um comando</strong> — saber quando nêo criar é têo importante quanto saber como criar.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
@@ -402,13 +402,13 @@ Siga os padrões em `src/components/Button/` como referência.</code></pre>
           </ul>
         </div>
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ NÃO crie quando</h4>
+          <h4 class="font-bold text-red-400 mb-4">✗ NêO crie quando</h4>
           <ul class="space-y-3 text-neutral-300 text-sm">
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>A tarefa é única ou raramente repetida</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Um prompt de 2 linhas já resolve</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>As instruções mudam muito a cada uso</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>É apenas preferência pessoal não-crítica</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Você não vai manter atualizado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>É apenas preferência pessoal nêo-crítica</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Você nêo vai manter atualizado</span></li>
           </ul>
         </div>
       </div>
@@ -425,7 +425,7 @@ Siga os padrões em `src/components/Button/` como referência.</code></pre>
         <div class="space-y-4 mb-8">
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Slash commands = atalhos para skills</strong><span class="text-neutral-400"> — /nome carrega e executa um arquivo .md de instruções</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Local vs global</strong><span class="text-neutral-400"> — .claude/ para o projeto, ~/.claude/ para o usuário</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Skills são Markdown versionado</strong><span class="text-neutral-400"> — trate como código, com commits e revisão</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Skills sêo Markdown versionado</strong><span class="text-neutral-400"> — trate como código, com commits e revisêo</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">$args passa parâmetros</strong><span class="text-neutral-400"> — tudo após o nome do comando fica disponível como $args</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Regra dos 3 usos</strong><span class="text-neutral-400"> — crie a skill na 4ª vez que usar o mesmo prompt</span></div></div>
         </div>

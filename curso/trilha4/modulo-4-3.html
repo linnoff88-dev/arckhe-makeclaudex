@@ -138,7 +138,7 @@
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O Prompt 02 constrói a <strong class="text-blue-400">base de estado</strong> do revisor: o arquivo YAML que persiste entre turnos do Claude Code, os helpers para ler/escrever com segurança e o mecanismo de lockfile. Sem isso, o hook do Prompt 03 não tem onde guardar informação.
+        O Prompt 02 constrói a <strong class="text-blue-400">base de estado</strong> do revisor: o arquivo YAML que persiste entre turnos do Claude Code, os helpers para ler/escrever com segurança e o mecanismo de lockfile. Sem isso, o hook do Prompt 03 nêo tem onde guardar informaçêo.
       </p>
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
@@ -248,7 +248,7 @@ Tell me the test results (all 4 should PASS).</code></pre>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O schema não é apenas estrutura — é uma decisão de design. Cada campo responde uma pergunta específica que o hook vai precisar responder durante o loop.
+        O schema nêo é apenas estrutura — é uma decisêo de design. Cada campo responde uma pergunta específica que o hook vai precisar responder durante o loop.
       </p>
       <div class="bg-dark-700 border border-dark-600 rounded-xl overflow-hidden mb-5">
         <div class="grid grid-cols-3 gap-0 text-xs font-semibold uppercase tracking-wide text-neutral-500 bg-dark-600 px-4 py-2">
@@ -275,7 +275,7 @@ Tell me the test results (all 4 should PASS).</code></pre>
           <div class="grid grid-cols-3 gap-0 px-4 py-3 text-sm">
             <span class="text-blue-400 font-mono">round</span>
             <span class="text-neutral-400">int</span>
-            <span class="text-neutral-400 text-xs">Qual rodada de revisão?</span>
+            <span class="text-neutral-400 text-xs">Qual rodada de revisêo?</span>
           </div>
           <div class="grid grid-cols-3 gap-0 px-4 py-3 text-sm">
             <span class="text-blue-400 font-mono">persona</span>
@@ -297,7 +297,7 @@ Tell me the test results (all 4 should PASS).</code></pre>
       <div class="bg-primary/10 border border-primary/40 rounded-xl p-5">
         <div class="flex items-center gap-2 mb-2">
           <span class="text-primary text-lg">⚡</span>
-          <span class="text-primary font-semibold text-sm uppercase tracking-wide">Por que YAML e não JSON</span>
+          <span class="text-primary font-semibold text-sm uppercase tracking-wide">Por que YAML e nêo JSON</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
           YAML é legível por humanos sem ferramenta especial. Você pode abrir state/review.yaml num editor e entender exatamente o estado atual. JSON seria mais estrito, mas menos debugável quando algo dá errado às 23h com um PR urgente.
@@ -313,11 +313,11 @@ Tell me the test results (all 4 should PASS).</code></pre>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100">Escrita Atômica e CAS Aplicados ao Revisor</h2>
-          <p class="text-neutral-400 text-sm mt-1">Estado que nunca corrompe, mesmo com interrupção</p>
+          <p class="text-neutral-400 text-sm mt-1">Estado que nunca corrompe, mesmo com interrupçêo</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Claude Code pode ser interrompido a qualquer momento — Ctrl+C, timeout, crash. Sem primitivas de segurança, a interrupção durante uma escrita deixa o review.yaml corrompido e ilegível.
+        Claude Code pode ser interrompido a qualquer momento — Ctrl+C, timeout, crash. Sem primitivas de segurança, a interrupçêo durante uma escrita deixa o review.yaml corrompido e ilegível.
       </p>
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
@@ -330,14 +330,14 @@ echo "$new_content" > state/review.yaml
 # CORRETO: escrever em tmp e renomear atomicamente
 echo "$new_content" > state/review.yaml.tmp
 mv state/review.yaml.tmp state/review.yaml
-# mv/rename(2) é atômico no mesmo filesystem — não pode ser interrompido</code></pre>
+# mv/rename(2) é atômico no mesmo filesystem — nêo pode ser interrompido</code></pre>
       </div>
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
           <span class="text-blue-400 text-lg">🔄</span>
           <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">Compare-and-Swap (CAS)</span>
         </div>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># CAS: só escreve se a versão que você leu ainda é a atual
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># CAS: só escreve se a versêo que você leu ainda é a atual
 cas_state() {
   local expected_version=$1
   local new_content=$2
@@ -349,7 +349,7 @@ cas_state() {
     return 1  # falha — o chamador deve relêr o estado e tentar novamente
   fi
 
-  # Versão confere — pode escrever (atomicamente)
+  # Versêo confere — pode escrever (atomicamente)
   write_state_atomic "$new_content"
 }</code></pre>
       </div>
@@ -362,24 +362,24 @@ cas_state() {
           <span class="text-blue-400 font-bold text-lg">5</span>
         </div>
         <div>
-          <h2 class="text-2xl font-bold text-neutral-100">Lockfile: Exclusão Mútua</h2>
+          <h2 class="text-2xl font-bold text-neutral-100">Lockfile: Exclusêo Mútua</h2>
           <p class="text-neutral-400 text-sm mt-1">Garantindo que apenas um revisor roda por vez no mesmo repositório</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Se você abrir duas janelas do Claude Code no mesmo repositório, dois revisores podem ser disparados simultaneamente. Eles vão corromper o state/review.yaml um do outro. O lockfile previne isso.
+        Se você abrir duas janelas do Claude Code no mesmo repositório, dois revisores podem ser disparados simultaneamente. Eles vêo corromper o state/review.yaml um do outro. O lockfile previne isso.
       </p>
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
           <span class="text-blue-400 text-lg">🔐</span>
-          <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">flock não-bloqueante</span>
+          <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">flock nêo-bloqueante</span>
         </div>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># -n = non-blocking: falha imediatamente se o lock não está disponível
-# -e = cria o lockfile se não existe
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># -n = non-blocking: falha imediatamente se o lock nêo está disponível
+# -e = cria o lockfile se nêo existe
 exec 9>state/review.lock
 if ! flock -n 9; then
   echo "[pr-reviewer] Another reviewer is already running. Aborting." >&2
-  exit 0  # fail-open: não bloqueia o usuário
+  exit 0  # fail-open: nêo bloqueia o usuário
 fi
 # Lock adquirido — o processo retém o lock até fechar fd 9 (EXIT trap)
 trap 'flock -u 9; rm -f state/review.lock' EXIT</code></pre>
@@ -387,11 +387,11 @@ trap 'flock -u 9; rm -f state/review.lock' EXIT</code></pre>
       <div class="grid sm:grid-cols-2 gap-4">
         <div class="bg-dark-700 border border-dark-600 rounded-xl p-4">
           <p class="text-blue-400 font-semibold text-sm mb-2">Stale Lock (lock fantasma)</p>
-          <p class="text-neutral-400 text-xs leading-relaxed">Se o processo morreu sem liberar o lock, o arquivo state/review.lock existe mas não há processo segurando. O flock detecta isso automaticamente — um arquivo de lock sem processo = lock disponível.</p>
+          <p class="text-neutral-400 text-xs leading-relaxed">Se o processo morreu sem liberar o lock, o arquivo state/review.lock existe mas nêo há processo segurando. O flock detecta isso automaticamente — um arquivo de lock sem processo = lock disponível.</p>
         </div>
         <div class="bg-dark-700 border border-dark-600 rounded-xl p-4">
           <p class="text-blue-400 font-semibold text-sm mb-2">Lock vs CAS</p>
-          <p class="text-neutral-400 text-xs leading-relaxed">O lockfile garante exclusão mútua entre processos. O CAS garante consistência dentro de um processo contra interrupções. Ambos são necessários — são complementares, não alternativos.</p>
+          <p class="text-neutral-400 text-xs leading-relaxed">O lockfile garante exclusêo mútua entre processos. O CAS garante consistência dentro de um processo contra interrupções. Ambos sêo necessários — sêo complementares, nêo alternativos.</p>
         </div>
       </div>
     </section>
@@ -403,12 +403,12 @@ trap 'flock -u 9; rm -f state/review.lock' EXIT</code></pre>
           <span class="text-blue-400 font-bold text-lg">6</span>
         </div>
         <div>
-          <h2 class="text-2xl font-bold text-neutral-100">Verificação: Testar CAS e Atomicidade em Isolamento</h2>
+          <h2 class="text-2xl font-bold text-neutral-100">Verificaçêo: Testar CAS e Atomicidade em Isolamento</h2>
           <p class="text-neutral-400 text-sm mt-1">Antes de avançar para o Prompt 03</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        CAS e atomicidade são difíceis de debugar quando estão integrados com o hook completo. Testar agora, com o sistema simples, é a estratégia correta.
+        CAS e atomicidade sêo difíceis de debugar quando estêo integrados com o hook completo. Testar agora, com o sistema simples, é a estratégia correta.
       </p>
       <div class="space-y-3 mb-6">
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
@@ -455,9 +455,9 @@ trap 'flock -u 9; rm -f state/review.lock' EXIT</code></pre>
         <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 4.3</h2>
         <div class="space-y-4 mb-8">
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Estado YAML</strong><span class="text-neutral-400"> — schema com 8 campos tipados, cada um com propósito explícito</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Escrita atômica</strong><span class="text-neutral-400"> — tmp + rename, impossível de corromper por interrupção</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Escrita atômica</strong><span class="text-neutral-400"> — tmp + rename, impossível de corromper por interrupçêo</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CAS implementado</strong><span class="text-neutral-400"> — conflitos detectados e reportados sem corromper o estado</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Lockfile non-blocking</strong><span class="text-neutral-400"> — exclusão mútua sem risco de deadlock</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Lockfile non-blocking</strong><span class="text-neutral-400"> — exclusêo mútua sem risco de deadlock</span></div></div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>

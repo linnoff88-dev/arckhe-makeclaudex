@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 4.6 — Prompt 05: Safety Pass e Produção | Engenharia com Claude Code</title>
+  <title>Módulo 4.6 — Prompt 05: Safety Pass e Produçêo | Engenharia com Claude Code</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -102,7 +102,7 @@
       <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-blue-500/20 text-blue-400 border border-blue-500/30">MÓDULO 4.6</span>
     </div>
     <h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-6 leading-tight">
-      Prompt 05 — <span class="text-blue-400">Safety Pass e Produção</span>
+      Prompt 05 — <span class="text-blue-400">Safety Pass e Produçêo</span>
     </h1>
     <div class="flex flex-wrap gap-4">
       <div class="flex items-center space-x-2 bg-dark-800 border border-dark-600 rounded-lg px-4 py-2">
@@ -134,11 +134,11 @@
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100">O que o Prompt 05 Entrega</h2>
-          <p class="text-neutral-400 text-sm mt-1">Auditoria das 6 primitivas + integração GitHub + configuração por repo</p>
+          <p class="text-neutral-400 text-sm mt-1">Auditoria das 6 primitivas + integraçêo GitHub + configuraçêo por repo</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O Prompt 05 é o <strong class="text-blue-400">safety pass</strong> — o prompt que transforma um plugin que funciona em condições ideais em um plugin que funciona em produção. Toda edge case não coberta aqui vai manifestar no pior momento possível.
+        O Prompt 05 é o <strong class="text-blue-400">safety pass</strong> — o prompt que transforma um plugin que funciona em condições ideais em um plugin que funciona em produçêo. Toda edge case nêo coberta aqui vai manifestar no pior momento possível.
       </p>
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
@@ -147,8 +147,8 @@
         </div>
         <div class="space-y-2 text-sm text-neutral-300">
           <div class="flex gap-3"><span class="text-blue-400 font-mono font-bold">1.</span><span>Auditoria de todos os scripts contra as 6 primitivas de segurança</span></div>
-          <div class="flex gap-3"><span class="text-blue-400 font-mono font-bold">2.</span><span>Integração <code class="bg-dark-700 px-1 py-0.5 rounded text-blue-400">gh pr comment</code> para postar relatório no PR</span></div>
-          <div class="flex gap-3"><span class="text-blue-400 font-mono font-bold">3.</span><span>Arquivo <code class="bg-dark-700 px-1 py-0.5 rounded text-blue-400">.claude/review-config.yaml</code> com configuração por repo</span></div>
+          <div class="flex gap-3"><span class="text-blue-400 font-mono font-bold">2.</span><span>Integraçêo <code class="bg-dark-700 px-1 py-0.5 rounded text-blue-400">gh pr comment</code> para postar relatório no PR</span></div>
+          <div class="flex gap-3"><span class="text-blue-400 font-mono font-bold">3.</span><span>Arquivo <code class="bg-dark-700 px-1 py-0.5 rounded text-blue-400">.claude/review-config.yaml</code> com configuraçêo por repo</span></div>
           <div class="flex gap-3"><span class="text-blue-400 font-mono font-bold">4.</span><span>Teste E2E completo: PR real → 3 rodadas → relatório → comment</span></div>
         </div>
       </div>
@@ -268,18 +268,18 @@ Create `tests/e2e-test.sh &lt;pr_number&gt;`:
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100">O Safety Pass</h2>
-          <p class="text-neutral-400 text-sm mt-1">As 6 primitivas que todo plugin de produção deve ter</p>
+          <p class="text-neutral-400 text-sm mt-1">As 6 primitivas que todo plugin de produçêo deve ter</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Cada primitiva cobre uma classe de falha diferente. Ausência de uma única primitiva é suficiente para transformar um edge case comum em uma corrupção de estado irrecuperável.
+        Cada primitiva cobre uma classe de falha diferente. Ausência de uma única primitiva é suficiente para transformar um edge case comum em uma corrupçêo de estado irrecuperável.
       </p>
       <div class="space-y-3 mb-6">
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-bold">1</span>
           <div>
             <p class="text-neutral-200 font-semibold text-sm">ERR trap em todo script</p>
-            <p class="text-neutral-400 text-xs mt-1">Qualquer erro não tratado é capturado. O hook não lança exceção para o Claude Code. Exit 0 sempre.</p>
+            <p class="text-neutral-400 text-xs mt-1">Qualquer erro nêo tratado é capturado. O hook nêo lança exceçêo para o Claude Code. Exit 0 sempre.</p>
             <p class="text-blue-400 text-xs mt-1 font-mono">Falha coberta: erro de bash inesperado em qualquer linha</p>
           </div>
         </div>
@@ -288,13 +288,13 @@ Create `tests/e2e-test.sh &lt;pr_number&gt;`:
           <div>
             <p class="text-neutral-200 font-semibold text-sm">Escrita atômica universal</p>
             <p class="text-neutral-400 text-xs mt-1">Todo write de estado usa tmp + rename. Nunca escrita direta.</p>
-            <p class="text-blue-400 text-xs mt-1 font-mono">Falha coberta: interrupção durante escrita → arquivo corrompido</p>
+            <p class="text-blue-400 text-xs mt-1 font-mono">Falha coberta: interrupçêo durante escrita → arquivo corrompido</p>
           </div>
         </div>
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-bold">3</span>
           <div>
-            <p class="text-neutral-200 font-semibold text-sm">CAS em toda transição de estado</p>
+            <p class="text-neutral-200 font-semibold text-sm">CAS em toda transiçêo de estado</p>
             <p class="text-neutral-400 text-xs mt-1">Toda mudança de status verifica version antes de escrever.</p>
             <p class="text-blue-400 text-xs mt-1 font-mono">Falha coberta: duas instâncias modificando estado simultaneamente</p>
           </div>
@@ -303,14 +303,14 @@ Create `tests/e2e-test.sh &lt;pr_number&gt;`:
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-bold">4</span>
           <div>
             <p class="text-neutral-200 font-semibold text-sm">Lockfile com varredor de stale</p>
-            <p class="text-neutral-400 text-xs mt-1">flock não-bloqueante + verificação de stale locks de processos mortos.</p>
-            <p class="text-blue-400 text-xs mt-1 font-mono">Falha coberta: crash deixa lock órfão, bloqueando execuções futuras</p>
+            <p class="text-neutral-400 text-xs mt-1">flock nêo-bloqueante + verificaçêo de stale locks de processos mortos.</p>
+            <p class="text-blue-400 text-xs mt-1 font-mono">Falha coberta: crash deixa lock órfêo, bloqueando execuções futuras</p>
           </div>
         </div>
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-bold">5</span>
           <div>
-            <p class="text-neutral-200 font-semibold text-sm">Validação de paths</p>
+            <p class="text-neutral-200 font-semibold text-sm">Validaçêo de paths</p>
             <p class="text-neutral-400 text-xs mt-1">worktree_path deve começar com /tmp/pr-review- antes de qualquer uso.</p>
             <p class="text-blue-400 text-xs mt-1 font-mono">Falha coberta: path traversal acidental ou malformado apaga dados</p>
           </div>
@@ -319,7 +319,7 @@ Create `tests/e2e-test.sh &lt;pr_number&gt;`:
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-bold">6</span>
           <div>
             <p class="text-neutral-200 font-semibold text-sm">Timeout em subprocessos</p>
-            <p class="text-neutral-400 text-xs mt-1">Todo `claude --print` envolto em `timeout 120`. Runner não bloqueia indefinidamente.</p>
+            <p class="text-neutral-400 text-xs mt-1">Todo `claude --print` envolto em `timeout 120`. Runner nêo bloqueia indefinidamente.</p>
             <p class="text-blue-400 text-xs mt-1 font-mono">Falha coberta: API travada deixa o loop preso para sempre</p>
           </div>
         </div>
@@ -333,12 +333,12 @@ Create `tests/e2e-test.sh &lt;pr_number&gt;`:
           <span class="text-blue-400 font-bold text-lg">4</span>
         </div>
         <div>
-          <h2 class="text-2xl font-bold text-neutral-100">Integração GitHub</h2>
+          <h2 class="text-2xl font-bold text-neutral-100">Integraçêo GitHub</h2>
           <p class="text-neutral-400 text-sm mt-1">gh pr comment com o relatório gerado automaticamente</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Postar o relatório diretamente no PR elimina o passo manual. A revisão aparece no contexto onde o time já está discutindo — sem precisar abrir outro arquivo.
+        Postar o relatório diretamente no PR elimina o passo manual. A revisêo aparece no contexto onde o time já está discutindo — sem precisar abrir outro arquivo.
       </p>
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
@@ -353,7 +353,7 @@ if [ -z "$REPORT_FILE" ]; then
   exit 0
 fi
 
-# Postar no PR (fail gracefully se gh não está disponível)
+# Postar no PR (fail gracefully se gh nêo está disponível)
 if command -v gh &gt;/dev/null 2>&amp;1; then
   gh pr comment "$PR_NUMBER" \
     --body-file "$REPORT_FILE" \
@@ -363,11 +363,11 @@ fi</code></pre>
       <div class="grid sm:grid-cols-2 gap-4">
         <div class="bg-dark-700 border border-dark-600 rounded-xl p-4">
           <p class="text-blue-400 font-semibold text-sm mb-2">min_severity filter</p>
-          <p class="text-neutral-400 text-xs">Se min_severity=HIGH, apenas findings CRITICAL e HIGH vão para o comment. MEDIUM e LOW ficam no relatório local mas não são postados — reduz ruído no PR.</p>
+          <p class="text-neutral-400 text-xs">Se min_severity=HIGH, apenas findings CRITICAL e HIGH vêo para o comment. MEDIUM e LOW ficam no relatório local mas nêo sêo postados — reduz ruído no PR.</p>
         </div>
         <div class="bg-dark-700 border border-dark-600 rounded-xl p-4">
           <p class="text-blue-400 font-semibold text-sm mb-2">post_to_github: false</p>
-          <p class="text-neutral-400 text-xs">Para repos onde você não quer comentários automáticos (ex: OSS público), desabilitar no review-config.yaml. O relatório ainda é salvo localmente.</p>
+          <p class="text-neutral-400 text-xs">Para repos onde você nêo quer comentários automáticos (ex: OSS público), desabilitar no review-config.yaml. O relatório ainda é salvo localmente.</p>
         </div>
       </div>
     </section>
@@ -379,12 +379,12 @@ fi</code></pre>
           <span class="text-blue-400 font-bold text-lg">5</span>
         </div>
         <div>
-          <h2 class="text-2xl font-bold text-neutral-100">Configuração por Repositório</h2>
+          <h2 class="text-2xl font-bold text-neutral-100">Configuraçêo por Repositório</h2>
           <p class="text-neutral-400 text-sm mt-1">.claude/review-config.yaml — defaults que o time pode ajustar</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Hardcoded defaults funcionam para um repo mas não para todos. Configuração por repo permite que cada time ajuste o revisor ao seu contexto sem modificar o código do plugin.
+        Hardcoded defaults funcionam para um repo mas nêo para todos. Configuraçêo por repo permite que cada time ajuste o revisor ao seu contexto sem modificar o código do plugin.
       </p>
       <div class="mb-5">
         <p class="text-neutral-400 text-sm font-semibold uppercase tracking-wide mb-3">Exemplo de review-config.yaml</p>
@@ -428,25 +428,25 @@ max_diff_lines: 3000</code></pre>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100">E2E Sintético</h2>
-          <p class="text-neutral-400 text-sm mt-1">Rodando o revisor completo num PR de teste — validação ponta a ponta</p>
+          <p class="text-neutral-400 text-sm mt-1">Rodando o revisor completo num PR de teste — validaçêo ponta a ponta</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O teste E2E é o único que valida a integração ponta a ponta. Cada ponto de integração — Claude Code → hook → worktree → runner → relatório → GitHub — pode falhar silenciosamente. Este teste confirma que todos funcionam juntos.
+        O teste E2E é o único que valida a integraçêo ponta a ponta. Cada ponto de integraçêo — Claude Code → hook → worktree → runner → relatório → GitHub — pode falhar silenciosamente. Este teste confirma que todos funcionam juntos.
       </p>
       <div class="space-y-3 mb-6">
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-mono text-sm">1</span>
           <div>
             <p class="text-neutral-200 text-sm font-semibold">Criar PR de teste no GitHub</p>
-            <p class="text-neutral-400 text-xs mt-1">Um PR real com pelo menos um arquivo modificado. Não precisa ter bugs — é para validar o fluxo, não a qualidade da revisão.</p>
+            <p class="text-neutral-400 text-xs mt-1">Um PR real com pelo menos um arquivo modificado. Nêo precisa ter bugs — é para validar o fluxo, nêo a qualidade da revisêo.</p>
           </div>
         </div>
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-mono text-sm">2</span>
           <div>
             <p class="text-neutral-200 text-sm font-semibold">Rodar o plugin completo</p>
-            <p class="text-neutral-400 text-xs mt-1">Invocar `/pr-reviewer NNN` no Claude Code. Observar as 3 rodadas completarem. Não interferir — deixar o loop rodar até DONE.</p>
+            <p class="text-neutral-400 text-xs mt-1">Invocar `/pr-reviewer NNN` no Claude Code. Observar as 3 rodadas completarem. Nêo interferir — deixar o loop rodar até DONE.</p>
           </div>
         </div>
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
@@ -459,8 +459,8 @@ max_diff_lines: 3000</code></pre>
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-mono text-sm">4</span>
           <div>
-            <p class="text-neutral-200 text-sm font-semibold">Verificar integração GitHub</p>
-            <p class="text-neutral-400 text-xs mt-1">Abrir o PR no GitHub. O comentário do revisor deve estar lá. Se não está, verificar: gh autenticado? post_to_github: true? gh pr comment rodou sem erro?</p>
+            <p class="text-neutral-200 text-sm font-semibold">Verificar integraçêo GitHub</p>
+            <p class="text-neutral-400 text-xs mt-1">Abrir o PR no GitHub. O comentário do revisor deve estar lá. Se nêo está, verificar: gh autenticado? post_to_github: true? gh pr comment rodou sem erro?</p>
           </div>
         </div>
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
@@ -478,7 +478,7 @@ max_diff_lines: 3000</code></pre>
           <span class="text-primary font-semibold text-sm uppercase tracking-wide">Plugin Completo</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          Se o E2E passa — incluindo o teste de falha e recovery — o plugin pr-reviewer está pronto para produção. Você construiu um segundo plugin seguindo os mesmos 5 prompts incrementais da Trilha 2, aplicados a um sistema mais complexo com integração externa.
+          Se o E2E passa — incluindo o teste de falha e recovery — o plugin pr-reviewer está pronto para produçêo. Você construiu um segundo plugin seguindo os mesmos 5 prompts incrementais da Trilha 2, aplicados a um sistema mais complexo com integraçêo externa.
         </p>
       </div>
 
@@ -491,7 +491,7 @@ max_diff_lines: 3000</code></pre>
           <div class="flex gap-2"><span class="text-blue-400 mt-0.5">→</span><span class="text-neutral-300">Instalar em repos reais da sua equipe</span></div>
           <div class="flex gap-2"><span class="text-blue-400 mt-0.5">→</span><span class="text-neutral-300">Adicionar personas específicas do domínio (ex: compliance, GDPR)</span></div>
           <div class="flex gap-2"><span class="text-blue-400 mt-0.5">→</span><span class="text-neutral-300">Criar um 6° prompt para CI/CD integration (GitHub Actions trigger)</span></div>
-          <div class="flex gap-2"><span class="text-blue-400 mt-0.5">→</span><span class="text-neutral-300">Aplicar o mesmo padrão para construir outros plugins</span></div>
+          <div class="flex gap-2"><span class="text-blue-400 mt-0.5">→</span><span class="text-neutral-300">Aplicar o mesmo padrêo para construir outros plugins</span></div>
         </div>
       </div>
     </section>
@@ -503,13 +503,13 @@ max_diff_lines: 3000</code></pre>
         <div class="space-y-4 mb-8">
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Módulo 4.1</strong><span class="text-neutral-400"> — SPEC.md completo antes do primeiro prompt</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Prompt 01</strong><span class="text-neutral-400"> — Scaffold + worktree com idempotência e fail-open</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Prompt 02</strong><span class="text-neutral-400"> — Estado YAML atômico, CAS e lockfile não-bloqueante</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Prompt 02</strong><span class="text-neutral-400"> — Estado YAML atômico, CAS e lockfile nêo-bloqueante</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Prompt 03</strong><span class="text-neutral-400"> — Stop Hook engine com máquina de estados SETUP→DONE</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Prompt 04</strong><span class="text-neutral-400"> — 3 personas (Author, Reviewer, Security) + relatório estruturado</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Prompt 05</strong><span class="text-neutral-400"> — Safety pass com 6 primitivas + gh integration + E2E test</span></div></div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
-          <h3 class="font-semibold text-blue-400 mb-2">O padrão que você aprendeu:</h3>
+          <h3 class="font-semibold text-blue-400 mb-2">O padrêo que você aprendeu:</h3>
           <p class="text-neutral-300 text-sm">SPEC.md → Scaffold → Estado → Loop → Conteúdo → Safety. Cinco prompts incrementais, cada um verificado antes do próximo. Este é o método para construir qualquer plugin Claude Code complexo.</p>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">

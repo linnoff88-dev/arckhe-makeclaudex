@@ -138,14 +138,14 @@
         <h2 class="text-2xl font-bold">🎣 O que é um hook e por que ele existe</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um hook é um <strong class="text-emerald-400">ponto de extensão no loop do Claude Code</strong>. Em vez de modificar o comportamento do modelo em si, hooks permitem que scripts externos observem e controlem o que o Claude faz — sem substituir sua inteligência, apenas interceptando suas ações.
+        Um hook é um <strong class="text-emerald-400">ponto de extensêo no loop do Claude Code</strong>. Em vez de modificar o comportamento do modelo em si, hooks permitem que scripts externos observem e controlem o que o Claude faz — sem substituir sua inteligência, apenas interceptando suas ações.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔌</span> O papel do hook no sistema</h3>
-        <p class="text-neutral-300 mb-4">Pense em hooks como guardas de segurança em uma fábrica. O Claude Code é o engenheiro que decide o que fazer — os hooks são os protocolos de segurança que ele deve respeitar antes de executar certas ações.</p>
+        <p class="text-neutral-300 mb-4">Pense em hooks como guardas de segurança em uma fábrica. O Claude Code é o engenheiro que decide o que fazer — os hooks sêo os protocolos de segurança que ele deve respeitar antes de executar certas ações.</p>
         <ul class="space-y-2 text-neutral-300 text-sm">
           <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Observar:</strong> ver tudo que o Claude faz (PostToolUse) sem interferir</span></li>
-          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Validar:</strong> verificar se uma ação está de acordo com as regras (PreToolUse)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Validar:</strong> verificar se uma açêo está de acordo com as regras (PreToolUse)</span></li>
           <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Bloquear:</strong> impedir ações que violam políticas de segurança</span></li>
           <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Notificar:</strong> enviar alertas quando eventos importantes acontecem</span></li>
         </ul>
@@ -158,17 +158,17 @@
             <li>• Logar todas as escritas de arquivo em auditoria</li>
             <li>• Notificar Slack quando Claude finaliza uma tarefa</li>
             <li>• Validar que código segue padrões antes de salvar</li>
-            <li>• Impedir deleção de arquivos em diretórios críticos</li>
+            <li>• Impedir deleçêo de arquivos em diretórios críticos</li>
           </ul>
         </div>
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-3">✗ O que hooks NÃO fazem</h4>
+          <h4 class="font-bold text-red-400 mb-3">✗ O que hooks NêO fazem</h4>
           <ul class="space-y-2 text-neutral-300 text-sm">
-            <li>• Não modificam o que o Claude pensa</li>
-            <li>• Não têm acesso ao histórico de conversa</li>
-            <li>• Não podem modificar o output da ferramenta (PostToolUse)</li>
-            <li>• Não substituem CLAUDE.md para instruções persistentes</li>
-            <li>• Não são adequados para lógica de negócio complexa</li>
+            <li>• Nêo modificam o que o Claude pensa</li>
+            <li>• Nêo têm acesso ao histórico de conversa</li>
+            <li>• Nêo podem modificar o output da ferramenta (PostToolUse)</li>
+            <li>• Nêo substituem CLAUDE.md para instruções persistentes</li>
+            <li>• Nêo sêo adequados para lógica de negócio complexa</li>
           </ul>
         </div>
       </div>
@@ -188,8 +188,8 @@
           <div class="flex items-start space-x-4">
             <span class="bg-emerald-500/20 text-emerald-400 font-bold px-3 py-1 rounded-lg text-sm flex-shrink-0">PreToolUse</span>
             <div>
-              <p class="text-neutral-300 text-sm mb-2">Executado <strong>antes</strong> da ferramenta rodar. É o único tipo que pode bloquear a execução com exit code 1. Recebe o nome da ferramenta e seus parâmetros.</p>
-              <p class="text-neutral-500 text-xs">Uso: validação, bloqueio de ações perigosas, auditoria preventiva</p>
+              <p class="text-neutral-300 text-sm mb-2">Executado <strong>antes</strong> da ferramenta rodar. É o único tipo que pode bloquear a execuçêo com exit code 1. Recebe o nome da ferramenta e seus parâmetros.</p>
+              <p class="text-neutral-500 text-xs">Uso: validaçêo, bloqueio de ações perigosas, auditoria preventiva</p>
             </div>
           </div>
         </div>
@@ -197,8 +197,8 @@
           <div class="flex items-start space-x-4">
             <span class="bg-dark-700 text-neutral-400 font-bold px-3 py-1 rounded-lg text-sm flex-shrink-0">PostToolUse</span>
             <div>
-              <p class="text-neutral-300 text-sm mb-2">Executado <strong>após</strong> a ferramenta rodar. Não pode bloquear retroativamente. Recebe o resultado da execução. Ideal para logging e notificações.</p>
-              <p class="text-neutral-500 text-xs">Uso: auditoria de ações executadas, logs, gatilhos pós-ação</p>
+              <p class="text-neutral-300 text-sm mb-2">Executado <strong>após</strong> a ferramenta rodar. Nêo pode bloquear retroativamente. Recebe o resultado da execuçêo. Ideal para logging e notificações.</p>
+              <p class="text-neutral-500 text-xs">Uso: auditoria de ações executadas, logs, gatilhos pós-açêo</p>
             </div>
           </div>
         </div>
@@ -206,8 +206,8 @@
           <div class="flex items-start space-x-4">
             <span class="bg-dark-700 text-neutral-400 font-bold px-3 py-1 rounded-lg text-sm flex-shrink-0">Stop</span>
             <div>
-              <p class="text-neutral-300 text-sm mb-2">Executado quando o Claude finaliza uma resposta ou tarefa. Não recebe dados de ferramenta. Ideal para cleanup, resumos e notificações de conclusão.</p>
-              <p class="text-neutral-500 text-xs">Uso: notificações de conclusão, limpeza de estado temporário, relatórios</p>
+              <p class="text-neutral-300 text-sm mb-2">Executado quando o Claude finaliza uma resposta ou tarefa. Nêo recebe dados de ferramenta. Ideal para cleanup, resumos e notificações de conclusêo.</p>
+              <p class="text-neutral-500 text-xs">Uso: notificações de conclusêo, limpeza de estado temporário, relatórios</p>
             </div>
           </div>
         </div>
@@ -215,7 +215,7 @@
           <div class="flex items-start space-x-4">
             <span class="bg-dark-700 text-neutral-400 font-bold px-3 py-1 rounded-lg text-sm flex-shrink-0">Notification</span>
             <div>
-              <p class="text-neutral-300 text-sm mb-2">Executado para eventos assíncronos e alertas do sistema. Menos comum que os outros — usado para integração com sistemas externos de monitoramento.</p>
+              <p class="text-neutral-300 text-sm mb-2">Executado para eventos assíncronos e alertas do sistema. Menos comum que os outros — usado para integraçêo com sistemas externos de monitoramento.</p>
               <p class="text-neutral-500 text-xs">Uso: integrações com Slack, PagerDuty, sistemas de monitoramento</p>
             </div>
           </div>
@@ -230,7 +230,7 @@
         <h2 class="text-2xl font-bold">⚙️ Como o Claude Code executa um hook</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O mecanismo de execução é simples e robusto: o Claude Code abre um <strong class="text-emerald-400">subprocess com o comando do hook</strong>, passa um JSON via stdin com o contexto do evento e lê o resultado para tomar decisões.
+        O mecanismo de execuçêo é simples e robusto: o Claude Code abre um <strong class="text-emerald-400">subprocess com o comando do hook</strong>, passa um JSON via stdin com o contexto do evento e lê o resultado para tomar decisões.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📊</span> O payload JSON de um PreToolUse Bash</h3>
@@ -248,7 +248,7 @@
 }</code></pre>
       </div>
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🔄</span> O fluxo completo de execução</h3>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🔄</span> O fluxo completo de execuçêo</h3>
         <div class="space-y-3 text-sm text-neutral-300">
           <div class="flex items-start space-x-3">
             <span class="text-blue-400 font-bold">1.</span><span>Claude decide usar a ferramenta Bash com o comando "git commit -m 'fix bug'"</span>
@@ -276,13 +276,13 @@
         <h2 class="text-2xl font-bold">🚦 Retorno de exit code: BLOCK vs APPROVE</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O protocolo de comunicação entre o hook e o Claude Code é simples e deliberadamente minimalista: <strong class="text-emerald-400">exit code 0 aprova, exit code 1 bloqueia</strong>. A mensagem de bloqueio vai via stderr e é vista pelo Claude como contexto de erro.
+        O protocolo de comunicaçêo entre o hook e o Claude Code é simples e deliberadamente minimalista: <strong class="text-emerald-400">exit code 0 aprova, exit code 1 bloqueia</strong>. A mensagem de bloqueio vai via stderr e é vista pelo Claude como contexto de erro.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
           <h4 class="font-bold text-emerald-400 mb-4">✓ Exit 0 — APPROVE</h4>
           <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300">#!/bin/bash
-# Validação passou
+# Validaçêo passou
 echo "Commit aprovado" >&2
 exit 0  # Ferramenta executa</code></pre>
         </div>
@@ -297,7 +297,7 @@ exit 1  # Ferramenta bloqueada</code></pre>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O Claude lê o stderr</h3>
-        <p class="text-neutral-300">Quando o hook retorna exit 1, o <strong class="text-primary">conteúdo do stderr é injetado no contexto do Claude</strong> como mensagem de erro. Isso significa que você pode fornecer instruções no stderr para guiar o Claude a corrigir a ação — não apenas dizer "bloqueado".</p>
+        <p class="text-neutral-300">Quando o hook retorna exit 1, o <strong class="text-primary">conteúdo do stderr é injetado no contexto do Claude</strong> como mensagem de erro. Isso significa que você pode fornecer instruções no stderr para guiar o Claude a corrigir a açêo — nêo apenas dizer "bloqueado".</p>
       </div>
     </section>
 
@@ -308,26 +308,26 @@ exit 1  # Ferramenta bloqueada</code></pre>
         <h2 class="text-2xl font-bold">🛡️ Fail-open: quando o hook falha</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O Claude Code implementa <strong class="text-emerald-400">fail-open por design</strong>: se um hook falhar por qualquer motivo — erro de sintaxe, timeout, jq não instalado, exceção não tratada — o Claude Code <em>ignora</em> o hook e continua. A ferramenta executa como se o hook não existisse.
+        O Claude Code implementa <strong class="text-emerald-400">fail-open por design</strong>: se um hook falhar por qualquer motivo — erro de sintaxe, timeout, jq nêo instalado, exceçêo nêo tratada — o Claude Code <em>ignora</em> o hook e continua. A ferramenta executa como se o hook nêo existisse.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🤔</span> Por que fail-open e não fail-closed?</h3>
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🤔</span> Por que fail-open e nêo fail-closed?</h3>
         <p class="text-neutral-300 mb-4">Fail-closed (bloquear quando o hook falha) parece mais seguro, mas criaria um problema grave: qualquer bug no hook travaria completamente o Claude Code. Em ambientes de desenvolvimento, isso seria inaceitável.</p>
-        <p class="text-neutral-300">A escolha de fail-open significa que <strong class="text-emerald-400">hooks são um caminho adicional de segurança, não o único</strong>. Para garantias críticas, você precisa de outros controles além dos hooks.</p>
+        <p class="text-neutral-300">A escolha de fail-open significa que <strong class="text-emerald-400">hooks sêo um caminho adicional de segurança, nêo o único</strong>. Para garantias críticas, você precisa de outros controles além dos hooks.</p>
       </div>
       <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Cenários de fail-open</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span><code class="bg-dark-700 px-1 rounded">jq</code> não está instalado no ambiente do hook</span></li>
-          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>O script do hook não tem permissão de execução (chmod +x esquecido)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span><code class="bg-dark-700 px-1 rounded">jq</code> nêo está instalado no ambiente do hook</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>O script do hook nêo tem permissêo de execuçêo (chmod +x esquecido)</span></li>
           <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>O hook demora mais que o timeout configurado</span></li>
           <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>Erro de sintaxe no shell script (bash falha ao iniciar)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>O arquivo do hook não existe no caminho especificado no settings.json</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>O arquivo do hook nêo existe no caminho especificado no settings.json</span></li>
         </ul>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como detectar falhas silenciosas</h3>
-        <p class="text-neutral-300">Sempre adicione logging no início do hook: <code class="bg-dark-700 px-1 rounded">echo "[$(date)] Hook iniciado" &gt;&gt; .claude/logs/hooks.log</code>. Se o log não aparecer quando esperado, o hook está falhando antes de executar.</p>
+        <p class="text-neutral-300">Sempre adicione logging no início do hook: <code class="bg-dark-700 px-1 rounded">echo "[$(date)] Hook iniciado" &gt;&gt; .claude/logs/hooks.log</code>. Se o log nêo aparecer quando esperado, o hook está falhando antes de executar.</p>
       </div>
     </section>
 
@@ -338,7 +338,7 @@ exit 1  # Ferramenta bloqueada</code></pre>
         <h2 class="text-2xl font-bold">📝 Escrevendo seu primeiro hook em shell script</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um hook mínimo funcional em bash: lê o JSON do stdin, extrai o campo relevante com jq, aplica a lógica e retorna o exit code correto. Abaixo, um exemplo completo de um hook que bloqueia comandos <code class="bg-dark-700 px-1 rounded">rm -rf</code> sem confirmação.
+        Um hook mínimo funcional em bash: lê o JSON do stdin, extrai o campo relevante com jq, aplica a lógica e retorna o exit code correto. Abaixo, um exemplo completo de um hook que bloqueia comandos <code class="bg-dark-700 px-1 rounded">rm -rf</code> sem confirmaçêo.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💻</span> Hook completo: bloquear rm -rf</h3>
@@ -399,7 +399,7 @@ exit 0</code></pre>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Checklist antes de ativar</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-primary">✓</span><span><code class="bg-dark-700 px-1 rounded">chmod +x .claude/hooks/block-rm-rf.sh</code> — permissão de execução</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">✓</span><span><code class="bg-dark-700 px-1 rounded">chmod +x .claude/hooks/block-rm-rf.sh</code> — permissêo de execuçêo</span></li>
           <li class="flex items-start space-x-2"><span class="text-primary">✓</span><span><code class="bg-dark-700 px-1 rounded">echo '{"tool":{"name":"Bash","input":{"command":"rm -rf /"}}}' | ./block-rm-rf.sh</code> — teste manual</span></li>
           <li class="flex items-start space-x-2"><span class="text-primary">✓</span><span>Verifica o exit code: <code class="bg-dark-700 px-1 rounded">echo $?</code> deve retornar 1 para o comando bloqueado</span></li>
           <li class="flex items-start space-x-2"><span class="text-primary">✓</span><span>Verifica que o log foi criado em <code class="bg-dark-700 px-1 rounded">.claude/logs/hooks.log</code></span></li>
@@ -412,10 +412,10 @@ exit 0</code></pre>
       <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
         <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 1.2</h2>
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Hooks interceptam, não substituem</strong><span class="text-neutral-400"> — eles estendem o Claude Code sem alterar sua inteligência</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Hooks interceptam, nêo substituem</strong><span class="text-neutral-400"> — eles estendem o Claude Code sem alterar sua inteligência</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">4 tipos: PreToolUse, PostToolUse, Stop, Notification</strong><span class="text-neutral-400"> — só PreToolUse bloqueia</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Protocolo: stdin JSON → lógica → exit code</strong><span class="text-neutral-400"> — 0 aprova, 1 bloqueia com stderr</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Fail-open por design</strong><span class="text-neutral-400"> — hooks que falham não travam o Claude Code</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Fail-open por design</strong><span class="text-neutral-400"> — hooks que falham nêo travam o Claude Code</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Estrutura de um hook mínimo</strong><span class="text-neutral-400"> — cat stdin, jq parse, lógica, exit 0 ou 1</span></div></div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">

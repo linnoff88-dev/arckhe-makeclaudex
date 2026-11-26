@@ -137,15 +137,15 @@
         <h2 class="text-2xl font-bold">🎯 O princípio: cada prompt entrega uma camada verificável</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Atomicidade de entrega</strong> significa que cada prompt entrega exatamente uma camada do sistema — completa, testável, com critério de aceitação claro. Não uma parte de uma camada. Não múltiplas camadas de uma vez. Uma camada, verificada antes de avançar.
+        <strong class="text-amber-400">Atomicidade de entrega</strong> significa que cada prompt entrega exatamente uma camada do sistema — completa, testável, com critério de aceitaçêo claro. Nêo uma parte de uma camada. Nêo múltiplas camadas de uma vez. Uma camada, verificada antes de avançar.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">O que torna uma camada "verificável"</h3>
         <ul class="space-y-2 text-neutral-300">
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Pode ser testada em menos de 5 minutos após a entrega</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>O resultado é binário: passou ou não passou</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Falha no teste aponta para esta camada, não para outra</span></li>
-          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Não depende de camadas ainda não construídas para ser testada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>O resultado é binário: passou ou nêo passou</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Falha no teste aponta para esta camada, nêo para outra</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Nêo depende de camadas ainda nêo construídas para ser testada</span></li>
         </ul>
       </div>
     </section>
@@ -157,22 +157,22 @@
         <h2 class="text-2xl font-bold">📏 O tamanho certo de um prompt</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        A granularidade correta é a maior dificuldade de LLM coding. Dois critérios práticos definem o tamanho ideal: a entrega deve ser verificável em menos de 5 minutos, e o prompt não deve depender de mais de 2 prompts anteriores para fazer sentido.
+        A granularidade correta é a maior dificuldade de LLM coding. Dois critérios práticos definem o tamanho ideal: a entrega deve ser verificável em menos de 5 minutos, e o prompt nêo deve depender de mais de 2 prompts anteriores para fazer sentido.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
           <h4 class="font-bold text-red-400 mb-4">Prompt grande demais</h4>
           <ul class="space-y-2 text-neutral-300 text-sm">
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Entrega múltiplas camadas ao mesmo tempo</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Verificação leva horas, não minutos</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Bug não é atribuível a uma camada específica</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Verificaçêo leva horas, nêo minutos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Bug nêo é atribuível a uma camada específica</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Falha exige reescrita de tudo</span></li>
           </ul>
         </div>
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
           <h4 class="font-bold text-red-400 mb-4">Prompt pequeno demais</h4>
           <ul class="space-y-2 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Overhead de verificação supera benefício</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Overhead de verificaçêo supera benefício</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Inconsistências entre entregas adjacentes</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Contexto perdido entre prompts muito próximos</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>20+ prompts para um projeto simples</span></li>
@@ -188,7 +188,7 @@
         <h2 class="text-2xl font-bold">🔗 Dependências entre prompts</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Pré-condições explícitas</strong> — cada prompt declara o que assume do estado anterior. Não como contexto implícito na cabeça do desenvolvedor, mas como afirmações verificáveis no próprio prompt.
+        <strong class="text-amber-400">Pré-condições explícitas</strong> — cada prompt declara o que assume do estado anterior. Nêo como contexto implícito na cabeça do desenvolvedor, mas como afirmações verificáveis no próprio prompt.
       </p>
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">Dependências implícitas vs. explícitas</h3>
@@ -211,10 +211,10 @@
     <section id="topico-4" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
-        <h2 class="text-2xl font-bold">✅ A verificação entre prompts</h2>
+        <h2 class="text-2xl font-bold">✅ A verificaçêo entre prompts</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O <strong class="text-amber-400">gate de verificação</strong> entre prompts é o momento mais importante do processo. É quando você confirma que a camada entregue é sólida antes de construir sobre ela. Pular este gate é a principal causa de reescritas completas.
+        O <strong class="text-amber-400">gate de verificaçêo</strong> entre prompts é o momento mais importante do processo. É quando você confirma que a camada entregue é sólida antes de construir sobre ela. Pular este gate é a principal causa de reescritas completas.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">O protocolo de gate</h3>
@@ -229,11 +229,11 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
-            <span class="text-neutral-300">Re-executar testes das camadas anteriores (regressão)</span>
+            <span class="text-neutral-300">Re-executar testes das camadas anteriores (regressêo)</span>
           </div>
           <div class="flex items-start space-x-3">
             <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
-            <span class="text-neutral-300">Só então declarar a camada verificada e avançar</span>
+            <span class="text-neutral-300">Só entêo declarar a camada verificada e avançar</span>
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@
         <h2 class="text-2xl font-bold">🔄 Quando um prompt falha</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Falha não é exceção — é o estado normal de desenvolvimento. O protocolo de regressão define como responder: identificar a camada que falhou, regredir apenas ela, re-executar com contexto adicional. Nunca reescrever tudo.
+        Falha nêo é exceçêo — é o estado normal de desenvolvimento. O protocolo de regressêo define como responder: identificar a camada que falhou, regredir apenas ela, re-executar com contexto adicional. Nunca reescrever tudo.
       </p>
       <div class="space-y-4 mb-6">
         <div class="flex items-start space-x-4">
@@ -273,7 +273,7 @@
           </div>
           <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
             <h4 class="font-semibold text-white mb-1">Re-executar com contexto de diagnóstico</h4>
-            <p class="text-neutral-300 text-sm">Re-executar o prompt da camada com informação adicional: "o prompt anterior falhou porque X. Corrija antes de prosseguir."</p>
+            <p class="text-neutral-300 text-sm">Re-executar o prompt da camada com informaçêo adicional: "o prompt anterior falhou porque X. Corrija antes de prosseguir."</p>
           </div>
         </div>
       </div>
@@ -286,7 +286,7 @@
         <h2 class="text-2xl font-bold">📋 Template de prompt incremental</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um prompt sem estrutura obriga o modelo a fazer suposições. O <strong class="text-amber-400">template de cinco seções</strong> elimina ambiguidade — contexto, estado verificado, entrega esperada, invariantes e critério de aceitação são sempre explícitos.
+        Um prompt sem estrutura obriga o modelo a fazer suposições. O <strong class="text-amber-400">template de cinco seções</strong> elimina ambiguidade — contexto, estado verificado, entrega esperada, invariantes e critério de aceitaçêo sêo sempre explícitos.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">Template: 5 seções</h3>
@@ -305,10 +305,10 @@
           </div>
           <div>
             <p class="text-amber-400 font-semibold text-sm mb-1">## INVARIANTES A RESPEITAR</p>
-            <p class="text-neutral-400 text-sm">As primitivas de segurança que se aplicam a esta camada. O que não pode ser violado.</p>
+            <p class="text-neutral-400 text-sm">As primitivas de segurança que se aplicam a esta camada. O que nêo pode ser violado.</p>
           </div>
           <div>
-            <p class="text-amber-400 font-semibold text-sm mb-1">## CRITÉRIO DE ACEITAÇÃO</p>
+            <p class="text-amber-400 font-semibold text-sm mb-1">## CRITÉRIO DE ACEITAÇêO</p>
             <p class="text-neutral-400 text-sm">Os testes concretos que confirmam que a entrega está correta. O que será verificado antes de avançar.</p>
           </div>
         </div>
@@ -326,7 +326,7 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">5 minutos de verificação</strong><span class="text-neutral-400"> — o teto de tempo para verificar uma entrega</span></div>
+            <div><strong class="text-white">5 minutos de verificaçêo</strong><span class="text-neutral-400"> — o teto de tempo para verificar uma entrega</span></div>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
@@ -334,7 +334,7 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">Gate obrigatório</strong><span class="text-neutral-400"> — verificação antes de qualquer avanço</span></div>
+            <div><strong class="text-white">Gate obrigatório</strong><span class="text-neutral-400"> — verificaçêo antes de qualquer avanço</span></div>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>

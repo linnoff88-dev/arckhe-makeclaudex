@@ -1,8 +1,8 @@
 # makeclaudex
 
-Material de construção do Claudex — prompts, spec e plano do curso.
+Material de construçêo do Claudex — prompts, spec e plano do curso.
 
-## Ao iniciar qualquer sessão
+## Ao iniciar qualquer sessêo
 
 Leia `.memory/MEMORY.md` e os arquivos que ele indexa antes de responder qualquer coisa.
 

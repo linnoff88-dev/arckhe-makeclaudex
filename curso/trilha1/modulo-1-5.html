@@ -138,7 +138,7 @@
         <h2 class="text-2xl font-bold">📂 Estrutura de repositório para plugins Claude Code</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Uma estrutura consistente de repositório acelera onboarding, evita arquivos perdidos e facilita manutenção. O padrão abaixo é testado em projetos reais e separa claramente configuração, hooks, skills e estado.
+        Uma estrutura consistente de repositório acelera onboarding, evita arquivos perdidos e facilita manutençêo. O padrêo abaixo é testado em projetos reais e separa claramente configuraçêo, hooks, skills e estado.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🗂️</span> Estrutura recomendada</h3>
@@ -156,15 +156,15 @@
 │   ├── state/                 # Estado persistente dos hooks
 │   │   ├── .gitignore         # Ignorar estado em git (opcional)
 │   │   └── hook-stats.yaml
-│   └── logs/                  # Logs dos hooks (não commitar)
+│   └── logs/                  # Logs dos hooks (nêo commitar)
 │       └── .gitignore         # logs/* ignorado
 ├── CLAUDE.md                  # Instruções do projeto
-├── SPEC.md                    # Especificação do sistema de hooks
+├── SPEC.md                    # Especificaçêo do sistema de hooks
 └── src/                       # Código do projeto em si</code></pre>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> .gitignore para logs e estado</h3>
-        <p class="text-neutral-300">Crie <code class="bg-dark-700 px-1 rounded">.claude/logs/.gitignore</code> com <code class="bg-dark-700 px-1 rounded">*</code> para ignorar todos os logs. Para estado, decida caso a caso: estado que precisa ser compartilhado com o time deve ser commitado; estado temporário de sessão não.</p>
+        <p class="text-neutral-300">Crie <code class="bg-dark-700 px-1 rounded">.claude/logs/.gitignore</code> com <code class="bg-dark-700 px-1 rounded">*</code> para ignorar todos os logs. Para estado, decida caso a caso: estado que precisa ser compartilhado com o time deve ser commitado; estado temporário de sessêo nêo.</p>
       </div>
     </section>
 
@@ -227,17 +227,17 @@ echo "Resultado: $PASS passou, $FAIL falhou"</code></pre>
         <h2 class="text-2xl font-bold">🪵 Logs e debugging</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Hooks executam em silêncio — sem logs, você não tem visibilidade. <strong class="text-emerald-400">Stdout é reservado para comunicação com o Claude</strong>; use stderr para erros e arquivo de log para rastreabilidade permanente.
+        Hooks executam em silêncio — sem logs, você nêo tem visibilidade. <strong class="text-emerald-400">Stdout é reservado para comunicaçêo com o Claude</strong>; use stderr para erros e arquivo de log para rastreabilidade permanente.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🪵</span> Padrão de logging em hooks</h3>
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🪵</span> Padrêo de logging em hooks</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm overflow-x-auto"><code class="text-neutral-300">#!/bin/bash
-# Padrão de logging reutilizável
+# Padrêo de logging reutilizável
 
 LOG_FILE="${CLAUDE_LOG_DIR:-.claude/logs}/validate-commit.log"
 mkdir -p "$(dirname "$LOG_FILE")"
 
-# Função de log com timestamp e nível
+# Funçêo de log com timestamp e nível
 log() {
   local level="$1"; shift
   echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] [$level] validate-commit: $*" >> "$LOG_FILE"
@@ -253,7 +253,7 @@ log INFO "Hook iniciado — PID: $$"
 PAYLOAD=$(cat)
 log DEBUG "Payload recebido: $(echo "$PAYLOAD" | head -c 200)"
 
-if [ condição_de_bloqueio ]; then
+if [ condiçêo_de_bloqueio ]; then
   log WARN "Bloqueando: motivo_aqui"
   echo "Mensagem de erro para o Claude" >&2
   exit 1
@@ -264,7 +264,7 @@ exit 0</code></pre>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Monitorar logs em tempo real</h3>
-        <p class="text-neutral-300">Durante desenvolvimento, mantenha um terminal com <code class="bg-dark-700 px-1 rounded">tail -f .claude/logs/validate-commit.log</code> aberto. Cada execução do hook aparece em tempo real — você vê exatamente o que está acontecendo enquanto trabalha no Claude Code.</p>
+        <p class="text-neutral-300">Durante desenvolvimento, mantenha um terminal com <code class="bg-dark-700 px-1 rounded">tail -f .claude/logs/validate-commit.log</code> aberto. Cada execuçêo do hook aparece em tempo real — você vê exatamente o que está acontecendo enquanto trabalha no Claude Code.</p>
       </div>
     </section>
 
@@ -275,38 +275,38 @@ exit 0</code></pre>
         <h2 class="text-2xl font-bold">📋 O SPEC.md como bússola</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O SPEC.md é o documento que captura <strong class="text-emerald-400">decisões de design antes do código</strong>. Para hooks, ele define o que o hook deve fazer, quais invariantes mantém, quais são os edge cases e por que certas escolhas foram feitas.
+        O SPEC.md é o documento que captura <strong class="text-emerald-400">decisões de design antes do código</strong>. Para hooks, ele define o que o hook deve fazer, quais invariantes mantém, quais sêo os edge cases e por que certas escolhas foram feitas.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📋</span> Template de SPEC.md para hook</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm overflow-x-auto"><code class="text-neutral-300"># SPEC: validate-commit hook
 
 ## Objetivo
-Bloquear commits do Claude Code com mensagens que não seguem
-Conventional Commits ou são muito genéricas.
+Bloquear commits do Claude Code com mensagens que nêo seguem
+Conventional Commits ou sêo muito genéricas.
 
 ## Responsabilidade
 - INTERCEPTA: PreToolUse Bash quando o comando contém "git commit"
 - BLOQUEIA se: mensagem tem menos de 20 chars OU é genérica
-- APROVA se: mensagem segue o padrão ou tem 20+ chars descritivos
+- APROVA se: mensagem segue o padrêo ou tem 20+ chars descritivos
 
 ## Invariantes
-1. Falha silenciosa = aprovação (fail-open)
+1. Falha silenciosa = aprovaçêo (fail-open)
 2. Nunca bloqueia commits de merge automático
-3. Mensagem de erro é acionável (diz o que fazer, não só o que está errado)
+3. Mensagem de erro é acionável (diz o que fazer, nêo só o que está errado)
 
 ## Casos de borda
-- git commit --amend: APROVADO (não valida re-commit)
-- git commit -m 'WIP: ...' : APROVADO (WIP é exceção explícita)
-- jq não instalado: APROVADO (fail-open, log warning)
+- git commit --amend: APROVADO (nêo valida re-commit)
+- git commit -m 'WIP: ...' : APROVADO (WIP é exceçêo explícita)
+- jq nêo instalado: APROVADO (fail-open, log warning)
 
 ## Dependências
 - jq (obrigatório, com fallback para grep)
 - bash 4.0+
 
 ## Decisões de design
-- Por que não usar regex mais complexo: manutenibilidade > precisão
-- Por que não checar branch: escopo pequeno, fácil de expandir depois</code></pre>
+- Por que nêo usar regex mais complexo: manutenibilidade > precisêo
+- Por que nêo checar branch: escopo pequeno, fácil de expandir depois</code></pre>
       </div>
     </section>
 
@@ -317,14 +317,14 @@ Conventional Commits ou são muito genéricas.
         <h2 class="text-2xl font-bold">🌿 Versionamento de prompts</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Skills e CLAUDE.md são código — devem ser versionados no git com commits descritivos. <strong class="text-emerald-400">Cada iteração de um prompt é um commit</strong>: você consegue ver o que mudou, por que mudou e fazer rollback quando algo quebra.
+        Skills e CLAUDE.md sêo código — devem ser versionados no git com commits descritivos. <strong class="text-emerald-400">Cada iteraçêo de um prompt é um commit</strong>: você consegue ver o que mudou, por que mudou e fazer rollback quando algo quebra.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
           <h4 class="font-bold text-emerald-400 mb-4">✓ Boas mensagens de commit de prompt</h4>
           <div class="space-y-2 text-neutral-300 text-sm">
-            <div class="bg-dark-900 rounded-lg p-2"><code>skill(revisar-pr): adiciona verificação de tipos TypeScript</code></div>
-            <div class="bg-dark-900 rounded-lg p-2"><code>claude.md: instrui leitura de MEMORY.md ao iniciar sessão</code></div>
+            <div class="bg-dark-900 rounded-lg p-2"><code>skill(revisar-pr): adiciona verificaçêo de tipos TypeScript</code></div>
+            <div class="bg-dark-900 rounded-lg p-2"><code>claude.md: instrui leitura de MEMORY.md ao iniciar sessêo</code></div>
             <div class="bg-dark-900 rounded-lg p-2"><code>skill(gerar-componente): corrige template de stories</code></div>
           </div>
         </div>
@@ -340,7 +340,7 @@ Conventional Commits ou são muito genéricas.
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
         <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que commitar prompts incrementalmente</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
-          <li>• Permite rollback quando uma nova instrução causa comportamento inesperado</li>
+          <li>• Permite rollback quando uma nova instruçêo causa comportamento inesperado</li>
           <li>• Facilita code review: outra pessoa pode revisar mudanças no prompt</li>
           <li>• Cria histórico de "por que este prompt existe" nos logs do git</li>
           <li>• Permite comparar versões com <code class="bg-dark-700 px-1 rounded">git diff HEAD~1 HEAD CLAUDE.md</code></li>
@@ -355,7 +355,7 @@ Conventional Commits ou são muito genéricas.
         <h2 class="text-2xl font-bold">🔧 Ferramentas de apoio: jq, yq, shellcheck</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Três ferramentas eliminam as classes de erro mais comuns em desenvolvimento de hooks. <strong class="text-emerald-400">jq, yq e shellcheck</strong> são o kit mínimo que todo desenvolvedor de hooks deve ter instalado.
+        Três ferramentas eliminam as classes de erro mais comuns em desenvolvimento de hooks. <strong class="text-emerald-400">jq, yq e shellcheck</strong> sêo o kit mínimo que todo desenvolvedor de hooks deve ter instalado.
       </p>
       <div class="space-y-4 mb-6">
         <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
@@ -363,7 +363,7 @@ Conventional Commits ou são muito genéricas.
             <span class="bg-emerald-500/20 text-emerald-400 font-bold px-3 py-2 rounded-lg text-sm flex-shrink-0">jq</span>
             <div class="flex-1">
               <p class="text-neutral-300 text-sm mb-3">Processa JSON no terminal. Essencial para parsear o payload de stdin dos hooks.</p>
-              <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300"># Instalação
+              <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300"># Instalaçêo
 brew install jq   # macOS
 apt install jq    # Ubuntu/Debian
 
@@ -381,7 +381,7 @@ echo "$PAYLOAD" | jq 'if .tool.name == "Bash" then .tool.input.command else "" e
             <span class="bg-emerald-500/20 text-emerald-400 font-bold px-3 py-2 rounded-lg text-sm flex-shrink-0">yq</span>
             <div class="flex-1">
               <p class="text-neutral-300 text-sm mb-3">Processa YAML com a mesma sintaxe do jq. Indispensável para ler arquivos de estado em YAML.</p>
-              <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300"># Instalação
+              <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300"># Instalaçêo
 brew install yq   # macOS
 snap install yq   # Linux
 
@@ -400,8 +400,8 @@ yq -i '.version += 1' state.yaml</code></pre>
           <div class="flex items-start space-x-4">
             <span class="bg-emerald-500/20 text-emerald-400 font-bold px-3 py-2 rounded-lg text-sm flex-shrink-0">shellcheck</span>
             <div class="flex-1">
-              <p class="text-neutral-300 text-sm mb-3">Analisa scripts shell e detecta bugs comuns antes de você rodar em produção. Integre no CI.</p>
-              <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300"># Instalação
+              <p class="text-neutral-300 text-sm mb-3">Analisa scripts shell e detecta bugs comuns antes de você rodar em produçêo. Integre no CI.</p>
+              <pre class="bg-dark-900 rounded-lg p-3 text-sm"><code class="text-neutral-300"># Instalaçêo
 brew install shellcheck   # macOS
 apt install shellcheck    # Ubuntu/Debian
 
@@ -409,7 +409,7 @@ apt install shellcheck    # Ubuntu/Debian
 shellcheck -S error .claude/hooks/validate-commit.sh
 
 # Erros comuns que shellcheck detecta:
-# - Variáveis não quotadas (word splitting)
+# - Variáveis nêo quotadas (word splitting)
 # - Comparações sem quotes ($VAR vs "$VAR")
 # - Uso de [ vs [[ inconsistente
 # - Pipelines que mascaram erros (sem set -o pipefail)</code></pre>
@@ -426,14 +426,14 @@ shellcheck -S error .claude/hooks/validate-commit.sh
         <div class="space-y-4 mb-8">
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Estrutura .claude/</strong><span class="text-neutral-400"> — hooks/, skills/, state/, logs/ organizados e separados</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Teste com echo | ./hook.sh</strong><span class="text-neutral-400"> — isolado, rápido e sem custo de API</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Log em arquivo, stderr para Claude</strong><span class="text-neutral-400"> — stdout é reservado para comunicação com o sistema</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Log em arquivo, stderr para Claude</strong><span class="text-neutral-400"> — stdout é reservado para comunicaçêo com o sistema</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">SPEC.md antes de qualquer código</strong><span class="text-neutral-400"> — invariantes e edge cases documentados upfront</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Skills versionadas como código</strong><span class="text-neutral-400"> — commit descritivo para cada iteração de prompt</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Skills versionadas como código</strong><span class="text-neutral-400"> — commit descritivo para cada iteraçêo de prompt</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">jq + yq + shellcheck</strong><span class="text-neutral-400"> — kit mínimo para desenvolvimento de hooks profissional</span></div></div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">1.6 — Seu Primeiro Hook de Validação — projeto prático completo aplicando tudo da Trilha 1</p>
+          <p class="text-neutral-300">1.6 — Seu Primeiro Hook de Validaçêo — projeto prático completo aplicando tudo da Trilha 1</p>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="modulo-1-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 1.4</a>

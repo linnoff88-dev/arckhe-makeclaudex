@@ -138,22 +138,22 @@
         <h2 class="text-2xl font-bold">🧠 O problema — sem memória entre sessões</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Cada sessão do Claude Code começa do zero. <strong class="text-emerald-400">O modelo não lembra da sessão anterior</strong> — nem dos arquivos que leu, nem das decisões que tomou, nem do que você configurou no contexto. Para criar sistemas que evoluem ao longo do tempo, você precisa externalizar o estado.
+        Cada sessêo do Claude Code começa do zero. <strong class="text-emerald-400">O modelo nêo lembra da sessêo anterior</strong> — nem dos arquivos que leu, nem das decisões que tomou, nem do que você configurou no contexto. Para criar sistemas que evoluem ao longo do tempo, você precisa externalizar o estado.
       </p>
       <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O que NÃO persiste entre sessões</h3>
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O que NêO persiste entre sessões</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Variáveis de ambiente definidas durante a sessão</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Variáveis de ambiente definidas durante a sessêo</span></li>
           <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>O histórico de conversa (context window)</span></li>
           <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Qualquer estado em memória dos hooks</span></li>
-          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Preferências ou aprendizados da sessão anterior</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Preferências ou aprendizados da sessêo anterior</span></li>
         </ul>
       </div>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">✓</span> O que PERSISTE entre sessões</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
           <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><strong>Arquivos no filesystem</strong> — qualquer arquivo que o Claude escreve persiste</span></li>
-          <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><strong>CLAUDE.md</strong> — instruções lidas no início de cada sessão</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><strong>CLAUDE.md</strong> — instruções lidas no início de cada sessêo</span></li>
           <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><strong>settings.json</strong> — hooks e comandos registrados</span></li>
           <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><strong>Arquivos de estado</strong> — YAML/JSON escritos pelos hooks</span></li>
         </ul>
@@ -167,7 +167,7 @@
         <h2 class="text-2xl font-bold">📄 Estado em arquivo: YAML e JSON como memória</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O padrão para persistir estado em hooks é usar <strong class="text-emerald-400">arquivos YAML ou JSON</strong> como banco de dados simples. YAML é preferido quando humanos precisam ler/editar o arquivo. JSON quando o dado é consumido programaticamente.
+        O padrêo para persistir estado em hooks é usar <strong class="text-emerald-400">arquivos YAML ou JSON</strong> como banco de dados simples. YAML é preferido quando humanos precisam ler/editar o arquivo. JSON quando o dado é consumido programaticamente.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-dark-800 rounded-xl border border-emerald-500/30 p-6">
@@ -202,7 +202,7 @@ last_blocked:
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📊</span> Estrutura recomendada de estado</h3>
         <p class="text-neutral-300 text-sm mb-4">Todo arquivo de estado deve ter pelo menos:</p>
         <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>version:</strong> número inteiro para migração de schema futuro</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>version:</strong> número inteiro para migraçêo de schema futuro</span></li>
           <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>updated_at:</strong> timestamp ISO 8601 da última escrita</span></li>
           <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>hook:</strong> nome do hook responsável pelo arquivo</span></li>
           <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>data:</strong> o estado de negócio em si</span></li>
@@ -217,7 +217,7 @@ last_blocked:
         <h2 class="text-2xl font-bold">⚛️ Escrita atômica — por que mv é melhor</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Escrever diretamente em um arquivo é perigoso: se o processo for interrompido no meio, o arquivo fica corrompido — metade do conteúdo antigo, metade do novo. A solução é <strong class="text-emerald-400">escrita atômica: escreva em arquivo temporário, depois use mv</strong>.
+        Escrever diretamente em um arquivo é perigoso: se o processo for interrompido no meio, o arquivo fica corrompido — metade do conteúdo antigo, metade do novo. A soluçêo é <strong class="text-emerald-400">escrita atômica: escreva em arquivo temporário, depois use mv</strong>.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
@@ -240,8 +240,8 @@ mv "$TMPFILE" state.yaml
         </div>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Condição de atomicidade</h3>
-        <p class="text-neutral-300">mv só é atômico quando origem e destino estão <strong class="text-primary">no mesmo filesystem</strong>. Por isso use <code class="bg-dark-700 px-1 rounded">mktemp</code> no mesmo diretório: <code class="bg-dark-700 px-1 rounded">TMPFILE=$(mktemp .claude/state/state.XXXXXX.yaml)</code>.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Condiçêo de atomicidade</h3>
+        <p class="text-neutral-300">mv só é atômico quando origem e destino estêo <strong class="text-primary">no mesmo filesystem</strong>. Por isso use <code class="bg-dark-700 px-1 rounded">mktemp</code> no mesmo diretório: <code class="bg-dark-700 px-1 rounded">TMPFILE=$(mktemp .claude/state/state.XXXXXX.yaml)</code>.</p>
       </div>
     </section>
 
@@ -252,12 +252,12 @@ mv "$TMPFILE" state.yaml
         <h2 class="text-2xl font-bold">🔒 Compare-and-swap (CAS) — evitando race conditions</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Quando múltiplos hooks podem rodar em paralelo, existe risco de um sobrescrever o estado do outro. <strong class="text-emerald-400">Compare-and-swap (CAS)</strong> é o padrão para evitar isso: lê o estado, verifica se ainda é o esperado antes de escrever.
+        Quando múltiplos hooks podem rodar em paralelo, existe risco de um sobrescrever o estado do outro. <strong class="text-emerald-400">Compare-and-swap (CAS)</strong> é o padrêo para evitar isso: lê o estado, verifica se ainda é o esperado antes de escrever.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔄</span> Implementação de CAS em shell</h3>
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔄</span> Implementaçêo de CAS em shell</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm overflow-x-auto"><code class="text-neutral-300">#!/bin/bash
-# Padrão CAS para atualização segura de estado
+# Padrêo CAS para atualizaçêo segura de estado
 
 STATE_FILE=".claude/state/hook-state.yaml"
 MAX_RETRIES=3
@@ -277,11 +277,11 @@ runs: $(yq '.runs // 0' "$STATE_FILE" | awk '{print $1+1}')"
   TMPFILE=$(mktemp ".claude/state/state.XXXXXX.yaml")
   echo "$NOVO_CONTEUDO" > "$TMPFILE"
 
-  # 4. Verifica se a versão ainda é a mesma (CAS)
+  # 4. Verifica se a versêo ainda é a mesma (CAS)
   CURRENT_AT_WRITE=$(yq '.version' "$STATE_FILE" 2>/dev/null || echo "0")
 
   if [ "$CURRENT_AT_WRITE" = "$CURRENT_VERSION" ]; then
-    # Versão não mudou: pode escrever
+    # Versêo nêo mudou: pode escrever
     mv "$TMPFILE" "$STATE_FILE"
     exit 0
   else
@@ -300,13 +300,13 @@ exit 0  # fail-open</code></pre>
     <section id="topico-5" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
-        <h2 class="text-2xl font-bold">🔐 Lockfiles — execução exclusiva</h2>
+        <h2 class="text-2xl font-bold">🔐 Lockfiles — execuçêo exclusiva</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Para operações que absolutamente não podem ser paralelas, <strong class="text-emerald-400">lockfiles garantem exclusividade</strong>. A técnica usa <code class="bg-dark-700 px-1 rounded">mkdir</code> como operação atômica para criar um "semáforo" no filesystem.
+        Para operações que absolutamente nêo podem ser paralelas, <strong class="text-emerald-400">lockfiles garantem exclusividade</strong>. A técnica usa <code class="bg-dark-700 px-1 rounded">mkdir</code> como operaçêo atômica para criar um "semáforo" no filesystem.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔐</span> Implementação de lockfile</h3>
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔐</span> Implementaçêo de lockfile</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm overflow-x-auto"><code class="text-neutral-300">#!/bin/bash
 # Lockfile com cleanup automático
 
@@ -339,16 +339,16 @@ while ! mkdir "$LOCK_DIR" 2>/dev/null; do
   WAITED=$((WAITED + 1))
 done
 
-# --- Seção crítica (execução exclusiva) ---
+# --- Seçêo crítica (execuçêo exclusiva) ---
 echo $$ > "$LOCK_DIR/pid"
-# ... operação crítica aqui ...
-# --- Fim da seção crítica ---
+# ... operaçêo crítica aqui ...
+# --- Fim da seçêo crítica ---
 
 # cleanup() remove o lock automaticamente via trap EXIT</code></pre>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando usar lockfile vs CAS</h3>
-        <p class="text-neutral-300">Use <strong class="text-primary">CAS para atualizações de estado</strong> (operações curtas, retentável). Use <strong class="text-primary">lockfile para operações longas</strong> ou que envolvem múltiplos arquivos (onde você não pode simplesmente retentar do início).</p>
+        <p class="text-neutral-300">Use <strong class="text-primary">CAS para atualizações de estado</strong> (operações curtas, retentável). Use <strong class="text-primary">lockfile para operações longas</strong> ou que envolvem múltiplos arquivos (onde você nêo pode simplesmente retentar do início).</p>
       </div>
     </section>
 
@@ -359,7 +359,7 @@ echo $$ > "$LOCK_DIR/pid"
         <h2 class="text-2xl font-bold">📖 Lendo estado no hook — yq e jq</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Ler estado eficientemente no caminho crítico de um hook requer as ferramentas certas. <strong class="text-emerald-400">yq para YAML, jq para JSON</strong> — com grep como fallback quando as ferramentas não estão disponíveis.
+        Ler estado eficientemente no caminho crítico de um hook requer as ferramentas certas. <strong class="text-emerald-400">yq para YAML, jq para JSON</strong> — com grep como fallback quando as ferramentas nêo estêo disponíveis.
       </p>
       <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💻</span> Padrões de leitura</h3>
@@ -378,16 +378,16 @@ RUNS=$(jq -r '.stats.total_runs // 0' "$JSON_FILE" 2>/dev/null || echo "0")
 # Funciona para YAML e JSON simples
 VERSION_GREP=$(grep -m1 '"version"' "$JSON_FILE" 2>/dev/null | grep -o '[0-9]*' || echo "0")
 
-# --- Verificação de existência antes de ler ---
+# --- Verificaçêo de existência antes de ler ---
 if [ ! -f "$STATE_FILE" ]; then
-  echo "Estado não encontrado — usando defaults"
+  echo "Estado nêo encontrado — usando defaults"
   VERSION=0
   LAST_RUN=""
 fi
 
-# --- Validação de tipo ---
+# --- Validaçêo de tipo ---
 if ! [[ "$VERSION" =~ ^[0-9]+$ ]]; then
-  echo "Versão inválida no estado: '$VERSION' — usando 0" >&2
+  echo "Versêo inválida no estado: '$VERSION' — usando 0" >&2
   VERSION=0
 fi</code></pre>
       </div>
@@ -398,7 +398,7 @@ fi</code></pre>
           <div class="flex items-start space-x-3"><span class="text-blue-400 font-bold">2.</span><span><strong>jq</strong> — parse JSON robusto, queries complexas, transformações in-place</span></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 font-bold">3.</span><span><strong>grep + sed</strong> — fallback frágil, funciona apenas para campos simples na raiz</span></div>
         </div>
-        <p class="text-neutral-400 text-sm mt-3">Sempre trate ausência de ferramenta graciosamente — use defaults e não quebre o hook.</p>
+        <p class="text-neutral-400 text-sm mt-3">Sempre trate ausência de ferramenta graciosamente — use defaults e nêo quebre o hook.</p>
       </div>
     </section>
 
@@ -407,7 +407,7 @@ fi</code></pre>
       <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
         <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 1.4</h2>
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Sessões são stateless</strong><span class="text-neutral-400"> — use arquivos para persistir estado entre execuções</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Sessões sêo stateless</strong><span class="text-neutral-400"> — use arquivos para persistir estado entre execuções</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">YAML para humanos, JSON para código</strong><span class="text-neutral-400"> — escolha conforme o consumidor primário</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Escrita atômica com mv</strong><span class="text-neutral-400"> — tmpfile + mv no mesmo filesystem = nunca corrompido</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">CAS para concorrência otimista</strong><span class="text-neutral-400"> — lê, verifica, escreve — retenta se conflito</span></div></div>

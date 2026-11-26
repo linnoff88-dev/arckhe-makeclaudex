@@ -143,15 +143,15 @@
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
           <span class="text-blue-400 text-lg">💡</span>
-          <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">BLOCK como canal de comunicação</span>
+          <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">BLOCK como canal de comunicaçêo</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed mb-3">
-          O Stop Hook não é apenas um porteiro. Quando retorna BLOCK, entrega um <code class="bg-dark-700 px-1 py-0.5 rounded text-blue-400">reason</code> que o Claude Code mostra ao Claude como instrução para o próximo turno. É um canal unidirecional: hook → Claude.
+          O Stop Hook nêo é apenas um porteiro. Quando retorna BLOCK, entrega um <code class="bg-dark-700 px-1 py-0.5 rounded text-blue-400">reason</code> que o Claude Code mostra ao Claude como instruçêo para o próximo turno. É um canal unidirecional: hook → Claude.
         </p>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># APPROVE: turno termina normalmente
 {"decision": "approve"}
 
-# BLOCK: Claude recebe instrução para agir antes de encerrar
+# BLOCK: Claude recebe instruçêo para agir antes de encerrar
 {"decision": "block", "reason": "### PR Reviewer — Round 1 of 3\n\nRun the reviewer script:\n\`\`\`bash\nbash runners/PR-123-round-1.sh\n\`\`\`\n\nThen read findings from state/review.yaml and advance to round 2."}</code></pre>
       </div>
     </section>
@@ -261,7 +261,7 @@ Report the smoke test results.</code></pre>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Cada estado tem uma única condição de transição. Não há transições implícitas ou "se não sei o que fazer, vou tentar tudo". Isso é o que torna o loop debugável.
+        Cada estado tem uma única condiçêo de transiçêo. Nêo há transições implícitas ou "se nêo sei o que fazer, vou tentar tudo". Isso é o que torna o loop debugável.
       </p>
       <div class="bg-dark-700 border border-dark-600 rounded-xl overflow-hidden mb-5">
         <div class="grid grid-cols-3 gap-0 text-xs font-semibold uppercase tracking-wide text-neutral-500 bg-dark-600 px-4 py-2">
@@ -306,7 +306,7 @@ Report the smoke test results.</code></pre>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O runner script é o ponto de integração entre o hook e o modelo. Ele monta o contexto completo — diff do PR, metadados do GitHub, instrução da persona — e invoca <code class="bg-dark-700 px-1.5 py-0.5 rounded text-blue-400">claude --print</code> com esse contexto.
+        O runner script é o ponto de integraçêo entre o hook e o modelo. Ele monta o contexto completo — diff do PR, metadados do GitHub, instruçêo da persona — e invoca <code class="bg-dark-700 px-1.5 py-0.5 rounded text-blue-400">claude --print</code> com esse contexto.
       </p>
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
         <div class="flex items-center gap-2 mb-3">
@@ -354,7 +354,7 @@ PROMPTEOF</code></pre>
           <span class="text-primary text-lg">⚡</span>
           <span class="text-primary font-semibold text-sm uppercase tracking-wide">Por que separar runner do hook</span>
         </div>
-        <p class="text-neutral-300 text-sm">Você pode testar o runner manualmente sem disparar o hook completo. Se a revisão produz output estranho, você sabe que o problema está no runner — não no hook, no estado ou no worktree.</p>
+        <p class="text-neutral-300 text-sm">Você pode testar o runner manualmente sem disparar o hook completo. Se a revisêo produz output estranho, você sabe que o problema está no runner — nêo no hook, no estado ou no worktree.</p>
       </div>
     </section>
 
@@ -366,11 +366,11 @@ PROMPTEOF</code></pre>
         </div>
         <div>
           <h2 class="text-2xl font-bold text-neutral-100">Obtendo Contexto do PR</h2>
-          <p class="text-neutral-400 text-sm mt-1">gh pr view e git diff — o contexto que torna a revisão significativa</p>
+          <p class="text-neutral-400 text-sm mt-1">gh pr view e git diff — o contexto que torna a revisêo significativa</p>
         </div>
       </div>
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Uma revisão genérica ("este código parece correto") é inútil. Uma revisão com contexto completo ("na linha 47 de auth.go, este token é enviado sem HTTPS_ONLY verificado, o que expõe credenciais") é acionável.
+        Uma revisêo genérica ("este código parece correto") é inútil. Uma revisêo com contexto completo ("na linha 47 de auth.go, este token é enviado sem HTTPS_ONLY verificado, o que expõe credenciais") é acionável.
       </p>
       <div class="grid sm:grid-cols-2 gap-4 mb-5">
         <div class="bg-dark-700 border border-dark-600 rounded-xl p-5">
@@ -385,7 +385,7 @@ PROMPTEOF</code></pre>
         </div>
         <div class="bg-dark-700 border border-dark-600 rounded-xl p-5">
           <p class="text-blue-400 font-semibold text-sm mb-3">git diff — O código em si</p>
-          <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 overflow-x-auto"><code># No worktree isolado — não contamina working tree
+          <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 overflow-x-auto"><code># No worktree isolado — nêo contamina working tree
 cd "$WORKTREE_PATH"
 git diff origin/main...HEAD \
   -- '*.go' '*.ts' '*.py' \
@@ -410,7 +410,7 @@ git diff origin/main...HEAD \
           <span class="text-blue-400 font-bold text-lg">6</span>
         </div>
         <div>
-          <h2 class="text-2xl font-bold text-neutral-100">Verificação: Smoke Test com PR Sintético</h2>
+          <h2 class="text-2xl font-bold text-neutral-100">Verificaçêo: Smoke Test com PR Sintético</h2>
           <p class="text-neutral-400 text-sm mt-1">Antes do Prompt 04 — validar o loop sem custo de API</p>
         </div>
       </div>
@@ -454,7 +454,7 @@ git diff origin/main...HEAD \
       <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
         <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 4.4</h2>
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Stop Hook engine</strong><span class="text-neutral-400"> — case statement por estado, BLOCK com reason como instrução</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Stop Hook engine</strong><span class="text-neutral-400"> — case statement por estado, BLOCK com reason como instruçêo</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Máquina de estados</strong><span class="text-neutral-400"> — 4 estados, transições explícitas e testadas</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Runner separado do hook</strong><span class="text-neutral-400"> — testável e debugável independentemente</span></div></div>
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Smoke test validado</strong><span class="text-neutral-400"> — loop completo testado sem gastar créditos de API</span></div></div>

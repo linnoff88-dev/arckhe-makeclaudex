@@ -139,7 +139,7 @@
         <h2 class="text-2xl font-bold">🛡️ Fail-open</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Fail-open</strong> é a propriedade mais importante de qualquer hook ou plugin. Significa: quando o plugin falha por qualquer razão — exceção não tratada, timeout, arquivo ausente, dependência quebrada — o sistema host continua operando normalmente. O plugin não bloqueia, não trava, não interrompe o trabalho.
+        <strong class="text-amber-400">Fail-open</strong> é a propriedade mais importante de qualquer hook ou plugin. Significa: quando o plugin falha por qualquer razêo — exceçêo nêo tratada, timeout, arquivo ausente, dependência quebrada — o sistema host continua operando normalmente. O plugin nêo bloqueia, nêo trava, nêo interrompe o trabalho.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">Como implementar fail-open</h3>
@@ -150,7 +150,7 @@ main() {
   :
 }
 
-main "$@" || true  # fail-open: erros não propagam</code></pre>
+main "$@" || true  # fail-open: erros nêo propagam</code></pre>
         </div>
         <ul class="space-y-2 text-neutral-300">
           <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span>Exit code 0 em qualquer caminho de falha</span></li>
@@ -187,8 +187,8 @@ mv state.json.tmp state.json
         </div>
       </div>
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A janela de corrupção</h3>
-        <p class="text-neutral-300">Claude Code pode ser interrompido com Ctrl+C, timeout, ou kill a qualquer momento. A janela entre iniciar a escrita e completá-la é suficiente para corromper o arquivo. Estado corrompido frequentemente é irrecuperável — sem estado, a sessão está perdida.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A janela de corrupçêo</h3>
+        <p class="text-neutral-300">Claude Code pode ser interrompido com Ctrl+C, timeout, ou kill a qualquer momento. A janela entre iniciar a escrita e completá-la é suficiente para corromper o arquivo. Estado corrompido frequentemente é irrecuperável — sem estado, a sessêo está perdida.</p>
       </div>
     </section>
 
@@ -199,23 +199,23 @@ mv state.json.tmp state.json
         <h2 class="text-2xl font-bold">🔒 Compare-and-swap (CAS)</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Compare-and-swap</strong> garante que uma transição de estado só é aplicada se o estado atual ainda é o esperado. Leia, verifique, escreva. Se entre a leitura e a escrita o estado mudou, rejeite a operação.
+        <strong class="text-amber-400">Compare-and-swap</strong> garante que uma transiçêo de estado só é aplicada se o estado atual ainda é o esperado. Leia, verifique, escreva. Se entre a leitura e a escrita o estado mudou, rejeite a operaçêo.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-amber-400 mb-4">Implementação de CAS em JSON</h3>
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Implementaçêo de CAS em JSON</h3>
         <div class="bg-dark-700/50 rounded-lg p-4">
-          <pre><code class="text-neutral-300 text-sm"># Ler estado atual com versão
+          <pre><code class="text-neutral-300 text-sm"># Ler estado atual com versêo
 current=$(cat state.json)
 current_version=$(echo "$current" | jq -r '.version')
 expected_version=3
 
-# Verificar versão antes de modificar
+# Verificar versêo antes de modificar
 if [ "$current_version" != "$expected_version" ]; then
   echo "CAS failed: state changed" >&2
   exit 0  # fail-open
 fi
 
-# Aplicar transição com versão incrementada
+# Aplicar transiçêo com versêo incrementada
 new_state=$(echo "$current" | jq '.phase = "running" | .version += 1')
 echo "$new_state" > state.json.tmp
 mv state.json.tmp state.json</code></pre>
@@ -230,7 +230,7 @@ mv state.json.tmp state.json</code></pre>
         <h2 class="text-2xl font-bold">🔐 Lockfiles</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <strong class="text-amber-400">Lockfiles</strong> garantem execução exclusiva em seções críticas. A criação de um diretório com <code class="text-amber-400 bg-dark-700 px-1 rounded">mkdir</code> é atômica no POSIX — apenas um processo consegue criar o diretório com sucesso. O restante falha e sabe que outro processo está executando.
+        <strong class="text-amber-400">Lockfiles</strong> garantem execuçêo exclusiva em seções críticas. A criaçêo de um diretório com <code class="text-amber-400 bg-dark-700 px-1 rounded">mkdir</code> é atômica no POSIX — apenas um processo consegue criar o diretório com sucesso. O restante falha e sabe que outro processo está executando.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">Lockfile com cleanup garantido</h3>
@@ -247,13 +247,13 @@ if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   exit 0  # fail-open: outro processo está executando
 fi
 
-# Seção crítica aqui
+# Seçêo crítica aqui
 # Lock é liberado pelo trap EXIT</code></pre>
         </div>
       </div>
       <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
         <h3 class="text-lg font-semibold text-red-400 mb-3">Stale locks: o problema mais comum</h3>
-        <p class="text-neutral-300">Se o processo morreu sem limpar o lock, o lockfile persiste indefinidamente. A solução é verificar se o PID registrado no lock ainda está ativo. Se não, o lock é stale e pode ser removido.</p>
+        <p class="text-neutral-300">Se o processo morreu sem limpar o lock, o lockfile persiste indefinidamente. A soluçêo é verificar se o PID registrado no lock ainda está ativo. Se nêo, o lock é stale e pode ser removido.</p>
       </div>
     </section>
 
@@ -264,7 +264,7 @@ fi
         <h2 class="text-2xl font-bold">🚨 ERR trap</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Bash por padrão ignora erros e continua executando. <strong class="text-amber-400">set -euo pipefail</strong> e <strong class="text-amber-400">trap ... ERR</strong> mudam isso — qualquer comando que falha dispara o trap, permitindo cleanup antes de sair.
+        Bash por padrêo ignora erros e continua executando. <strong class="text-amber-400">set -euo pipefail</strong> e <strong class="text-amber-400">trap ... ERR</strong> mudam isso — qualquer comando que falha dispara o trap, permitindo cleanup antes de sair.
       </p>
       <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-amber-400 mb-4">O boilerplate completo</h3>
@@ -293,8 +293,8 @@ trap cleanup EXIT
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
         <h3 class="text-lg font-semibold text-blue-400 mb-3">set -euo pipefail: o que cada flag faz</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
-          <li><strong>-e:</strong> sai imediatamente se qualquer comando retorna exit code não-zero</li>
-          <li><strong>-u:</strong> trata variáveis não definidas como erro (não expande para string vazia)</li>
+          <li><strong>-e:</strong> sai imediatamente se qualquer comando retorna exit code nêo-zero</li>
+          <li><strong>-u:</strong> trata variáveis nêo definidas como erro (nêo expande para string vazia)</li>
           <li><strong>-o pipefail:</strong> pipeline retorna exit code do último comando que falhou</li>
         </ul>
       </div>
@@ -316,7 +316,7 @@ trap cleanup EXIT
             <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
             <div>
               <strong class="text-white">Fail-open:</strong>
-              <span class="text-neutral-300 text-sm ml-1">Matar o processo com SIGKILL não bloqueia o sistema host</span>
+              <span class="text-neutral-300 text-sm ml-1">Matar o processo com SIGKILL nêo bloqueia o sistema host</span>
             </div>
           </div>
           <div class="flex items-center space-x-3 p-3 bg-dark-700/50 rounded-lg">
@@ -330,7 +330,7 @@ trap cleanup EXIT
             <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
             <div>
               <strong class="text-white">CAS:</strong>
-              <span class="text-neutral-300 text-sm ml-1">Toda transição de estado verifica a versão antes de aplicar</span>
+              <span class="text-neutral-300 text-sm ml-1">Toda transiçêo de estado verifica a versêo antes de aplicar</span>
             </div>
           </div>
           <div class="flex items-center space-x-3 p-3 bg-dark-700/50 rounded-lg">
@@ -351,7 +351,7 @@ trap cleanup EXIT
             <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
             <div>
               <strong class="text-white">Idempotência:</strong>
-              <span class="text-neutral-300 text-sm ml-1">Re-executar o mesmo prompt duas vezes não causa efeitos duplicados</span>
+              <span class="text-neutral-300 text-sm ml-1">Re-executar o mesmo prompt duas vezes nêo causa efeitos duplicados</span>
             </div>
           </div>
         </div>
@@ -365,11 +365,11 @@ trap cleanup EXIT
         <div class="space-y-4 mb-8">
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">Fail-open é inegociável</strong><span class="text-neutral-400"> — plugin que bloqueia é pior que não existir</span></div>
+            <div><strong class="text-white">Fail-open é inegociável</strong><span class="text-neutral-400"> — plugin que bloqueia é pior que nêo existir</span></div>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">Write-then-rename</strong><span class="text-neutral-400"> — atomicidade POSIX elimina corrupção de estado</span></div>
+            <div><strong class="text-white">Write-then-rename</strong><span class="text-neutral-400"> — atomicidade POSIX elimina corrupçêo de estado</span></div>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
@@ -381,7 +381,7 @@ trap cleanup EXIT
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">6 primitivas como checklist</strong><span class="text-neutral-400"> — verificação mecânica do safety pass</span></div>
+            <div><strong class="text-white">6 primitivas como checklist</strong><span class="text-neutral-400"> — verificaçêo mecânica do safety pass</span></div>
           </div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">

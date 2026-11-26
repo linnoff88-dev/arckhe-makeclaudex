@@ -140,7 +140,7 @@
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        O primeiro prompt constrói apenas a <strong class="text-blue-400">Camada de Isolamento</strong>: o scaffold do plugin e a infraestrutura de git worktree. Não há lógica de revisão ainda — só o contêiner que vai receber a lógica nos próximos prompts.
+        O primeiro prompt constrói apenas a <strong class="text-blue-400">Camada de Isolamento</strong>: o scaffold do plugin e a infraestrutura de git worktree. Nêo há lógica de revisêo ainda — só o contêiner que vai receber a lógica nos próximos prompts.
       </p>
 
       <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/10 border border-blue-500/30 rounded-xl p-6 mb-5">
@@ -162,7 +162,7 @@
           <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">Por que Scaffold Primeiro</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          O scaffold define o contrato externo: como o plugin é invocado, quais hooks são registrados, onde ficam os scripts. Mudar isso depois exige refatorar os prompts 2-5. Acertar aqui é barato. Acertar no Prompt 04 significa reescrever tudo.
+          O scaffold define o contrato externo: como o plugin é invocado, quais hooks sêo registrados, onde ficam os scripts. Mudar isso depois exige refatorar os prompts 2-5. Acertar aqui é barato. Acertar no Prompt 04 significa reescrever tudo.
         </p>
       </div>
     </section>
@@ -180,7 +180,7 @@
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        Este é o texto exato do primeiro prompt de build. Cole no Claude Code com o SPEC.md em contexto. Observe a estrutura: o que entregar, as restrições não-negociáveis e a verificação antes de avançar.
+        Este é o texto exato do primeiro prompt de build. Cole no Claude Code com o SPEC.md em contexto. Observe a estrutura: o que entregar, as restrições nêo-negociáveis e a verificaçêo antes de avançar.
       </p>
 
       <div class="mb-5">
@@ -248,17 +248,17 @@ Tell me the file count and the result of `bash -n` on each script.</code></pre>
           <ul class="space-y-2 text-sm text-neutral-300">
             <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Referência explícita ao SPEC.md no início</span></li>
             <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Escopo limitado: "somente a camada de isolamento"</span></li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Restrições não-negociáveis explícitas</span></li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Verificação com comandos exatos a rodar</span></li>
+            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Restrições nêo-negociáveis explícitas</span></li>
+            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Verificaçêo com comandos exatos a rodar</span></li>
           </ul>
         </div>
         <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
           <p class="text-red-400 font-semibold text-sm uppercase tracking-wide mb-3">Armadilhas a evitar</p>
           <ul class="space-y-2 text-sm text-neutral-300">
-            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Pedir lógica de revisão no Prompt 01</span></li>
-            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Omitir a instrução de fail-open no stop-hook</span></li>
-            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Não verificar idempotência do setup-worktree</span></li>
-            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Avançar para Prompt 02 sem rodar a verificação</span></li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Pedir lógica de revisêo no Prompt 01</span></li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Omitir a instruçêo de fail-open no stop-hook</span></li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Nêo verificar idempotência do setup-worktree</span></li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Avançar para Prompt 02 sem rodar a verificaçêo</span></li>
           </ul>
         </div>
       </div>
@@ -313,7 +313,7 @@ printf '{"decision":"approve"}\n'</code></pre>
       <div class="bg-primary/10 border border-primary/40 rounded-xl p-5">
         <div class="flex items-center gap-2 mb-2">
           <span class="text-primary text-lg">⚡</span>
-          <span class="text-primary font-semibold text-sm uppercase tracking-wide">Por que o stub é tão simples</span>
+          <span class="text-primary font-semibold text-sm uppercase tracking-wide">Por que o stub é têo simples</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
           O stub existe para que o plugin seja válido e carregável desde o Prompt 01. Cada prompt subsequente substitui pedaços dele com lógica real, verificando que o comportamento esperado ainda funciona antes de avançar.
@@ -365,7 +365,7 @@ git worktree list</code></pre>
           <span class="text-blue-400 font-semibold text-sm uppercase tracking-wide">Por que --force no Remove</span>
         </div>
         <p class="text-neutral-300 text-sm leading-relaxed">
-          Sem <code class="bg-dark-700 px-1 py-0.5 rounded">--force</code>, o <code class="bg-dark-700 px-1 py-0.5 rounded">git worktree remove</code> falha se o worktree tem arquivos modificados não commitados. Como o plugin opera no worktree (lendo diff, criando arquivos temporários), <code class="bg-dark-700 px-1 py-0.5 rounded">--force</code> garante que o cleanup sempre funciona.
+          Sem <code class="bg-dark-700 px-1 py-0.5 rounded">--force</code>, o <code class="bg-dark-700 px-1 py-0.5 rounded">git worktree remove</code> falha se o worktree tem arquivos modificados nêo commitados. Como o plugin opera no worktree (lendo diff, criando arquivos temporários), <code class="bg-dark-700 px-1 py-0.5 rounded">--force</code> garante que o cleanup sempre funciona.
         </p>
       </div>
     </section>
@@ -391,21 +391,21 @@ git worktree list</code></pre>
           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold text-sm">1</span></div>
           <div class="flex-1 bg-dark-700 border border-dark-600 rounded-xl p-5">
             <h4 class="font-semibold text-blue-400 mb-2">Worktree já existe</h4>
-            <p class="text-neutral-300 text-sm">Verificar com <code class="bg-dark-900 px-1 py-0.5 rounded">git worktree list | grep "/tmp/pr-review-$PR_NUMBER"</code>. Se encontrar: reutiliza e continua. Não tenta criar novamente.</p>
+            <p class="text-neutral-300 text-sm">Verificar com <code class="bg-dark-900 px-1 py-0.5 rounded">git worktree list | grep "/tmp/pr-review-$PR_NUMBER"</code>. Se encontrar: reutiliza e continua. Nêo tenta criar novamente.</p>
           </div>
         </div>
         <div class="flex items-start gap-4">
           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold text-sm">2</span></div>
           <div class="flex-1 bg-dark-700 border border-dark-600 rounded-xl p-5">
-            <h4 class="font-semibold text-blue-400 mb-2">Branch não existe no remote</h4>
+            <h4 class="font-semibold text-blue-400 mb-2">Branch nêo existe no remote</h4>
             <p class="text-neutral-300 text-sm">O <code class="bg-dark-900 px-1 py-0.5 rounded">gh pr view</code> falha. O ERR trap captura, loga no stderr e faz exit 0. O usuário vê a mensagem de erro mas o Claude Code continua funcionando normalmente.</p>
           </div>
         </div>
         <div class="flex items-start gap-4">
           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold text-sm">3</span></div>
           <div class="flex-1 bg-dark-700 border border-dark-600 rounded-xl p-5">
-            <h4 class="font-semibold text-blue-400 mb-2">Disco cheio ou permissão negada</h4>
-            <p class="text-neutral-300 text-sm">Falha de infraestrutura. O ERR trap captura, loga o motivo e retorna exit 0. A revisão não acontece, mas o usuário não fica bloqueado.</p>
+            <h4 class="font-semibold text-blue-400 mb-2">Disco cheio ou permissêo negada</h4>
+            <p class="text-neutral-300 text-sm">Falha de infraestrutura. O ERR trap captura, loga o motivo e retorna exit 0. A revisêo nêo acontece, mas o usuário nêo fica bloqueado.</p>
           </div>
         </div>
       </div>
@@ -418,13 +418,13 @@ git worktree list</code></pre>
           <span class="text-blue-400 font-bold text-lg">6</span>
         </div>
         <div>
-          <h2 class="text-2xl font-bold text-neutral-100">Verificação Antes do Prompt 02</h2>
-          <p class="text-neutral-400 text-sm mt-1">Testes obrigatórios — não avance sem estes passarem</p>
+          <h2 class="text-2xl font-bold text-neutral-100">Verificaçêo Antes do Prompt 02</h2>
+          <p class="text-neutral-400 text-sm mt-1">Testes obrigatórios — nêo avance sem estes passarem</p>
         </div>
       </div>
 
       <p class="text-neutral-300 leading-relaxed mb-6">
-        A verificação do Prompt 01 é a mais importante do projeto — é aqui que você confirma que a base está sólida. Bugs no scaffold são baratos aqui. Baratos no Prompt 01. Caros no Prompt 04.
+        A verificaçêo do Prompt 01 é a mais importante do projeto — é aqui que você confirma que a base está sólida. Bugs no scaffold sêo baratos aqui. Baratos no Prompt 01. Caros no Prompt 04.
       </p>
 
       <div class="space-y-3 mb-6">
@@ -453,14 +453,14 @@ git worktree list</code></pre>
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-mono text-sm">4</span>
           <div>
             <p class="text-neutral-200 text-sm font-mono">bash scripts/setup-worktree.sh 999 &amp;&amp; bash scripts/setup-worktree.sh 999</p>
-            <p class="text-neutral-500 text-xs mt-1">Rodar duas vezes não deve erro. Confirma idempotência.</p>
+            <p class="text-neutral-500 text-xs mt-1">Rodar duas vezes nêo deve erro. Confirma idempotência.</p>
           </div>
         </div>
         <div class="flex items-start gap-3 bg-dark-700 rounded-lg p-4">
           <span class="text-blue-400 mt-0.5 flex-shrink-0 font-mono text-sm">5</span>
           <div>
             <p class="text-neutral-200 text-sm font-mono">bash scripts/cleanup-worktree.sh 999 &amp;&amp; git worktree list</p>
-            <p class="text-neutral-500 text-xs mt-1">Após cleanup, o worktree não deve aparecer mais na lista. Confirma que o remove funciona.</p>
+            <p class="text-neutral-500 text-xs mt-1">Após cleanup, o worktree nêo deve aparecer mais na lista. Confirma que o remove funciona.</p>
           </div>
         </div>
       </div>

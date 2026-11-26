@@ -38,7 +38,7 @@ makeclaudex/curso/trilha2/
 └── modulo-2-6.html     — Seu Próximo Projeto (6 tópicos, ~60 min)
 ```
 
-Git: `github.com/inematds/makeclaudex` — commit `7e67f85`
+Git: `github.com/linnoff88-dev/makeclaudex` — commit `7e67f85`
 
 **Nota:** O arquivo `docs/como-construimos-o-claudex.html` era a tentativa anterior (single-page, formato incorreto) — está obsoleto e pode ser removido do repo.
 

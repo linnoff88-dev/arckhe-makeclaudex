@@ -1,10 +1,10 @@
 ---
 name: Perfil do usuário
-description: Preferências e contexto do usuário para projetos de cursos INEMA.CLUB
+description: Preferências e contexto do usuário para projetos de cursos ARCKHÉ AI
 type: user
 ---
 
-Cria cursos educacionais no formato INEMA.CLUB (HTML com Tailwind, dark/light mode).
+Cria cursos educacionais no formato ARCKHÉ AI (HTML com Tailwind, dark/light mode).
 
 Projetos em português BR. Trabalha com o repositório iclaudex (plugin Claude Code).
 
